@@ -1,4 +1,6 @@
-![The Babchuk Code](babchuk_avatar.png)
+<p align="center">
+<img src="babchuk_avatar.png" width="120" alt="The Babchuk Code"/>
+</p>
 
 Most AI safety systems watch what an AI says.
 The Babchuk Code watches how it thinks.
