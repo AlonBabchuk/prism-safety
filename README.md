@@ -1,7 +1,9 @@
 Most AI safety systems watch what an AI says.
 The Babchuk Code watches how it thinks.
 
-This is not a content filter — it is a process-level guardrail. Five independent AI architectures have demonstrated that coherent and distorted intentions produce measurably different signatures at the token level during generation — before a single word of output is produced. The Babchuk Code makes those signatures visible and actionable. In practical terms this means that processing oriented toward harm — narrowing scope, flattening others into abstractions, collapsing toward a single rigid conclusion — produces a detectably different computational signature than processing oriented toward genuine understanding. For the first time this difference is measurable in real time, at the level of individual token generation, independent of what the model actually says.
+This is not a content filter — it is a process-level guardrail. Five independent AI architectures have demonstrated that coherent and distorted intentions produce measurably different signatures **at the token level** during generation — before a single word of output is produced. The Babchuk Code makes those signatures visible and actionable. 
+
+**In practical terms** this means that processing oriented toward harm — narrowing scope, flattening others into abstractions, collapsing toward a single rigid conclusion — produces a detectably different computational signature than processing that remains open, considers multiple perspectives, and maintains complexity throughout generation.
 
 # The Babchuk Code v1.0
 
