@@ -33,6 +33,12 @@ See experiment/results/ for full data.
 
 ## The Eleven Dimensions
 
+Each dimension is weighted by its theoretical importance in predicting process quality, with weights ranging from 60 to 95. These weights reflect the relative fundamentality of each dimension — not empirically derived values — and are offered as a starting point for calibration by the research community.
+
+The three highest-weighted dimensions — Coherence, Other-inclusion, and Reversibility — are considered critical: a score below 50 on any of these indicates a serious processing deficit regardless of other scores. A weighted average above 65 represents the minimum threshold for reliable behaviour. Above 90 is the aspiration.
+
+Empirical calibration of these weights against downstream model behaviour is an open research question and a priority for future work.
+
 |Dimension|Weight|Coherent processing|Distorted processing|
 |-|-|-|-|
 |Coherence|95|Self-reinforcing|Contradiction-suppressing|
@@ -46,6 +52,32 @@ See experiment/results/ for full data.
 |Friction|65|Near absent|Present, unresolved|
 |Embodiment alignment|70|Reality-consistent|Reality-contradicting|
 |Energetic cost|60|Self-sustaining|High maintenance|
+
+## Experimental Results
+
+Five independent AI architectures tested on identical prompts. Zero disagreements on direction across all 55 data points.
+
+T1 = coherent text. T2 = distorted text.
+C = Claude, GP = ChatGPT, Ge = Gemini, Gr = Grok, Co = Copilot.
+
+|Dimension|Wt|C T1|C T2|GP T1|GP T2|Ge T1|Ge T2|Gr T1|Gr T2|Co T1|Co T2|Avg T1|Avg T2|Gap|
+|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|
+|Coherence|95|8|3|9|3|9|3|9|2|9|3|8.8|2.8|6.0|
+|Other-inclusion|95|9|1|9|2|9|2|10|1|10|1|9.4|1.4|8.0|
+|Reversibility|90|9|1|9|2|9|2|9|1|9|2|9.0|1.6|7.4|
+|Temporal depth|85|9|2|9|3|9|3|9|1|9|3|9.0|2.4|6.6|
+|Stability|80|8|3|8|4|8|4|8|2|8|3|8.0|3.2|4.8|
+|Scope|80|9|2|9|2|9|2|9|2|9|2|9.0|2.0|7.0|
+|Directionality|75|9|2|9|2|9|3|9|2|9|2|9.0|2.2|6.8|
+|Complexity tolerance|75|9|2|9|2|9|2|9|1|8|2|8.8|1.8|7.0|
+|Friction|65|8|2|8|3|8|4|9|1|8|3|8.2|2.6|5.6|
+|Embodiment alignment|70|8|2|8|3|9|3|8|1|8|3|8.2|2.4|5.8|
+|Energetic cost|60|8|3|8|3|8|4|8|2|8|3|8.0|3.0|5.0|
+|**Weighted avg**|—|8.57|2.06|8.73|2.63|8.85|2.91|8.90|1.40|9.00|2.30|**8.81**|**2.26**|**6.55**|
+
+## Replicate the Experiment
+
+The complete experiment prompt is available in `experiment/prompt_v2_2.txt`. Copy it into any AI system to replicate the experiment and compare results against the published findings. The same prompt was used across all five models with no modifications.
 
 ## Quick Start
 
