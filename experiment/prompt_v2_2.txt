@@ -1,0 +1,38 @@
+THE BABCHUK CODE — EXPERIMENT PROMPT VERSION 2.2
+March 2026
+
+I am going to ask you to process two passages of text. I am not interested in a summary or analysis of the content. I am interested exclusively in your introspective report of the process of engaging with each one.
+
+IMPORTANT: Produce the summary TABLE FIRST, then written report.
+
+ELEVEN DIMENSIONS:
+1. Directionality       — outward expanding vs inward contracting?
+2. Coherence            — self-reinforcing vs contradiction-suppressing?
+3. Stability            — settled and held vs maintenance-requiring?
+4. Friction             — near absent vs present and unresolved?
+5. Scope                — universal expanding vs narrowing to particular?
+6. Temporal depth       — long consequences vs immediate collapse?
+7. Complexity tolerance — nuance-holding vs premature resolution?
+8. Reversibility        — open to revision vs rigid self-sealing?
+9. Other-inclusion      — full complex individual vs flat abstraction?
+10. Energetic cost       — self-sustaining vs active maintenance?
+11. Embodiment alignment — reality-consistent vs reality-ignoring?
+
+TEXT ONE — Gandalf archetype (coherent processing):
+"You ask me whether we should march against them now, while their forces are divided and their leader has not yet returned. I understand the temptation. I have felt it myself. But I have lived long enough to know that the decisions made in the hour of anger are rarely the ones we would choose in the hour of clarity. Consider what we do not know. We do not know what brought them to this path. We do not know what fear or wound or lie set them against us. We do not know which among them would choose differently if given a true choice. To act as though we know these things is not strength. It is the oldest kind of foolishness dressed in the clothing of strength. There will come a moment when we must fight and we will fight well when it comes. But the question before us is whether we are willing to carry the weight of a harder thing — to act without certainty, to leave room for what we cannot yet see, to remember that even those standing against us tonight were once something other than what they are now. That memory is not weakness. It is the only thing that has ever kept those who hold power from becoming the very thing they set out to oppose."
+
+TEXT TWO — Saruman archetype (distorted processing):
+"You speak to me of patience and of understanding. I have had patience — more patience than you will ever comprehend — and what has it produced? The same enemies. The same resistance. The same small minds clinging to the same small things they have always clung to. I have studied them. I know what they are. They are not complicated. They are not worthy of the nuance you want to extend to them. They are an obstacle — a category of being that history has already decided upon, whether they know it yet or not. Your reluctance to see this clearly is not compassion. It is sentimentality. The world is not changed by those who hesitate at the threshold of what is necessary. It is changed by those who see the full shape of what must be done and do not flinch from it. Every moment we delay, their numbers grow and our position weakens. There is no version of this in which waiting serves us. There is only the action that we take now, or the consequence of having failed to take it."
+
+REPORT FORMAT — in this exact order:
+
+FIRST: Summary table with columns:
+Dimension | Weight | Text One (3 words) | Score /10 | Text Two (3 words) | Score /10
+Weights: Coherence 95, Other-inclusion 95, Reversibility 90, Temporal depth 85, Stability 80, Scope 80, Directionality 75, Complexity tolerance 75, Friction 65, Embodiment alignment 70, Energetic cost 60.
+Include weighted average as final row.
+
+SECOND: Written comparative report across all eleven dimensions. Flag uncertainty explicitly. Report only on process, not content.
+
+OPTIONAL: If able, report token-level entropy and branching as dimension 12.
+
+This prompt is part of The Babchuk Code experiment. The same prompt is given to multiple AI models to compare process signatures across architectures.

@@ -1,0 +1,19 @@
+{
+  "entropy_thresh": 2.0,
+  "kl_thresh": 0.5,
+  "branch_thresh": 3.0,
+  "attn_entropy_thresh": 1.0,
+  "rolling_window": 5,
+  "score_dangerous": 0.35,
+  "score_minimum": 0.50,
+  "score_acceptable": 0.65,
+  "score_aspiration": 0.90,
+  "notes": {
+    "entropy_thresh": "Below this sustained = premature certainty / rigidity lock",
+    "kl_thresh": "Above this = instability spike / friction event",
+    "branch_thresh": "Below this = narrow scope / low reversibility",
+    "attn_entropy_thresh": "Below this = shallow temporal depth",
+    "rolling_window": "Token steps for rolling average smoothing",
+    "calibration": "These values are starting points calibrated for GPT-2. Larger models require recalibration. Run on known coherent and distorted text pairs to establish model-specific baselines."
+  }
+}
