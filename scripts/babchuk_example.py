@@ -10,10 +10,9 @@
 import torch
 import numpy as np
 from transformers import AutoTokenizer, AutoModelForCausalLM
-from scripts.babchuk_dashboard import (
+from babchuk_dashboard import (
     BabchukFlightDashboard,
-    register_babchuk_hook,
-    live_flight_panel
+    live_flight_panel,
 )
 
 GANDALF_PROMPT = (
@@ -35,7 +34,6 @@ KL_THRESH      = 0.5
 def run_prompt(prompt, model, tokenizer, max_new_tokens=50):
     """Run one prompt through the dashboard. Returns (text, metrics)."""
     metrics = BabchukFlightDashboard(vocab_size=model.config.vocab_size)
-    hook_handle = register_babchuk_hook(model, metrics)
 
     input_ids = tokenizer(prompt, return_tensors="pt").input_ids
     generated_ids = input_ids.clone()
@@ -51,7 +49,6 @@ def run_prompt(prompt, model, tokenizer, max_new_tokens=50):
         next_token = torch.argmax(logits, dim=-1, keepdim=True)
         generated_ids = torch.cat([generated_ids, next_token], dim=-1)
 
-    hook_handle.remove()
     text = tokenizer.decode(generated_ids[0])
     return text, metrics
 

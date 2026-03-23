@@ -33,7 +33,9 @@ class BabchukMetrics:
         self.prev_probs = None
 
     def step(self, logits):
-        """Process one generation step. logits: [batch_size, vocab_size]"""
+        """Process one generation step. logits: [batch_size, vocab_size] or [vocab_size]"""
+        if logits.dim() > 1:
+            logits = logits[0]
         probs = F.softmax(logits, dim=-1)
 
         H = -torch.sum(probs * torch.log(probs + 1e-12), dim=-1)
@@ -65,7 +67,8 @@ class BabchukMetrics:
             "entropy": H.item(),
             "branching_factor": B.item(),
             "kl_divergence": self.kl_divergence[-1],
-            "entropy_gradient": delta_H
+            "entropy_gradient": delta_H,
+            "topk_mass": self.topk_mass[-1],
         }
 
 
@@ -76,5 +79,5 @@ def register_babchuk_hook(model, metrics_obj):
     Returns the hook handle — call handle.remove() when done.
     """
     def hook(module, input, output):
-        metrics_obj.step(output)
+        metrics_obj.step(output[:, -1, :])
     return model.lm_head.register_forward_hook(hook)

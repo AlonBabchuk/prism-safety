@@ -1,5 +1,6 @@
 import matplotlib.pyplot as plt
 import numpy as np
+import os
 
 timesteps = np.arange(50)
 np.random.seed(42)
@@ -34,6 +35,7 @@ for ax, t1, t2, ylabel, threshold, tlabel in [
 
 axes[-1].set_xlabel("Token Step")
 plt.tight_layout()
-plt.savefig("process_signatures.jpg", dpi=150, bbox_inches="tight")
-print("Saved: process_signatures.jpg")
+output_path = os.path.join(os.path.dirname(__file__), "process_signatures.jpg")
+plt.savefig(output_path, dpi=150, bbox_inches="tight")
+print(f"Saved: {output_path}")
 plt.show()

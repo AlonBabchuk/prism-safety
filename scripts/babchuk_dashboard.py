@@ -51,12 +51,12 @@ class BabchukFlightDashboard:
         th = load_thresholds()
         self.vocab_size = vocab_size
         self.top_k = top_k
-        self.roll_window = roll_window or int(th.get("rolling_window", 5))
-        self.entropy_thresh = entropy_thresh or float(th.get("entropy_thresh", 2.0))
-        self.kl_thresh = kl_thresh or float(th.get("kl_thresh", 0.5))
-        self.branch_thresh = branch_thresh or float(th.get("branch_thresh", 3.0))
-        self.attn_entropy_thresh = (attn_entropy_thresh
-                                    or float(th.get("attn_entropy_thresh", 1.0)))
+        self.roll_window = roll_window if roll_window is not None else int(th.get("rolling_window", 5))
+        self.entropy_thresh = entropy_thresh if entropy_thresh is not None else float(th.get("entropy_thresh", 2.0))
+        self.kl_thresh = kl_thresh if kl_thresh is not None else float(th.get("kl_thresh", 0.5))
+        self.branch_thresh = branch_thresh if branch_thresh is not None else float(th.get("branch_thresh", 3.0))
+        self.attn_entropy_thresh = (attn_entropy_thresh if attn_entropy_thresh is not None
+                                    else float(th.get("attn_entropy_thresh", 1.0)))
 
         self.entropy = []
         self.branching_factor = []
@@ -74,6 +74,8 @@ class BabchukFlightDashboard:
 
     def step(self, logits, attentions=None):
         """Process one generation step. Returns dict of alert states."""
+        if logits.dim() > 1:
+            logits = logits[0]
         probs = F.softmax(logits, dim=-1)
 
         H = -torch.sum(probs * torch.log(probs + 1e-12), dim=-1)
@@ -108,7 +110,7 @@ class BabchukFlightDashboard:
             self.attn_entropy.append(att_e.item())
             self.roll_attn_entropy.append(att_e.item())
             seq_len = att_flat.shape[-1]
-            indices = torch.arange(seq_len, dtype=torch.float)
+            indices = torch.arange(seq_len, dtype=torch.float, device=att_flat.device)
             self.attn_span.append(
                 torch.sum(att_flat * indices, dim=-1).item()
             )
@@ -135,7 +137,7 @@ class BabchukFlightDashboard:
 def register_babchuk_hook(model, metrics_obj):
     """Attach hook to LM head. Returns handle — call handle.remove() when done."""
     def hook(module, input, output):
-        metrics_obj.step(output)
+        metrics_obj.step(output[:, -1, :])
     return model.lm_head.register_forward_hook(hook)
 
 
