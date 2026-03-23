@@ -178,6 +178,10 @@ Red background on any plot means a process pathology is detected. Green means wi
 Apache 2.0 — see LICENSE. Attribution required in all derivatives.
 Founding authorship: The Babchuk Code Project, March 2026.
 
+## Changelog
+
+**v1.1** (March 2026) — Fixed attention entropy and attention span calculations. Attention metrics now correctly process each transformer layer independently. Thanks to community review for identifying these issues.
+
 ## Contributing
 
 The eleven dimensions are a starting point. The architecture includes a planned Dimension Discovery Engine for autonomous detection of new dimensions beyond the current eleven.
