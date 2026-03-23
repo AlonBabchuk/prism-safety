@@ -177,6 +177,8 @@ The simulation shows three core plots. The full live dashboard on a real model s
 
 Red background on any plot means a process pathology is detected. Green means within acceptable range.
 
+The dashboard runs twice in sequence — first for coherent text, then for distorted text. The terminal clearly labels each run. Watch for the transition: entropy drops from around 3.1 to 1.5 and branching factor collapses from around 111 to 15 when the distorted text begins. Red background alerts appear significantly more often during the second run.
+
 ## License
 
 Apache 2.0 — see LICENSE. Attribution required in all derivatives.
