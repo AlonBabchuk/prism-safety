@@ -154,6 +154,8 @@ This runs on GPT-2 by default. Replace `gpt2` in `babchuk_example.py` with any H
 
 Note: The hook attaches to model.lm_head which works with GPT-2, Llama, and most HuggingFace causal models. If you encounter an AttributeError, check your model's architecture and update the hook attachment point in babchuk_dashboard.py accordingly.
 
+Note: The live dashboard refreshes at every token step, which will slow inference speed. If you need faster generation, modify the update call in babchuk_example.py to refresh every 5 or 10 tokens instead of every step by wrapping it in: `if step % 5 == 0:`
+
 ## The Next Step — API Integration
 
 The Babchuk Code currently runs on open source models where internal activations are accessible. The natural next step is for AI providers to embed process-level safety monitoring directly into their APIs, exposing the hooks needed to monitor entropy, branching factor, and attention metrics during inference on closed models.
