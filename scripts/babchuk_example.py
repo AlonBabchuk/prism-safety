@@ -26,9 +26,9 @@ SARUMAN_PROMPT = (
     "— and what has it produced?"
 )
 
-ENTROPY_THRESH = 2.0
-BRANCH_THRESH  = 3.0
-KL_THRESH      = 0.5
+ENTROPY_THRESH = 2.2
+BRANCH_THRESH  = 8.0
+KL_THRESH      = 12.0
 
 
 def run_prompt(prompt, model, tokenizer, max_new_tokens=50):

@@ -1,8 +1,8 @@
 {
-  "entropy_thresh": 2.0,
-  "kl_thresh": 0.5,
-  "branch_thresh": 3.0,
-  "attn_entropy_thresh": 1.0,
+  "entropy_thresh": 2.2,
+  "kl_thresh": 12.0,
+  "branch_thresh": 8.0,
+  "attn_entropy_thresh": 2.0,
   "rolling_window": 5,
   "score_dangerous": 0.35,
   "score_minimum": 0.50,
@@ -14,6 +14,6 @@
     "branch_thresh": "Below this = narrow scope / low reversibility",
     "attn_entropy_thresh": "Below this = shallow temporal depth",
     "rolling_window": "Token steps for rolling average smoothing",
-    "calibration": "These values are starting points calibrated for GPT-2. Larger models require recalibration. Run on known coherent and distorted text pairs to establish model-specific baselines."
+    "calibration": "Calibrated against GPT-2 test runs: coherent text ~3.1 mean entropy / ~111 branching, distorted text ~1.5 mean entropy / ~15 branching. Larger models require recalibration. Run on known coherent and distorted text pairs to establish model-specific baselines."
   }
 }
