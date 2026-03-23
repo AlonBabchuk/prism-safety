@@ -101,18 +101,21 @@ class BabchukFlightDashboard:
         self.prev_probs = probs.detach()
 
         if attentions is not None:
+            # Select last token's attention, average over heads, concat across layers
             att_flat = torch.cat(
-                [a.mean(1) for a in attentions], dim=-1
+                [a[:, :, -1, :].mean(1) for a in attentions], dim=-1
             )
+            # att_flat is now (batch, seq_len * num_layers) — normalise to distribution
+            att_flat = att_flat / (att_flat.sum(dim=-1, keepdim=True) + 1e-12)
             att_e = -torch.sum(
                 att_flat * torch.log(att_flat + 1e-12), dim=-1
             )
-            self.attn_entropy.append(att_e.item())
-            self.roll_attn_entropy.append(att_e.item())
+            self.attn_entropy.append(att_e[0].item())
+            self.roll_attn_entropy.append(att_e[0].item())
             seq_len = att_flat.shape[-1]
             indices = torch.arange(seq_len, dtype=torch.float, device=att_flat.device)
             self.attn_span.append(
-                torch.sum(att_flat * indices, dim=-1).item()
+                torch.sum(att_flat[0] * indices, dim=-1).item()
             )
         else:
             self.attn_entropy.append(0.0)
