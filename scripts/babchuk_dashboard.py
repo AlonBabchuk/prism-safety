@@ -53,6 +53,7 @@ class BabchukFlightDashboard:
         self.prev_probs = None
         self.total_alerts = 0
 
+    @torch.no_grad()
     def step(self, logits, attentions=None):
         if logits.dim() > 1:
             logits = logits[0]
@@ -76,7 +77,7 @@ class BabchukFlightDashboard:
 
         self.prev_probs = probs.detach()
 
-        if attentions is not None:
+        if attentions is not None and isinstance(attentions, (tuple, list)) and len(attentions) > 0:
             layer_spans = []
             layer_entropies = []
             for layer_attn in attentions:
