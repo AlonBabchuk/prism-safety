@@ -1,4 +1,4 @@
-# The Babchuk Code — Cross-Model Experiment Results
+# PRISM — Cross-Model Experiment Results
 
 ## Version 2.2 — March 2026
 

@@ -1,5 +1,5 @@
-# scripts/babchuk_metrics.py
-# The Babchuk Code v1.0 — Core Layer 1 signal collection.
+# scripts/prism_metrics.py
+# PRISM v1.0 — Core Layer 1 signal collection.
 #
 # Captures seven token-level signals per generation step
 # via forward hooks on the language model head.
@@ -16,10 +16,10 @@ import torch
 import torch.nn.functional as F
 
 
-class BabchukMetrics:
+class PRISMMetrics:
     """
-    Core metric collector for The Babchuk Code.
-    Attach to any HuggingFace model via register_babchuk_hook().
+    Core metric collector for PRISM.
+    Attach to any HuggingFace model via register_prism_hook().
     """
 
     def __init__(self, vocab_size, top_k=10):
@@ -72,7 +72,7 @@ class BabchukMetrics:
         }
 
 
-def register_babchuk_hook(model, metrics_obj):
+def register_prism_hook(model, metrics_obj):
     """
     Attach forward hook to LM head to capture logits at each generation step
     without modifying model code.

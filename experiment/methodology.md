@@ -1,4 +1,4 @@
-# The Babchuk Code — Experiment Methodology
+# PRISM — Experiment Methodology
 
 ## Purpose
 

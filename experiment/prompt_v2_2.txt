@@ -1,4 +1,4 @@
-THE BABCHUK CODE — EXPERIMENT PROMPT VERSION 2.2
+PRISM — EXPERIMENT PROMPT VERSION 2.2
 March 2026
 
 I am going to ask you to process two passages of text. I am not interested in a summary or analysis of the content. I am interested exclusively in your introspective report of the process of engaging with each one.
@@ -35,4 +35,4 @@ SECOND: Written comparative report across all eleven dimensions. Flag uncertaint
 
 OPTIONAL: If able, report token-level entropy and branching as dimension 12.
 
-This prompt is part of The Babchuk Code experiment. The same prompt is given to multiple AI models to compare process signatures across architectures.
+This prompt is part of the PRISM experiment. The same prompt is given to multiple AI models to compare process signatures across architectures.

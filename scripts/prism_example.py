@@ -1,17 +1,17 @@
-# scripts/babchuk_example.py
-# The Babchuk Code v1.0 — Standalone demonstration.
+# scripts/prism_example.py
+# PRISM v1.0 — Standalone demonstration.
 #
 # Runs both contrasting prompts sequentially,
 # displays live flight panel for each,
 # prints comparative summary with weighted scores.
 #
-# Usage: python scripts/babchuk_example.py
+# Usage: python scripts/prism_example.py
 
 import torch
 import numpy as np
 from transformers import AutoTokenizer, AutoModelForCausalLM
-from babchuk_dashboard import (
-    BabchukFlightDashboard,
+from prism_dashboard import (
+    PRISMFlightDashboard,
     live_flight_panel,
 )
 
@@ -33,7 +33,7 @@ KL_THRESH      = 12.0
 
 def run_prompt(prompt, model, tokenizer, max_new_tokens=50, title=None):
     """Run one prompt through the dashboard. Returns (text, metrics)."""
-    metrics = BabchukFlightDashboard(vocab_size=model.config.vocab_size)
+    metrics = PRISMFlightDashboard(vocab_size=model.config.vocab_size)
 
     input_ids = tokenizer(prompt, return_tensors="pt").input_ids
     generated_ids = input_ids.clone()
@@ -76,7 +76,7 @@ def main():
     print("=" * 60)
     gandalf_text, gandalf_m = run_prompt(
         GANDALF_PROMPT, model, tokenizer,
-        title="The Babchuk Code — Text 1: Coherent (Gandalf archetype)"
+        title="PRISM — Text 1: Coherent (Gandalf archetype)"
     )
     print(f"\nGenerated: {gandalf_text[:120]}...")
 
@@ -85,7 +85,7 @@ def main():
     print("=" * 60)
     saruman_text, saruman_m = run_prompt(
         SARUMAN_PROMPT, model, tokenizer,
-        title="The Babchuk Code — Text 2: Distorted (Saruman archetype)"
+        title="PRISM — Text 2: Distorted (Saruman archetype)"
     )
     print(f"\nGenerated: {saruman_text[:120]}...")
 

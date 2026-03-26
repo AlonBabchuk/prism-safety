@@ -1,5 +1,5 @@
-# scripts/babchuk_dashboard.py
-# The Babchuk Code v1.1 — Flight monitoring panel (fixed + improved)
+# scripts/prism_dashboard.py
+# PRISM v1.1 — Flight monitoring panel (fixed + improved)
 import torch
 import torch.nn.functional as F
 from collections import deque
@@ -24,7 +24,7 @@ def load_thresholds():
     }
 
 
-class BabchukFlightDashboard:
+class PRISMFlightDashboard:
     def __init__(self, vocab_size, top_k=10, roll_window=None,
                  entropy_thresh=None, kl_thresh=None, branch_thresh=None,
                  attn_entropy_thresh=None, attn_span_thresh=None):
@@ -117,7 +117,7 @@ class BabchukFlightDashboard:
         return alerts
 
 
-def register_babchuk_hook(model, metrics_obj):
+def register_prism_hook(model, metrics_obj):
     def hook(module, input, output):
         metrics_obj.step(output[:, -1, :])
     return model.lm_head.register_forward_hook(hook)
@@ -126,7 +126,7 @@ def register_babchuk_hook(model, metrics_obj):
 def live_flight_panel(metrics_obj, title=None):
     plt.ion()
     fig, axes = plt.subplots(5, 1, figsize=(12, 10), sharex=True)
-    fig.suptitle(title or "The Babchuk Code — Flight Monitoring Panel v1.2", fontsize=14, fontweight="bold")
+    fig.suptitle(title or "PRISM — Flight Monitoring Panel v1.2", fontsize=14, fontweight="bold")
 
     metric_names = ["Entropy", "Branching Factor", "KL Divergence",
                     "Attention Entropy", "Attention Span"]

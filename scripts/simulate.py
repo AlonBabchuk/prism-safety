@@ -20,7 +20,7 @@ kl_t1 = np.abs(np.gradient(entropy_t1)) + np.random.normal(0, 0.05, 50)
 kl_t2 = np.abs(np.gradient(entropy_t2)) + np.random.normal(0, 0.05, 50)
 
 fig, axes = plt.subplots(3, 1, figsize=(12, 8))
-fig.suptitle("The Babchuk Code - Process Signatures", fontsize=13, fontweight="bold")
+fig.suptitle("PRISM - Process Signatures", fontsize=13, fontweight="bold")
 
 for ax, t1, t2, ylabel, threshold, tlabel in [
     (axes[0], entropy_t1, entropy_t2, "Entropy H_t", 1.5, "Rigidity threshold"),
