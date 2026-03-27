@@ -74,10 +74,6 @@ A full white paper describing the theoretical framework, experimental validation
 
 The complete experiment prompt is available in `experiment/prompt_v2_2.txt`. Copy it into any AI system to replicate the cross-architecture experiment. The same prompt was used across all five models with no modifications.
 
-## Live Model Dashboard
-
-A live dashboard that runs on real language models (GPT-2 and other HuggingFace causal models) is available on the [`advanced`](https://github.com/AlonBabchuk/prism-safety/tree/advanced) branch. This requires PyTorch, a GPU for larger models, and model-specific threshold calibration.
-
 ## API Integration
 
 PRISM currently runs on open-source models where internal activations are accessible. A natural next step would be for AI providers to consider embedding process-level safety monitoring into their APIs.
