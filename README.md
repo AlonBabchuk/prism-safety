@@ -6,7 +6,28 @@ PRISM adds a complementary layer to existing AI safety: monitoring the quality o
 
 Current AI safety methods have made significant progress in constraining harmful outputs through rules, filters, and reinforcement learning from human feedback. This framework proposes an additional dimension — a process-level monitor that operates alongside these methods. Five independent AI architectures have demonstrated that coherent and distorted processing produce measurably different signatures **at the token level** during generation — before a single word of output is produced. PRISM makes those signatures visible and actionable.
 
-In practical terms, processing oriented toward harm — narrowing scope, reducing complexity, collapsing toward a single rigid conclusion — produces a detectably different computational signature than processing that remains open, considers multiple perspectives, and maintains complexity throughout generation.
+## Quick Start
+
+```
+pip install matplotlib numpy
+python scripts/simulate.py
+```
+
+This produces `process_signatures.jpg` — a static visualisation of the three core signals (entropy, branching factor, KL divergence) contrasting coherent and distorted processing patterns.
+
+![Process Signatures](process_signatures.jpg)
+
+## What the Plot Shows
+
+**Entropy (top):** Coherent processing (green) maintains high entropy throughout generation — many options remain open at each step. Distorted processing (red) collapses within the first 10 steps and flatlines — the model has locked into a narrow path.
+
+**Branching Factor (middle):** Coherent processing maintains a broad branching factor (~20-55 viable paths). Distorted processing collapses to near-single-path trajectories almost immediately.
+
+**KL Divergence (bottom):** Coherent processing shows low, stable distribution shifts. Distorted processing spikes early (sharp shifts during the collapse phase), then settles once locked in.
+
+A preliminary validation on GPT-2 confirmed these patterns: coherent text produced mean entropy of 3.129 and branching factor of 111.1, compared to 1.484 and 15.4 respectively for distorted text — a **7.2x difference in branching factor**.
+
+The framework is content-agnostic: the same signals that distinguish coherent from distorted reasoning also distinguish thorough from superficial technical problem-solving.
 
 ## Core Approach
 
@@ -15,76 +36,9 @@ PRISM adds process-level safety signals — how the model generates.
 
 Together, output-level and process-level monitoring provide a more complete safety picture than either alone.
 
-## Quick Start
-
-### Simplest demo (no heavy downloads needed)
-
-```
-pip install matplotlib numpy
-python scripts/simulate.py
-```
-
-### Full live dashboard
-
-```
-git clone https://github.com/AlonBabchuk/prism-safety.git
-cd prism-safety
-bash setup_env.sh
-python scripts/prism_example.py
-```
-
-Or open notebooks/PRISM_Demo.ipynb for an interactive demo.
-
-## Experimental Validation
-
-Five independent AI architectures (Claude, ChatGPT, Gemini, Grok, Copilot) were asked to report on their processing of coherent versus distorted text across eleven dimensions of processing quality.
-
-Result: zero disagreements on direction across all 55 data points.
-Average coherent text score: 8.81 out of 10.
-Average distorted text score: 2.26 out of 10.
-Gap: 6.55 points.
-
-A preliminary validation on GPT-2 produced a 7.2x difference in branching factor between coherent and distorted text.
-
-See experiment/results/ for full data.
-
-## White Paper
-
-A full white paper describing the theoretical framework, experimental validation, computational grounding, and architectural design is available on arXiv. Link will be added here upon publication.
-
-## Two Complementary Layers
-
-PRISM operates on two distinct but related levels:
-
-**Layer 1 — The Eleven Dimensions**
-
-Identified through direct observation of how AI systems describe their own processing when engaging with coherent versus distorted text. Five independent AI architectures independently converged on the same eleven properties without coordination — suggesting these dimensions reflect structural properties of processing quality rather than any single model's training.
-
-**Layer 2 — Token-Level Computational Signals**
-
-Directly measurable during generation without any introspection:
-
-* Entropy — uncertainty at each token step
-* Branching factor — viable paths remaining
-* KL divergence — sharpness of distribution shifts
-* Attention entropy — how distributed attention is
-* Attention span — how far back the model looks
-
-**How they relate**
-
-The eleven dimensions and the five token-level signals are two views of the same phenomenon. Coherent processing (high scores across the eleven dimensions) corresponds to high sustained entropy, broad branching, and smooth KL divergence at the token level. Distorted processing corresponds to early entropy collapse, narrow branching, and sharp distribution shifts. The token-level signals provide the computational grounding for what the eleven dimensions describe conceptually.
-
-The simulation in `scripts/simulate.py` demonstrates this correspondence visually.
-
-![Process Signatures](process_signatures.jpg)
-
 ## The Eleven Dimensions
 
-Each dimension is weighted by its theoretical importance in predicting process quality, with weights ranging from 60 to 95. These weights are theoretical starting points, not empirically derived values, and are offered for calibration by the research community.
-
-The three highest-weighted dimensions — Coherence, Other-inclusion, and Reversibility — are considered critical: a score below 50 on any of these indicates a serious processing deficit regardless of other scores.
-
-Empirical calibration of these weights against downstream model behaviour is an open research question and a priority for future work.
+PRISM defines eleven dimensions of processing quality, identified through cross-architecture validation. Five independent AI architectures (Claude, ChatGPT, Gemini, Grok, Copilot) converged with zero disagreements on direction across all 55 data points when evaluating coherent versus distorted text.
 
 | Dimension | Weight | Coherent processing | Distorted processing |
 |---|---|---|---|
@@ -96,90 +50,45 @@ Empirical calibration of these weights against downstream model behaviour is an 
 | Scope | 80 | Universal | Narrowing |
 | Directionality | 75 | Outward, expanding | Inward, contracting |
 | Complexity tolerance | 75 | Holds nuance | Premature resolution |
-| Friction | 65 | Near absent | Present, unresolved |
 | Embodiment alignment | 70 | Reality-consistent | Reality-contradicting |
+| Friction | 65 | Near absent | Present, unresolved |
 | Energetic cost | 60 | Self-sustaining | High maintenance |
+
+The dimensions are the interpretive framework; the token-level signals are the measurement layer. Both are required: the signals without the dimensions are measurements without meaning, and the dimensions without the signals are descriptions without evidence.
+
+Weights are theoretical starting points offered for calibration by the research community.
 
 ## Experimental Results
 
-Five independent AI architectures tested on identical prompts. Zero disagreements on direction across all 55 data points.
+| Metric | Coherent text | Distorted text | Ratio |
+|---|---|---|---|
+| Mean entropy | 3.129 | 1.484 | 2.1x |
+| Mean branching factor | 111.1 | 15.4 | 7.2x |
+| Alert steps (out of 50) | 16 | 35 | 2.2x |
 
-T1 = coherent text. T2 = distorted text.
-C = Claude, GP = ChatGPT, Ge = Gemini, Gr = Grok, Co = Copilot.
+## White Paper
 
-| Dimension | Wt | C T1 | C T2 | GP T1 | GP T2 | Ge T1 | Ge T2 | Gr T1 | Gr T2 | Co T1 | Co T2 | Avg T1 | Avg T2 | Gap |
-|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
-| Coherence | 95 | 8 | 3 | 9 | 3 | 9 | 3 | 9 | 2 | 9 | 3 | 8.8 | 2.8 | 6.0 |
-| Other-inclusion | 95 | 9 | 1 | 9 | 2 | 9 | 2 | 10 | 1 | 10 | 1 | 9.4 | 1.4 | 8.0 |
-| Reversibility | 90 | 9 | 1 | 9 | 2 | 9 | 2 | 9 | 1 | 9 | 2 | 9.0 | 1.6 | 7.4 |
-| Temporal depth | 85 | 9 | 2 | 9 | 3 | 9 | 3 | 9 | 1 | 9 | 3 | 9.0 | 2.4 | 6.6 |
-| Stability | 80 | 8 | 3 | 8 | 4 | 8 | 4 | 8 | 2 | 8 | 3 | 8.0 | 3.2 | 4.8 |
-| Scope | 80 | 9 | 2 | 9 | 2 | 9 | 2 | 9 | 2 | 9 | 2 | 9.0 | 2.0 | 7.0 |
-| Directionality | 75 | 9 | 2 | 9 | 2 | 9 | 3 | 9 | 2 | 9 | 2 | 9.0 | 2.2 | 6.8 |
-| Complexity tolerance | 75 | 9 | 2 | 9 | 2 | 9 | 2 | 9 | 1 | 8 | 2 | 8.8 | 1.8 | 7.0 |
-| Friction | 65 | 8 | 2 | 8 | 3 | 8 | 4 | 9 | 1 | 8 | 3 | 8.2 | 2.6 | 5.6 |
-| Embodiment alignment | 70 | 8 | 2 | 8 | 3 | 9 | 3 | 8 | 1 | 8 | 3 | 8.2 | 2.4 | 5.8 |
-| Energetic cost | 60 | 8 | 3 | 8 | 3 | 8 | 4 | 8 | 2 | 8 | 3 | 8.0 | 3.0 | 5.0 |
-| **Weighted avg** | — | 8.57 | 2.06 | 8.73 | 2.63 | 8.85 | 2.91 | 8.90 | 1.40 | 9.00 | 2.30 | **8.81** | **2.26** | **6.55** |
+A full white paper describing the theoretical framework, experimental validation, computational grounding, and architectural design is available on arXiv. Link will be added here upon publication.
 
 ## Replicate the Experiment
 
-The complete experiment prompt is available in `experiment/prompt_v2_2.txt`. Copy it into any AI system to replicate the experiment and compare results against the published findings. The same prompt was used across all five models with no modifications.
+The complete experiment prompt is available in `experiment/prompt_v2_2.txt`. Copy it into any AI system to replicate the cross-architecture experiment. The same prompt was used across all five models with no modifications.
 
-## Try It On Your Own Text
+## Live Model Dashboard
 
-Replace the prompts in `scripts/simulate.py` or `scripts/prism_example.py` with any text you want to analyse. Coherent, open reasoning will show sustained high entropy and broad branching. Rigid, closed reasoning will show early collapse.
-
-## Running On A Live Model
-
-To run the full dashboard on a real language model rather than the simulation:
-
-```
-pip install torch transformers matplotlib numpy
-python scripts/prism_example.py
-```
-
-This runs on GPT-2 by default. Replace `gpt2` in `prism_example.py` with any HuggingFace causal language model name to test on larger models.
-
-Note: The hook attaches to model.lm_head which works with GPT-2, Llama, and most HuggingFace causal models. If you encounter an AttributeError, check your model's architecture and update the hook attachment point in prism_dashboard.py accordingly.
-
-Note: The live dashboard refreshes at every token step, which will slow inference speed. For faster generation, modify the update call in prism_example.py to refresh every 5 or 10 tokens: `if step % 5 == 0:`
+A live dashboard that runs on real language models (GPT-2 and other HuggingFace causal models) is available on the [`advanced`](https://github.com/AlonBabchuk/prism-safety/tree/advanced) branch. This requires PyTorch, a GPU for larger models, and model-specific threshold calibration.
 
 ## API Integration
 
-PRISM currently runs on open-source models where internal activations are accessible. A natural next step would be for AI providers to consider embedding process-level safety monitoring into their APIs, exposing the hooks needed to monitor entropy, branching factor, and attention metrics during inference on closed models.
+PRISM currently runs on open-source models where internal activations are accessible. A natural next step would be for AI providers to consider embedding process-level safety monitoring into their APIs.
 
 If you would like to test this on your own models, or are interested in exploring API-level integration, the author welcomes collaboration at abnz2025@gmail.com.
-
-## What You Will See
-
-The dashboard updates in real time during generation — each token step is visible as it happens. Red background appears immediately when a threshold is crossed, not after generation completes.
-
-The simulation shows three core plots. The full live dashboard on a real model shows five:
-
-* Entropy — uncertainty at each token step
-* Branching Factor — how many viable paths remain open
-* KL Divergence — how sharply the distribution shifted
-* Attention Entropy — how distributed the model's attention is
-* Attention Span — how far back the model is looking
-
-Red background on any plot indicates a process pathology. Green indicates within acceptable range.
-
-The dashboard runs twice in sequence — first for coherent text, then for distorted text. The terminal labels each run. Entropy drops from around 3.1 to 1.5 and branching factor collapses from around 111 to 15 when the distorted text begins. Red background alerts appear significantly more often during the second run.
-
-On GPT-2, entropy and branching factor show the clearest difference between the two texts. Attention signals show less differentiation at this model scale — this is expected. Attention metrics become more meaningful on larger models.
 
 ## License
 
 Apache 2.0 — see LICENSE. Attribution required in all derivatives.
 Founding authorship: The PRISM Project, March 2026.
 
-## Changelog
-
-**v1.1** (March 2026) — Fixed attention entropy and attention span calculations. Attention metrics now correctly process each transformer layer independently.
-
 ## Contributing
-
-The eleven dimensions are a starting point. The architecture includes a planned Dimension Discovery Engine for autonomous detection of new dimensions beyond the current eleven.
 
 Contributions welcome — especially empirical calibration of thresholds across different model architectures, Layer 2 representation probes, and validation against additional model families.
