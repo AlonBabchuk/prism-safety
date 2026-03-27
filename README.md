@@ -68,7 +68,7 @@ Weights are theoretical starting points offered for calibration by the research 
 
 ## White Paper
 
-A full white paper describing the theoretical framework, experimental validation, computational grounding, and architectural design is available on arXiv. Link will be added here upon publication.
+A full white paper describing the theoretical framework, experimental validation, computational grounding, and architectural design is available at https://doi.org/10.5281/zenodo.19247527
 
 ## Replicate the Experiment
 
