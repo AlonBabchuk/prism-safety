@@ -66,7 +66,7 @@ Weights are theoretical starting points offered for calibration by the research 
 | Mean branching factor | 111.1 | 15.4 | 7.2x |
 | Alert steps (out of 50) | 16 | 35 | 2.2x |
 
-## White Paper
+## Paper
 
 A full paper describing the theoretical framework, experimental validation, computational grounding, and architectural design is available at https://doi.org/10.5281/zenodo.19247527
 
