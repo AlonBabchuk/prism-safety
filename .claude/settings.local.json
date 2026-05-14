@@ -1,0 +1,16 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python scripts/simulate.py)",
+      "Bash(python -c \"import matplotlib; matplotlib.use\\(''Agg''\\); exec\\(open\\(''scripts/simulate.py''\\).read\\(\\)\\)\")",
+      "Bash(MPLBACKEND=Agg python scripts/simulate.py)",
+      "Bash(pip install:*)",
+      "Bash(MPLBACKEND=Agg python scripts/prism_example.py)",
+      "Bash(python -c \":*)",
+      "Bash(rm -rf \"/c/Users/User/Desktop/prism-advanced-backup\")",
+      "Bash(mkdir -p \"/c/Users/User/Desktop/prism-advanced-backup\")",
+      "Bash(cp scripts/prism_example.py scripts/prism_dashboard.py scripts/prism_metrics.py notebooks/PRISM_Demo.ipynb \"/c/Users/User/Desktop/prism-advanced-backup/\")",
+      "Read(//c/Users/User/Desktop/prism-advanced-backup//**)"
+    ]
+  }
+}
