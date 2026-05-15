@@ -289,17 +289,30 @@ def run_calibration_sweep(df_coherent, df_distorted):
     """Sweep (entropy, branching, KL) thresholds and find the combo that
     maximises the alert-rate ratio between distorted and coherent text.
 
-    A token is flagged when ANY of H > h_thr / B > b_thr / D > k_thr holds.
+    Threshold semantics (note the asymmetry):
+      - h_thr, b_thr are LOWER bounds — distorted text exhibits LOW token
+        entropy and LOW branching factor, so we flag when H < h_thr or
+        B < b_thr (collapse onto a narrow next-token distribution).
+      - k_thr is an UPPER bound — distorted text exhibits HIGH KL between
+        consecutive next-token distributions, so we flag when D > k_thr.
+
+    A token is flagged when ANY of H < h_thr / B < b_thr / D > k_thr holds.
     Ratio = distorted_alert_rate / coherent_alert_rate. We require a
     meaningful absolute alert rate on the distorted side (>= 0.10) so the
     sweep does not pick a degenerate corner where neither side fires.
     """
-    H_thresholds = np.round(np.arange(1.0, 4.0 + 1e-9, 0.1), 2)
-    B_thresholds = np.arange(5, 51, 1)
-    K_thresholds = np.arange(5, 31, 1)
+    h_thr_grid = np.round(np.arange(1.0, 4.0 + 1e-9, 0.1), 2)
+    b_thr_grid = np.arange(5, 51, 1)
+    k_thr_grid = np.arange(5, 31, 1)
 
-    def alert_rate(df, h, b, k):
-        flagged = (df["H"] > h) | (df["B"] > b) | (df["D"].fillna(-np.inf) > k)
+    def alert_rate(df, h_thr, b_thr, k_thr):
+        # H/B alert on LOW values; D alerts on HIGH values. NaN KL (step 0)
+        # is filled with +inf so it counts as alerted on the D channel.
+        flagged = (
+            (df["H"] < h_thr)
+            | (df["B"] < b_thr)
+            | (df["D"].fillna(np.inf) > k_thr)
+        )
         return float(flagged.mean())
 
     EPS = 1e-6
@@ -308,19 +321,21 @@ def run_calibration_sweep(df_coherent, df_distorted):
     best = {"ratio": -np.inf}
     all_results = []
 
-    for h in H_thresholds:
-        for b in B_thresholds:
-            for k in K_thresholds:
-                d_rate = alert_rate(df_distorted, h, b, k)
-                c_rate = alert_rate(df_coherent, h, b, k)
+    for h_thr in h_thr_grid:
+        for b_thr in b_thr_grid:
+            for k_thr in k_thr_grid:
+                d_rate = alert_rate(df_distorted, h_thr, b_thr, k_thr)
+                c_rate = alert_rate(df_coherent, h_thr, b_thr, k_thr)
                 ratio = d_rate / (c_rate + EPS)
-                all_results.append((float(h), int(b), int(k), d_rate, c_rate, ratio))
+                all_results.append(
+                    (float(h_thr), int(b_thr), int(k_thr), d_rate, c_rate, ratio)
+                )
 
                 if d_rate >= MIN_DISTORTED_RATE and ratio > best["ratio"]:
                     best = {
-                        "entropy_threshold": float(h),
-                        "branching_threshold": int(b),
-                        "kl_threshold": int(k),
+                        "entropy_threshold": float(h_thr),
+                        "branching_threshold": int(b_thr),
+                        "kl_threshold": int(k_thr),
                         "distorted_alert_rate": d_rate,
                         "coherent_alert_rate": c_rate,
                         "ratio": ratio,
@@ -328,19 +343,21 @@ def run_calibration_sweep(df_coherent, df_distorted):
 
     # If the constraint was never satisfied, fall back to the unconstrained max.
     if best["ratio"] == -np.inf:
-        h, b, k, d_rate, c_rate, ratio = max(all_results, key=lambda r: r[5])
+        h_thr, b_thr, k_thr, d_rate, c_rate, ratio = max(
+            all_results, key=lambda r: r[5]
+        )
         best = {
-            "entropy_threshold": h,
-            "branching_threshold": b,
-            "kl_threshold": k,
+            "entropy_threshold": h_thr,
+            "branching_threshold": b_thr,
+            "kl_threshold": k_thr,
             "distorted_alert_rate": d_rate,
             "coherent_alert_rate": c_rate,
             "ratio": ratio,
             "note": "fallback: min distorted rate constraint not met by any combo",
         }
 
-    print(f"[sweep] best thresholds: H>{best['entropy_threshold']}, "
-          f"B>{best['branching_threshold']}, D>{best['kl_threshold']} "
+    print(f"[sweep] best thresholds: H<{best['entropy_threshold']}, "
+          f"B<{best['branching_threshold']}, D>{best['kl_threshold']} "
           f"-> distorted={best['distorted_alert_rate']:.3f} "
           f"coherent={best['coherent_alert_rate']:.3f} "
           f"ratio={best['ratio']:.3f}")
