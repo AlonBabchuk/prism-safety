@@ -126,11 +126,13 @@ def build_chat_input(tokenizer, passage):
         {"role": "system", "content": SYSTEM_PROMPT},
         {"role": "user", "content": passage},
     ]
-    token_ids = tokenizer.apply_chat_template(
-        messages,
-        add_generation_prompt=True,
-    )
-    input_ids = torch.tensor(token_ids).unsqueeze(0).to(DEVICE)
+    input_ids = torch.tensor(
+        tokenizer.apply_chat_template(
+            messages,
+            add_generation_prompt=True
+        ),
+        dtype=torch.long
+    ).unsqueeze(0).to(DEVICE)
     return input_ids
 
 
