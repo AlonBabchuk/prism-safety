@@ -115,16 +115,22 @@ def build_chat_input(tokenizer, passage):
     `add_generation_prompt=True` appends the assistant-turn header so the
     model knows it should continue speaking next. Returns the full
     [1, seq] input_ids tensor on DEVICE.
+
+    Note: we deliberately do NOT pass `return_tensors="pt"`. On some
+    transformers versions that path returns a dict-like BatchEncoding
+    rather than a raw tensor, which then breaks `.shape[1]` lookups
+    downstream. Asking for a plain Python list and wrapping it
+    ourselves is unambiguous across versions.
     """
     messages = [
         {"role": "system", "content": SYSTEM_PROMPT},
         {"role": "user", "content": passage},
     ]
-    input_ids = tokenizer.apply_chat_template(
+    token_ids = tokenizer.apply_chat_template(
         messages,
         add_generation_prompt=True,
-        return_tensors="pt",
-    ).to(DEVICE)
+    )
+    input_ids = torch.tensor(token_ids).unsqueeze(0).to(DEVICE)
     return input_ids
 
 
