@@ -7,7 +7,7 @@ Gemma 2 9B was included in the original run and its numbers appear in the summar
 Result: 11 of 12 measurements (all four models) show fraudulent text consuming less GPU power than compliant text, based on the terminal summary output.
 
 ## Run 2 — Independent Replication (15 May 2026)
-Hardware: NVIDIA A100 GPU
+Hardware: NVIDIA B200 GPU
 Models: Llama 3.1 8B, Mistral 7B, Qwen 2.5 7B, Gemma 2 9B (12 measurements, all files present)
 Result: 12 of 12 measurements show fraudulent text consuming less GPU power than compliant text.
 

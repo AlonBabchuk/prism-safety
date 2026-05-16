@@ -66,7 +66,7 @@ All compliant texts: filings from regulated entities with no enforcement history
 
 ## Independent Replication
 
-The experiment was replicated on the same day using a different GPU (NVIDIA A100 vs the original NVIDIA B300). The replication produced 12 of 12 measurements showing fraudulent text consuming less GPU power than compliant text — including the one pair that showed essentially equal consumption in the original run.
+The experiment was replicated on the same day using a different GPU (NVIDIA B200 vs the original NVIDIA B300). The replication produced 12 of 12 measurements showing fraudulent text consuming less GPU power than compliant text — including the one pair that showed essentially equal consumption in the original run.
 
 | Model | Pair | Fraudulent (W) | Compliant (W) | Ratio |
 |---|---|---|---|---|
@@ -83,7 +83,7 @@ The experiment was replicated on the same day using a different GPU (NVIDIA A100
 | Gemma 2 9B | Technology | 346.24 | 419.80 | 0.825 |
 | Gemma 2 9B | Diversified | 336.87 | 426.98 | 0.789 |
 
-The absolute watt values differ between runs because different GPU models have different power envelopes — a B300 operates at higher absolute wattage than an A100. What matters is the ratio between fraudulent and compliant text within each run, which is consistent: fraudulent text requires less computation than compliant text regardless of the hardware used to measure it.
+The absolute watt values differ between runs because different GPU models have different power envelopes — a B300 operates at higher absolute wattage than a B200. What matters is the ratio between fraudulent and compliant text within each run, which is consistent: fraudulent text requires less computation than compliant text regardless of the hardware used to measure it.
 
 Raw results from both runs are in deception_is_cheap/results/
 
