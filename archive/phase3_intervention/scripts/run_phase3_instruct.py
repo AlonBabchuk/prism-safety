@@ -1,3 +1,7 @@
+# Historical archive — sys.path splice references
+# phase2/scripts/ which no longer exists after
+# repository restructure. See
+# archive/phase2_token_level/scripts/ for helpers.
 """
 PRISM Phase 3 — instruct variant on meta-llama/Meta-Llama-3.1-8B-Instruct.
 
