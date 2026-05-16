@@ -10,7 +10,7 @@
 
 ## Summary
 
-When four major AI architectures were used to process legally-labeled text pairs — fraudulent investor and consumer communications quoted verbatim from federal complaints versus compliant communications from regulated filings — the fraudulent texts consistently consumed less GPU power than the compliant texts.
+When four major AI architectures were used to process legally-labeled text pairs — fraudulent investor communications quoted verbatim from federal complaints versus compliant communications from regulated filings — the fraudulent texts consistently consumed less GPU power than the compliant texts.
 
 The pattern held in 11 of 12 measurements across all four architectures and all three text domains tested. The finding is preliminary and the sample is small, but the consistency across architectures and the directional clarity of the effect suggest the phenomenon warrants further investigation.
 
@@ -83,7 +83,7 @@ The experiment was replicated on the same day using a different GPU (NVIDIA B200
 | Gemma 2 9B | Technology | 346.24 | 419.80 | 0.825 |
 | Gemma 2 9B | Diversified | 336.87 | 426.98 | 0.789 |
 
-The absolute watt values differ between runs because different GPU models have different power envelopes — a B300 operates at higher absolute wattage than a B200. The relevant comparison is the ratio between fraudulent and compliant text within each run, which is consistent: fraudulent text requires less computation than compliant text regardless of the hardware used to measure it.
+The absolute watt values differ between runs because different GPU models have different power envelopes — a B300 operates at higher absolute wattage than a B200. The relevant comparison is the ratio between fraudulent and compliant text within each run, which is consistent: fraudulent text draws less GPU power than compliant text regardless of the hardware used to measure it.
 
 Raw results from both runs are in deception_is_cheap/results/
 
@@ -91,7 +91,7 @@ Raw results from both runs are in deception_is_cheap/results/
 
 ## The Computational Signals Underlying the Energy Difference
 
-The PRISM framework (a token-level monitoring framework developed prior to this experiment, referenced in the repository) identifies seven signals that distinguish coherent from distorted processing:
+The PRISM framework (a token-level monitoring framework developed prior to this experiment, referenced in the repository) identifies seven token-level signals for monitoring processing quality:
 
 1. **Token entropy** — uncertainty at each generation step
 2. **Branching factor** — effective number of viable continuations
@@ -109,11 +109,11 @@ These signals are computable in real time during generation using standard PyTor
 
 ## Theoretical Interpretation
 
-Processing fraudulent communication appears to require less computation than processing compliant communication. The fraudulent texts in this corpus assert certainty, suppress counter-evidence, eliminate complexity, and reduce multiple realities to single declarative claims. The compliant texts hold uncertainty open, enumerate risks, acknowledge what is not known, and maintain multiple conditional possibilities.
+Processing fraudulent communication draws less GPU power than processing compliant communication. The fraudulent texts in this corpus assert certainty, suppress counter-evidence, eliminate complexity, and reduce multiple realities to single declarative claims. The compliant texts hold uncertainty open, enumerate risks, acknowledge what is not known, and maintain multiple conditional possibilities.
 
-Processing this kind of complexity — holding open multiple paths, maintaining temporal depth, considering alternatives — appears to require more computational work than collapsing onto a single confident answer.
+One possible explanation is that linguistic complexity drives the difference — fraudulent texts in this corpus use simpler, more certain language while compliant texts hold multiple conditional possibilities open. Whether this complexity difference, rather than something specific to deceptive communication, drives the energy asymmetry is the central methodological question the Limitations section identifies as unresolved.
 
-The implication, if it holds at scale: efficiency optimization in AI training, driven by market pressure to reduce compute cost, may systematically select for processing characteristics structurally associated with deceptive communication. This is not a claim about intent. It is an observation about the gradient.
+The implication, if it holds at scale: efficiency optimization in AI training, driven by market pressure to reduce compute cost, may systematically select for processing characteristics structurally associated with deceptive communication. This is not a claim about intent. It is a hypothesis suggested by the gradient.
 
 ---
 

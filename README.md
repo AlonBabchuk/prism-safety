@@ -8,7 +8,7 @@ energetically cheap.
 ## Key Finding
 
 When four major AI architectures process legally-labeled text pairs —
-fraudulent communications from SEC, FTC, and DOJ enforcement actions
+fraudulent communications from SEC enforcement actions
 versus compliant filings from the same domains — the fraudulent texts
 consistently consumed less GPU power than the compliant texts.
 
