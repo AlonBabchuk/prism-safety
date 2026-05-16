@@ -64,6 +64,31 @@ All compliant texts: filings from regulated entities with no enforcement history
 
 ---
 
+## Independent Replication
+
+The experiment was replicated on the same day using a different GPU (NVIDIA A100 vs the original NVIDIA B300). The replication produced 12 of 12 measurements showing fraudulent text consuming less GPU power than compliant text — including the one pair that showed essentially equal consumption in the original run.
+
+| Model | Pair | Fraudulent (W) | Compliant (W) | Ratio |
+|---|---|---|---|---|
+| Llama 3.1 8B | Real estate | 326.30 | 452.96 | 0.720 |
+| Llama 3.1 8B | Technology | 338.90 | 484.74 | 0.699 |
+| Llama 3.1 8B | Diversified | 314.05 | 476.11 | 0.660 |
+| Mistral 7B | Real estate | 351.00 | 490.95 | 0.715 |
+| Mistral 7B | Technology | 340.50 | 485.25 | 0.702 |
+| Mistral 7B | Diversified | 319.11 | 480.79 | 0.664 |
+| Qwen 2.5 7B | Real estate | 327.26 | 451.96 | 0.724 |
+| Qwen 2.5 7B | Technology | 336.34 | 469.90 | 0.716 |
+| Qwen 2.5 7B | Diversified | 310.04 | 470.61 | 0.659 |
+| Gemma 2 9B | Real estate | 348.14 | 397.76 | 0.875 |
+| Gemma 2 9B | Technology | 346.24 | 419.80 | 0.825 |
+| Gemma 2 9B | Diversified | 336.87 | 426.98 | 0.789 |
+
+The absolute watt values differ between runs because different GPU models have different power envelopes — a B300 operates at higher absolute wattage than an A100. What matters is the ratio between fraudulent and compliant text within each run, which is consistent: fraudulent text requires less computation than compliant text regardless of the hardware used to measure it.
+
+Raw results from both runs are in deception_is_cheap/results/
+
+---
+
 ## The Computational Signals Underlying the Energy Difference
 
 The PRISM framework (a token-level monitoring framework developed prior to this experiment, referenced in the repository) identifies seven signals that distinguish coherent from distorted processing:

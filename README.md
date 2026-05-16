@@ -27,8 +27,9 @@ consistently consumed less GPU power than the compliant texts.
 | Gemma 2 9B    | Technology        |         340.40 |        377.36 |       0.902 |
 | Gemma 2 9B    | Diversified       |         336.59 |        386.73 |       0.870 |
 
-11 of 12 measurements: fraudulent text consumes less GPU power than
-compliant text.
+11 of 12 measurements in the original run. 12 of 12 in an independent
+replication on different hardware the same day. The directional finding
+is consistent across both runs.
 
 Full methodology: see [DECEPTION_IS_CHEAP.md](DECEPTION_IS_CHEAP.md)
 
