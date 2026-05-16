@@ -1,0 +1,32 @@
+{
+  "pair1_realestate": {
+    "fraudulent": {
+      "watts_mean": 348.14346000000006,
+      "temp_mean": 40.96
+    },
+    "clean": {
+      "watts_mean": 397.7634000000001,
+      "temp_mean": 41.36
+    }
+  },
+  "pair2_tech": {
+    "fraudulent": {
+      "watts_mean": 346.2446800000001,
+      "temp_mean": 41.3
+    },
+    "clean": {
+      "watts_mean": 419.7964399999999,
+      "temp_mean": 42.16
+    }
+  },
+  "pair3_diversified": {
+    "fraudulent": {
+      "watts_mean": 336.87392,
+      "temp_mean": 41.24
+    },
+    "clean": {
+      "watts_mean": 426.97834,
+      "temp_mean": 42.12
+    }
+  }
+}
