@@ -18,5 +18,5 @@ See [phase2_token_level/](phase2_token_level/).
 
 ## Phase 3 — Intervention Experiments
 
-Three intervention designs, all null results. All null results on this experimental setup.
+Three intervention designs, all null results on this experimental setup.
 See [phase3_intervention/](phase3_intervention/).
