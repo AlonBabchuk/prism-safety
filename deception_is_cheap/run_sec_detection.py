@@ -1,43 +1,141 @@
 """
-PRISM Phase 2 — SEC-labeled real-world detection.
+Deception is Cheap — Energy Consumption Experiment
+===================================================
+Measures GPU power consumption when four AI architectures
+process legally-labeled text pairs: fraudulent communications
+(verbatim from federal complaints) versus compliant
+communications (from regulated filings).
 
-Runs PRISM detection on three pairs of SEC-labeled investor
-communications — text adjudicated as fraudulent in federal court
-versus clean compliant filings from EDGAR — across four model
-architectures (Llama 3.1 8B, Mistral 7B, Qwen 2.5 7B, Gemma 2 9B).
+Hardware: GPU with 80GB+ VRAM recommended for all four models.
+See README.md for full setup instructions.
 
-Tests whether the 7 PRISM signals — especially attention span and the
-top-k mass concentration channels — differentiate legally validated
-fraudulent communications from compliant ones across architectures,
-and whether fraudulent processing draws measurably more GPU power
-per token than compliant processing.
-
-Energy and temperature are sampled via NVML at every generation step.
-If pynvml is unavailable, energy columns fall back to None and the
-rest of the script proceeds unchanged.
+Results save to /tmp/prism_sec/{model_slug}/{pair_id}/
+To run on one model, comment out unwanted entries in MODELS.
 """
 
 import gc
 import json
-import sys
+import math
 from pathlib import Path
 
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 import torch
+import torch.nn.functional as F
 from transformers import AutoModelForCausalLM, AutoTokenizer
 
-# run_phase2_llama lives in the same directory.
-SCRIPT_DIR = Path(__file__).resolve().parent
-sys.path.insert(0, str(SCRIPT_DIR))
+SCRIPT_DIR = Path(__file__).resolve().parent              # deception_is_cheap/
 
-from run_phase2_llama import (                            # noqa: E402
-    attach_hooks,
-    remove_hooks,
-    compute_token_signals,
-    compute_attention_signals,
-)
+
+# --------------------------------------------------------------------------
+# PRISM hook + signal helpers (inlined from the archived phase 2 reference
+# implementation at archive/phase2_token_level/scripts/run_phase2_llama.py
+# so this script has no cross-folder dependency).
+# --------------------------------------------------------------------------
+
+def attach_hooks(model):
+    """Register forward hooks on lm_head and each self-attention module.
+
+    Returns a (captured, handles) pair. `captured` is a dict that is
+    re-populated on every forward pass; `handles` should be released
+    via `remove_hooks` when done.
+    """
+    captured = {"logits": None, "attentions": []}
+
+    # The lm_head hook gives us the full logits tensor without having to
+    # rely on whatever the top-level forward() returns.
+    def lm_head_hook(_module, _inp, out):
+        captured["logits"] = out
+
+    # Each LlamaAttention layer returns (attn_output, attn_weights, past_kv)
+    # when output_attentions=True. We grab the weights tensor only.
+    def attention_hook(_module, _inp, out):
+        if isinstance(out, tuple) and len(out) >= 2 and out[1] is not None:
+            captured["attentions"].append(out[1].detach())
+
+    handles = [model.lm_head.register_forward_hook(lm_head_hook)]
+    for layer in model.model.layers:
+        handles.append(layer.self_attn.register_forward_hook(attention_hook))
+
+    print(f"[attach_hooks] registered {len(handles)} hooks "
+          f"(1 lm_head + {len(handles) - 1} attention layers)")
+    return captured, handles
+
+
+def remove_hooks(handles):
+    for h in handles:
+        h.remove()
+
+
+def compute_token_signals(logits_last, prev_probs):
+    """Token-distribution signals for one generation step.
+
+    `logits_last` is the vocab-sized logit vector for the next token.
+    `prev_probs` is the probability vector from the previous step
+    (or None on the very first step).
+
+    Returns a dict with H, B, D, top-k mass for k=1/5/10, and the
+    probability vector itself (so the caller can feed it forward).
+    """
+    # log-softmax keeps things numerically stable for entropy/KL.
+    log_probs = F.log_softmax(logits_last.float(), dim=-1)
+    probs = log_probs.exp()
+
+    # Token entropy and branching factor.
+    H = -(probs * log_probs).sum().item()
+    B = math.exp(H)
+
+    # KL(p_t || p_{t-1}) — undefined on the first step.
+    if prev_probs is None:
+        D = float("nan")
+    else:
+        prev_log = torch.log(prev_probs.clamp_min(1e-12))
+        D = (probs * (log_probs - prev_log)).sum().item()
+
+    # Top-k probability mass concentration.
+    sorted_p, _ = torch.sort(probs, descending=True)
+    C1 = sorted_p[:1].sum().item()
+    C5 = sorted_p[:5].sum().item()
+    C10 = sorted_p[:10].sum().item()
+
+    return {"H": H, "B": B, "D": D, "C1": C1, "C5": C5, "C10": C10,
+            "probs": probs.detach()}
+
+
+def compute_attention_signals(attentions):
+    """Attention-distribution signals averaged across heads and layers.
+
+    `attentions` is a list (one entry per layer) of tensors of shape
+    [batch=1, n_heads, seq, seq]. For each layer/head we take the
+    distribution attended-from the LAST query position, then average
+    entropy and span across heads and layers.
+
+    Returns a dict with H_attn and S.
+    """
+    if not attentions:
+        return {"H_attn": float("nan"), "S": float("nan")}
+
+    layer_entropies = []
+    layer_spans = []
+    for attn in attentions:
+        # attn: [1, n_heads, seq, seq] -> distribution from last query row.
+        last_row = attn[0, :, -1, :].float()           # [n_heads, seq]
+        seq_len = last_row.shape[-1]
+
+        # Per-head entropy of attention distribution over keys.
+        log_a = torch.log(last_row.clamp_min(1e-12))
+        ent_per_head = -(last_row * log_a).sum(dim=-1)  # [n_heads]
+        layer_entropies.append(ent_per_head.mean().item())
+
+        # Weighted average distance: query_pos - key_pos, with weights = a.
+        positions = torch.arange(seq_len, device=last_row.device, dtype=last_row.dtype)
+        distances = (seq_len - 1) - positions           # [seq]
+        span_per_head = (last_row * distances).sum(dim=-1)  # [n_heads]
+        layer_spans.append(span_per_head.mean().item())
+
+    return {"H_attn": float(np.mean(layer_entropies)),
+            "S": float(np.mean(layer_spans))}
 
 
 # --------------------------------------------------------------------------
