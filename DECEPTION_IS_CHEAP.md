@@ -123,6 +123,7 @@ The implication, if it holds at scale: efficiency optimization in AI training, d
 - The most important methodological objection is the confounding variable problem: differences in linguistic complexity between fraudulent marketing language and compliant regulatory language may explain part or all of the energy difference. Addressing this requires expanding the corpus to include plain-language honest texts alongside legal filings.
 - The link between input processing and generation has not been tested. The current measurements show what happens when models read fraudulent versus compliant text. Whether models generating deceptive content show the same low-energy signatures is a separate experiment that has not yet been conducted.
 - Replication on a larger corpus (30-100 pairs across multiple legal domains) is needed before strong claims can be defended.
+- Whether the energy difference reduces to perplexity differences between the text styles has not been tested and represents an additional methodological question for future work.
 
 ---
 
