@@ -2,7 +2,7 @@
 
 Open research on whether token-level computational signals can
 distinguish coherent from distorted processing in large language
-models — and on a surprising downstream observation: deception is
+models — and on a downstream observation: deception is
 energetically cheap.
 
 ## Key Finding

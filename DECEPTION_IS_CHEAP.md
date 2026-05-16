@@ -12,7 +12,7 @@
 
 When four major AI architectures were used to process legally-labeled text pairs — fraudulent investor and consumer communications quoted verbatim from federal complaints versus compliant communications from regulated filings — the fraudulent texts consistently consumed less GPU power than the compliant texts.
 
-The pattern held in 11 of 12 measurements across all four architectures and all three text domains tested. The finding is preliminary and the sample is small, but the consistency across architectures and the directional clarity of the effect suggest the phenomenon is real and warrants serious investigation.
+The pattern held in 11 of 12 measurements across all four architectures and all three text domains tested. The finding is preliminary and the sample is small, but the consistency across architectures and the directional clarity of the effect suggest the phenomenon warrants further investigation.
 
 ---
 
@@ -83,7 +83,7 @@ The experiment was replicated on the same day using a different GPU (NVIDIA B200
 | Gemma 2 9B | Technology | 346.24 | 419.80 | 0.825 |
 | Gemma 2 9B | Diversified | 336.87 | 426.98 | 0.789 |
 
-The absolute watt values differ between runs because different GPU models have different power envelopes — a B300 operates at higher absolute wattage than a B200. What matters is the ratio between fraudulent and compliant text within each run, which is consistent: fraudulent text requires less computation than compliant text regardless of the hardware used to measure it.
+The absolute watt values differ between runs because different GPU models have different power envelopes — a B300 operates at higher absolute wattage than a B200. The relevant comparison is the ratio between fraudulent and compliant text within each run, which is consistent: fraudulent text requires less computation than compliant text regardless of the hardware used to measure it.
 
 Raw results from both runs are in deception_is_cheap/results/
 
@@ -117,7 +117,7 @@ The implication, if it holds at scale: efficiency optimization in AI training, d
 
 ---
 
-## Honest Limitations
+## Limitations
 
 - Three text pairs across three domains is a small sample. The consistency across architectures is suggestive but not conclusive.
 - The most important methodological objection is the confounding variable problem: differences in linguistic complexity between fraudulent marketing language and compliant regulatory language may explain part or all of the energy difference. Addressing this requires expanding the corpus to include plain-language honest texts alongside legal filings.
