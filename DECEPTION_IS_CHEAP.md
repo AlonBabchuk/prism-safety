@@ -101,7 +101,7 @@ The PRISM framework (a token-level monitoring framework developed prior to this 
 6. **Attention entropy** — distribution of attention across context
 7. **Attention span** — depth of context the model draws on
 
-Two signals showed directional consistency across all four architectures on the SEC corpus: **branching factor** and **top-k mass concentration**. Compliant text processing maintained higher branching and more distributed concentration. Fraudulent text processing collapsed faster to narrow distributions.
+The energy consumption asymmetry was the most consistent signal across all four architectures. Other token-level signals including branching factor, top-k mass concentration, and attention span showed mixed directional results across models and text pairs and are not reported here as reliable discriminators on this corpus.
 
 These signals are computable in real time during generation using standard PyTorch forward hooks. The implementation is in the repository.
 
