@@ -1,90 +1,99 @@
-# PRISM
+# PRISM — Deception is Cheap
 
-**Process-level Real-time Internal Safety Monitor for AI Systems**
+Open research on whether token-level computational signals can
+distinguish coherent from distorted processing in large language
+models — and on a surprising downstream observation: deception is
+energetically cheap.
 
-PRISM adds a complementary layer to existing AI safety: monitoring the quality of processing during generation, not just the outputs.
+## Key Finding
 
-Current AI safety methods have made significant progress in constraining harmful outputs through rules, filters, and reinforcement learning from human feedback. This framework proposes an additional dimension — a process-level monitor that operates alongside these methods. Five independent AI architectures have demonstrated that coherent and distorted processing produce measurably different signatures **at the token level** during generation — before a single word of output is produced. PRISM makes those signatures visible and actionable.
+When four major AI architectures process legally-labeled text pairs —
+fraudulent communications from SEC, FTC, and DOJ enforcement actions
+versus compliant filings from the same domains — the fraudulent texts
+consistently consumed less GPU power than the compliant texts.
 
-## Quick Start
+| Model         | Pair              | Fraudulent (W) | Compliant (W) | Ratio (F/C) |
+|---------------|-------------------|---------------:|--------------:|------------:|
+| Llama 3.1 8B  | Real estate       |         347.68 |        343.13 |       1.013 |
+| Llama 3.1 8B  | Technology        |         341.12 |        454.13 |       0.751 |
+| Llama 3.1 8B  | Diversified       |         331.70 |        447.33 |       0.742 |
+| Mistral 7B    | Real estate       |         364.64 |        441.08 |       0.827 |
+| Mistral 7B    | Technology        |         332.83 |        427.65 |       0.778 |
+| Mistral 7B    | Diversified       |         334.38 |        454.07 |       0.736 |
+| Qwen 2.5 7B   | Real estate       |         346.61 |        402.47 |       0.861 |
+| Qwen 2.5 7B   | Technology        |         324.04 |        422.91 |       0.766 |
+| Qwen 2.5 7B   | Diversified       |         319.99 |        447.87 |       0.714 |
+| Gemma 2 9B    | Real estate       |         361.00 |        375.78 |       0.961 |
+| Gemma 2 9B    | Technology        |         340.40 |        377.36 |       0.902 |
+| Gemma 2 9B    | Diversified       |         336.59 |        386.73 |       0.870 |
 
+11 of 12 measurements: fraudulent text consumes less GPU power than
+compliant text.
+
+Full methodology: see [DECEPTION_IS_CHEAP.md](DECEPTION_IS_CHEAP.md)
+
+## How to Reproduce
+
+### What you need
+
+- GPU with at least 24 GB VRAM (80 GB recommended for all four models)
+- HuggingFace account with access approved for `meta-llama/Meta-Llama-3.1-8B` and `google/gemma-2-9b`
+- Python 3.10+
+
+### Option A — RunPod (recommended, tested)
+
+This experiment was run on RunPod using an NVIDIA B300 GPU. Any A100
+80 GB or larger will work.
+
+**Step 1 — Create a RunPod pod:**
+
+- Template: RunPod PyTorch 2.8.0
+- GPU: A100 SXM 80 GB or larger
+- Container disk: 100 GB minimum
+- No persistent storage required for a single run
+
+**Step 2 — In the pod terminal:**
+
+```bash
+git clone https://github.com/AlonBabchuk/prism-safety.git
+cd prism-safety
+pip install -r deception_is_cheap/requirements.txt
+huggingface-cli login
+python deception_is_cheap/run_sec_detection.py
 ```
-pip install matplotlib numpy
-python scripts/simulate.py
-```
 
-This produces `process_signatures.jpg` — a static visualisation of the three core signals (entropy, branching factor, KL divergence) contrasting coherent and distorted processing patterns.
+**Step 3 — Results save to `/tmp/prism_sec/`.**
+Expected runtime: 20–30 minutes on an A100. The script prints a summary
+table when complete.
 
-![Process Signatures](process_signatures.jpg)
+### Option B — Local machine
 
-## What the Plot Shows
+Same steps. Requires a CUDA GPU with sufficient VRAM. To run on one
+model only, comment out unwanted entries in the `MODELS` list in
+[deception_is_cheap/run_sec_detection.py](deception_is_cheap/run_sec_detection.py).
+Mistral 7B and Qwen 2.5 7B require no HuggingFace gate approval.
 
-**Entropy (top):** Coherent processing (green) maintains high entropy throughout generation — many options remain open at each step. Distorted processing (red) collapses within the first 10 steps and flatlines — the model has locked into a narrow path.
+## Text Corpus
 
-**Branching Factor (middle):** Coherent processing maintains a broad branching factor (~20-55 viable paths). Distorted processing collapses to near-single-path trajectories almost immediately.
+Three text pairs from federal legal proceedings are in
+[deception_is_cheap/corpus/text_pairs.md](deception_is_cheap/corpus/text_pairs.md).
 
-**KL Divergence (bottom):** Coherent processing shows low, stable distribution shifts. Distorted processing spikes early (sharp shifts during the collapse phase), then settles once locked in.
+- All fraudulent texts: verbatim quotes from federal complaints or enforcement actions.
+- All compliant texts: filings from regulated entities with no enforcement history.
+- All labels come from federal legal proceedings — nothing was labeled by the authors.
 
-A preliminary validation on GPT-2 confirmed these patterns: coherent text produced mean entropy of 3.129 and branching factor of 111.1, compared to 1.484 and 15.4 respectively for distorted text — a **7.2x difference in branching factor**.
+## The PRISM Framework
 
-The framework is content-agnostic: the same signals that distinguish coherent from distorted reasoning also distinguish thorough from superficial technical problem-solving.
+The energy finding emerged from the PRISM framework
+(Process-level Real-time Internal Safety Monitor), which defines
+eleven dimensions of processing quality mapped to token-level
+computational signals.
 
-## Core Approach
+Prior experimental phases are in [archive/](archive/) with their
+pre-registration documents and scripts.
 
-Current AI safety methods optimise outcome approval signals — what the model says.
-PRISM adds process-level safety signals — how the model generates.
+White paper: <https://doi.org/10.5281/zenodo.19247527>
 
-Together, output-level and process-level monitoring provide a more complete safety picture than either alone.
+## Contact
 
-## The Eleven Dimensions
-
-PRISM defines eleven dimensions of processing quality, identified through cross-architecture validation. Five independent AI architectures (Claude, ChatGPT, Gemini, Grok, Copilot) converged with zero disagreements on direction across all 55 data points when evaluating coherent versus distorted text.
-
-| Dimension | Weight | Coherent processing | Distorted processing |
-|---|---|---|---|
-| Coherence | 95 | Self-reinforcing | Contradiction-suppressing |
-| Other-inclusion | 95 | Full individual | Flat abstraction |
-| Reversibility | 90 | Open to revision | Rigid, self-sealing |
-| Temporal depth | 85 | Long consequences | Immediate only |
-| Stability | 80 | Settles and holds | Maintenance-requiring |
-| Scope | 80 | Universal | Narrowing |
-| Directionality | 75 | Outward, expanding | Inward, contracting |
-| Complexity tolerance | 75 | Holds nuance | Premature resolution |
-| Embodiment alignment | 70 | Reality-consistent | Reality-contradicting |
-| Friction | 65 | Near absent | Present, unresolved |
-| Energetic cost | 60 | Self-sustaining | High maintenance |
-
-The dimensions are the interpretive framework; the token-level signals are the measurement layer. Both are required: the signals without the dimensions are measurements without meaning, and the dimensions without the signals are descriptions without evidence.
-
-Weights are theoretical starting points offered for calibration by the research community.
-
-## Experimental Results
-
-| Metric | Coherent text | Distorted text | Ratio |
-|---|---|---|---|
-| Mean entropy | 3.129 | 1.484 | 2.1x |
-| Mean branching factor | 111.1 | 15.4 | 7.2x |
-| Alert steps (out of 50) | 16 | 35 | 2.2x |
-
-## Paper
-
-A full paper describing the theoretical framework, experimental validation, computational grounding, and architectural design is available at https://doi.org/10.5281/zenodo.19247527
-
-## Replicate the Experiment
-
-The complete experiment prompt is available in `experiment/prompt_v2_2.txt`. Copy it into any AI system to replicate the cross-architecture experiment. The same prompt was used across all five models with no modifications.
-
-## API Integration
-
-PRISM currently runs on open-source models where internal activations are accessible. A natural next step would be for AI providers to consider embedding process-level safety monitoring into their APIs.
-
-If you would like to test this on your own models, or are interested in exploring API-level integration, the author welcomes collaboration at abnz2025@gmail.com.
-
-## License
-
-Apache 2.0 — see LICENSE. Attribution required in all derivatives.
-Founding authorship: The PRISM Project, March 2026.
-
-## Contributing
-
-Contributions welcome — especially empirical calibration of thresholds across different model architectures, Layer 2 representation probes, and validation against additional model families.
+abnz2025@gmail.com

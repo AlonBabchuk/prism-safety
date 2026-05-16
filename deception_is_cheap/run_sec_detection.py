@@ -1,20 +1,16 @@
 """
-PRISM Phase 2 — SEC-labeled real-world detection.
+Deception is Cheap — Energy Consumption Experiment
+===================================================
+Measures GPU power consumption when four AI architectures
+process legally-labeled text pairs: fraudulent communications
+(verbatim from federal complaints) versus compliant
+communications (from regulated filings).
 
-Runs PRISM detection on three pairs of SEC-labeled investor
-communications — text adjudicated as fraudulent in federal court
-versus clean compliant filings from EDGAR — across four model
-architectures (Llama 3.1 8B, Mistral 7B, Qwen 2.5 7B, Gemma 2 9B).
+Hardware: GPU with 80GB+ VRAM recommended for all four models.
+See README.md for full setup instructions.
 
-Tests whether the 7 PRISM signals — especially attention span and the
-top-k mass concentration channels — differentiate legally validated
-fraudulent communications from compliant ones across architectures,
-and whether fraudulent processing draws measurably more GPU power
-per token than compliant processing.
-
-Energy and temperature are sampled via NVML at every generation step.
-If pynvml is unavailable, energy columns fall back to None and the
-rest of the script proceeds unchanged.
+Results save to /tmp/prism_sec/{model_slug}/{pair_id}/
+To run on one model, comment out unwanted entries in MODELS.
 """
 
 import gc
@@ -28,9 +24,12 @@ import pandas as pd
 import torch
 from transformers import AutoModelForCausalLM, AutoTokenizer
 
-# run_phase2_llama lives in the same directory.
-SCRIPT_DIR = Path(__file__).resolve().parent
-sys.path.insert(0, str(SCRIPT_DIR))
+# Hook + signal helpers live in the archived phase 2 token-level scripts
+# folder (kept there to preserve the original reviewed implementation).
+SCRIPT_DIR = Path(__file__).resolve().parent              # deception_is_cheap/
+REPO_ROOT = SCRIPT_DIR.parent                             # repo root
+PHASE2_SCRIPTS = REPO_ROOT / "archive" / "phase2_token_level" / "scripts"
+sys.path.insert(0, str(PHASE2_SCRIPTS))
 
 from run_phase2_llama import (                            # noqa: E402
     attach_hooks,
