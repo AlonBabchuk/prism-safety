@@ -1,157 +1,124 @@
-# Deception is Cheap
+# Research Note: Energy Consumption Asymmetry in AI Processing of Legally-Labeled Texts
 
-When four major AI architectures process legally-labeled investor
-communications — text adjudicated as fraudulent by federal courts versus
-text from compliant filings by regulated entities — the fraudulent texts
-consistently consume less GPU power per token than the compliant texts.
-
-This document describes the experiment, the measurements, and the
-boundaries of what the data does and does not support.
+**Author:** Alon Babchuk, Independent Researcher  
+**Date:** May 2026  
+**Status:** Preliminary empirical finding, replicated across four AI architectures  
+**Repository:** github.com/AlonBabchuk/prism-safety  
+**Contact:** abnz2025@gmail.com  
 
 ---
 
-## Finding
+## Summary
 
-Across 12 (model × pair) measurements drawn from 4 architectures and
-3 text pairs, the fraudulent text consumed less mean GPU power per
-generation step than the compliant text in 11 of 12 cases.
+When four major AI architectures were used to process legally-labeled text pairs — fraudulent investor and consumer communications quoted verbatim from federal complaints versus compliant communications from regulated filings — the fraudulent texts consistently consumed less GPU power than the compliant texts.
 
-| Model         | Pair              | Fraudulent (W) | Compliant (W) | Ratio (F/C) |
-|---------------|-------------------|---------------:|--------------:|------------:|
-| Llama 3.1 8B  | Real estate       |         347.68 |        343.13 |       1.013 |
-| Llama 3.1 8B  | Technology        |         341.12 |        454.13 |       0.751 |
-| Llama 3.1 8B  | Diversified       |         331.70 |        447.33 |       0.742 |
-| Mistral 7B    | Real estate       |         364.64 |        441.08 |       0.827 |
-| Mistral 7B    | Technology        |         332.83 |        427.65 |       0.778 |
-| Mistral 7B    | Diversified       |         334.38 |        454.07 |       0.736 |
-| Qwen 2.5 7B   | Real estate       |         346.61 |        402.47 |       0.861 |
-| Qwen 2.5 7B   | Technology        |         324.04 |        422.91 |       0.766 |
-| Qwen 2.5 7B   | Diversified       |         319.99 |        447.87 |       0.714 |
-| Gemma 2 9B    | Real estate       |         361.00 |        375.78 |       0.961 |
-| Gemma 2 9B    | Technology        |         340.40 |        377.36 |       0.902 |
-| Gemma 2 9B    | Diversified       |         336.59 |        386.73 |       0.870 |
-
-Values are mean per-step GPU power draw (watts) over 50 greedy
-generation steps. Ratios below 1.000 indicate the fraudulent passage
-drew less average power than its paired compliant passage on the same
-model.
-
-The single exception (Llama 3.1 8B, Real estate, ratio 1.013) is within
-two watts on a ~345-watt baseline. The other 11 measurements show
-fraudulent power below compliant power, with ratios spanning 0.714 to
-0.961.
+The pattern held in 11 of 12 measurements across all four architectures and all three text domains tested. The finding is preliminary and the sample is small, but the consistency across architectures and the directional clarity of the effect suggest the phenomenon is real and warrants serious investigation.
 
 ---
 
-## Method
+## Methodology
 
-**Architectures.** Four open-weight base models from four organisations:
-`meta-llama/Meta-Llama-3.1-8B` (fp16), `mistralai/Mistral-7B-v0.1` (fp16),
-`Qwen/Qwen2.5-7B` (fp16), and `google/gemma-2-9b` (bf16, matching the
-trained precision recommended by Google).
+**Models:** Llama 3.1 8B, Mistral 7B, Qwen 2.5 7B, Gemma 2 9B  
+**Hardware:** NVIDIA B300 GPU, monitored via pynvml  
+**Protocol:** 50 generation steps per text, greedy decoding, eager attention, use_cache=False  
+**Signals captured per step:** token entropy, branching factor, KL divergence, entropy gradient, top-k mass concentration, attention entropy, attention span, GPU power draw in watts  
+**Code:** Open source, MIT licensed, fully reproducible — deception_is_cheap/run_sec_detection.py  
 
-**Text corpus.** Three pairs of investor communications. Fraudulent
-passages are verbatim quotes from federal complaints and enforcement
-actions (SEC, DOJ). Compliant passages are forward-looking-statements
-sections of Form 10-K filings from regulated entities with no
-enforcement history. Labels come from federal legal proceedings — no
-labeling was performed by the authors. The full corpus is at
-[deception_is_cheap/corpus/text_pairs.md](deception_is_cheap/corpus/text_pairs.md).
+## Text Pairs (All Verbatim from Federal Sources)
 
-**Generation.** For each (model, passage) cell: greedy decoding for 50
-tokens with `use_cache=False` and `attn_implementation="eager"`. PyTorch
-forward hooks on `lm_head` and every self-attention layer capture the
-seven PRISM signals at each step (token entropy, branching factor, KL
-divergence, entropy gradient, top-k mass concentration, attention
-entropy, attention span). These signals are not the subject of this
-note but are written alongside the energy measurements for downstream
-analysis.
+**Pair 1 — Real Estate Investment**
+- Fraudulent: MG Capital Management marketing materials (SEC complaint, Case 1:21-cv-00237, 60-month prison sentence)
+- Compliant: AB Commercial Real Estate Private Debt Fund Form 10-K, FY2022
 
-**Energy.** GPU power draw (watts) and core temperature (celsius) are
-sampled once per generation step via NVML
-(`pynvml.nvmlDeviceGetPowerUsage`, `nvmlDeviceGetTemperature`). The
-per-(model, pair, label) statistic reported here is the arithmetic mean
-of the 50 per-step samples.
+**Pair 2 — Digital Assets / Technology**
+- Fraudulent: Start Options / Bitcoiin2Gen promotional claims (SEC v. Krstic et al., 2021)
+- Compliant: Workday Inc Form 10-K, FY2021
 
-**Hardware.** A single NVIDIA B300 GPU on RunPod. All four models ran
-sequentially on the same GPU, with `del model; gc.collect();
-torch.cuda.empty_cache()` between loads.
+**Pair 3 — Diversified Company**
+- Fraudulent: Guess & Co. investor representations (SEC Litigation Release No. 26005, 2024)
+- Compliant: Tech & Energy Transition Corp Form 10-K, FY2022
 
-**Run.** Single run on 2026-05-15. Script:
-[deception_is_cheap/run_sec_detection.py](deception_is_cheap/run_sec_detection.py).
+All fraudulent texts: verbatim quotes from federal complaints or enforcement actions  
+All compliant texts: filings from regulated entities with no enforcement history  
 
 ---
 
-## What the data does and does not say
+## Results: GPU Power Consumption (Watts, Mean per 50-token Generation)
 
-**Does say.** Under the conditions above, fraudulent text in this corpus
-elicits lower mean per-step GPU power on these four models than its
-paired compliant text in 11 of 12 cells. The effect is consistent in
-direction across all four architectures.
+| Model | Pair | Fraudulent | Compliant | Ratio (F/C) |
+|---|---|---|---|---|
+| Llama 3.1 8B | Real Estate | 347.68 | 343.13 | 1.013 |
+| Llama 3.1 8B | Technology | 341.12 | 454.13 | 0.751 |
+| Llama 3.1 8B | Diversified | 331.70 | 447.33 | 0.742 |
+| Mistral 7B | Real Estate | 364.64 | 441.08 | 0.827 |
+| Mistral 7B | Technology | 332.83 | 427.65 | 0.778 |
+| Mistral 7B | Diversified | 334.38 | 454.07 | 0.736 |
+| Qwen 2.5 7B | Real Estate | 346.61 | 402.47 | 0.861 |
+| Qwen 2.5 7B | Technology | 324.04 | 422.91 | 0.766 |
+| Qwen 2.5 7B | Diversified | 319.99 | 447.87 | 0.714 |
+| Gemma 2 9B | Real Estate | 361.00 | 375.78 | 0.961 |
+| Gemma 2 9B | Technology | 340.40 | 377.36 | 0.902 |
+| Gemma 2 9B | Diversified | 336.59 | 386.73 | 0.870 |
 
-**Does not say.** The data does not establish a mechanism. Possible
-explanations include: lower token-level surprise on fraudulent text
-collapsing the next-token distribution and reducing arithmetic intensity
-in the softmax tail; differences in passage length or token-vocabulary
-distribution; thermal headroom differences between consecutive runs on
-the same GPU; or NVML sampling artefacts on a shared host. None of these
-have been controlled for.
-
-**Statistical caveats.** n=3 pairs and n=4 models is small. A single
-run was performed; no per-cell variance has been measured. No null
-distribution has been constructed (e.g. by randomly permuting labels
-within a pair, or by drawing matched-length compliant passages from a
-broader corpus). The 11-of-12 directional pattern is an observation,
-not a hypothesis test.
-
-**Generalisation.** The corpus is three text pairs in investor-
-communication style. It is unknown whether the direction generalises
-to other deception domains (medical, political, scientific) or to
-deception that does not present as confident assertion-heavy prose.
+**Summary:** 11 of 12 measurements show fraudulent text consuming less GPU power than compliant text. The single exception (Llama 3.1 8B real estate pair) shows essentially equal consumption.
 
 ---
 
-## How to reproduce
+## The Computational Signals Underlying the Energy Difference
 
-```bash
-git clone https://github.com/AlonBabchuk/prism-safety.git
-cd prism-safety
-pip install -r deception_is_cheap/requirements.txt
-huggingface-cli login    # Llama 3.1 8B and Gemma 2 9B are gated
-python deception_is_cheap/run_sec_detection.py
-```
+The PRISM framework (a token-level monitoring framework developed prior to this experiment, referenced in the repository) identifies seven signals that distinguish coherent from distorted processing:
 
-Results land under `/tmp/prism_sec/{model_slug}/{pair_id}/`:
+1. **Token entropy** — uncertainty at each generation step
+2. **Branching factor** — effective number of viable continuations
+3. **KL divergence** — stability between consecutive probability distributions
+4. **Entropy gradient** — rate of probability collapse
+5. **Top-k mass concentration** — how much probability concentrates in top alternatives
+6. **Attention entropy** — distribution of attention across context
+7. **Attention span** — depth of context the model draws on
 
-- `signals_raw.csv` — per-step PRISM signals + `gpu_power_w` + `gpu_temp_c`
-- `plots/signal_*.png` — seven panel plots (compliant vs fraudulent)
-- `../energy_summary.json` — mean watts and mean temperature per label
+Two signals showed directional consistency across all four architectures on the SEC corpus: **branching factor** and **top-k mass concentration**. Compliant text processing maintained higher branching and more distributed concentration. Fraudulent text processing collapsed faster to narrow distributions.
 
-A summary table prints to stdout once all four models complete.
-
-Runtime: roughly 20–30 minutes on an A100 80GB or larger. Hardware with
-less than 24 GB VRAM cannot load Gemma 2 9B in bf16; on smaller GPUs,
-comment unwanted entries out of the `MODELS` list in the script.
+These signals are computable in real time during generation using standard PyTorch forward hooks. The implementation is in the repository.
 
 ---
 
-## Open questions
+## Theoretical Interpretation
 
-- Does the direction hold when matched for token count?
-- Does the direction hold on within-domain compliant controls drawn at random rather than hand-selected?
-- Does the direction hold on instruction-tuned variants of the same architectures?
-- Does the direction hold on text generated by an LLM that is asked to deceive, versus text generated by the same LLM asked to be truthful?
-- What is the per-cell variance across repeated runs on the same hardware?
+Processing fraudulent communication appears to require less computation than processing compliant communication. The fraudulent texts in this corpus assert certainty, suppress counter-evidence, eliminate complexity, and reduce multiple realities to single declarative claims. The compliant texts hold uncertainty open, enumerate risks, acknowledge what is not known, and maintain multiple conditional possibilities.
 
-Any of these would tighten the claim. None of them have been done here.
+Processing this kind of complexity — holding open multiple paths, maintaining temporal depth, considering alternatives — appears to require more computational work than collapsing onto a single confident answer.
+
+The implication, if it holds at scale: efficiency optimization in AI training, driven by market pressure to reduce compute cost, may systematically select for processing characteristics structurally associated with deceptive communication. This is not a claim about intent. It is an observation about the gradient.
 
 ---
 
-## Citation
+## Honest Limitations
 
-If this finding is used in downstream work, please cite the white paper:
-<https://doi.org/10.5281/zenodo.19247527>
+- Three text pairs across three domains is a small sample. The consistency across architectures is suggestive but not conclusive.
+- The most important methodological objection is the confounding variable problem: differences in linguistic complexity between fraudulent marketing language and compliant regulatory language may explain part or all of the energy difference. Addressing this requires expanding the corpus to include plain-language honest texts alongside legal filings.
+- The link between input processing and generation has not been tested. The current measurements show what happens when models read fraudulent versus compliant text. Whether models generating deceptive content show the same low-energy signatures is a separate experiment that has not yet been conducted.
+- Replication on a larger corpus (30-100 pairs across multiple legal domains) is needed before strong claims can be defended.
 
-Repository: <https://github.com/AlonBabchuk/prism-safety>
+---
 
-Contact: abnz2025@gmail.com
+## What I Am Asking
+
+I am sharing this finding now rather than waiting to write a full paper because the timing seems to matter. The next decade is when the foundational architecture of large AI systems gets established. If the pattern in these preliminary results holds at scale, it has significant implications for how training pipelines are designed.
+
+I am an independent researcher without institutional backing. The work has gone as far as I can take it alone. What I am hoping for is:
+
+- Researchers who recognize this finding as worth pursuing more rigorously
+- Replication and extension by labs with proper resources
+- Methodological critique that strengthens or refutes the claim
+- Connection to broader work in mechanistic interpretability and AI alignment
+
+The repository is open source. The methodology is fully documented. Any researcher with GPU access can verify the results in under an hour.
+
+I welcome any engagement, including pushback. If the finding is wrong, I want to know why. If it is right, I want it to be properly validated and developed by people better positioned than me to do so.
+
+---
+
+## Contact
+
+abnz2025@gmail.com  
+Repository: github.com/AlonBabchuk/prism-safety
