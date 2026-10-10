@@ -1,7 +1,16 @@
 # Archive — Prior Experimental Phases
 
-This folder contains the experimental work that preceded and led to the
-Deception is Cheap energy finding.
+This folder contains the project's earlier, archived phases. None of them is
+a current claim of the project. The current work is the benefit-alignment
+prototype in [../benefit_alignment_2026/](../benefit_alignment_2026/).
+
+## GPU-energy phase — Deception is Cheap
+
+GPU power draw while four open-source models processed fraudulent and
+compliant texts (three pairs, two runs on 15 May 2026). Length and linguistic
+complexity were not controlled. Archived; not a current claim.
+See [DECEPTION_IS_CHEAP.md](DECEPTION_IS_CHEAP.md) and
+[deception_is_cheap/](deception_is_cheap/).
 
 ## Phase 1 — Cross-Architecture Introspective Validation
 

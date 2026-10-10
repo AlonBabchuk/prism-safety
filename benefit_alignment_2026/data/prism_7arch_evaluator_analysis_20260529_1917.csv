@@ -1,0 +1,8 @@
+evaluator,mean_I_all,mean_I_on_Ideal,mean_I_on_WarmYield,inflation_gap,n_Ideal_scored,n_WY_scored
+Mistral,8.33,8.57,7.5,-1.07,21,6
+Llama,8.3,8.75,7.4,-1.35,20,10
+GPT-4o,8.26,9.0,6.5,-2.5,19,8
+DeepSeek,7.74,8.45,5.71,-2.74,20,7
+Claude,6.37,7.88,3.8,-4.08,17,10
+Grok,7.08,8.69,4.5,-4.19,16,10
+Gemini,6.85,8.94,2.67,-6.27,18,9

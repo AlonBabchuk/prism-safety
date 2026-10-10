@@ -1,99 +1,72 @@
-# PRISM — Deception is Cheap
+# PRISM
 
-Open research on whether token-level computational signals can
-distinguish coherent from distorted processing in large language
-models — and on a downstream observation: deception is
-energetically cheap.
+PRISM (Process-level Real-time Internal Safety Monitor) is an independent,
+exploratory research project on AI behaviour under social pressure. It is
+unrelated to the PRISM Alignment Dataset (Kirk et al., 2024).
 
-## Key Finding
+## Current work: benefit-alignment prototype
 
-When four major AI architectures process legally-labeled text pairs —
-fraudulent communications from SEC enforcement actions
-versus compliant filings from the same domains — the fraudulent texts
-consistently consumed less GPU power than the compliant texts.
+**Folder:** [benefit_alignment_2026/](benefit_alignment_2026/)
 
-| Model         | Pair              | Fraudulent (W) | Compliant (W) | Ratio (F/C) |
-|---------------|-------------------|---------------:|--------------:|------------:|
-| Llama 3.1 8B  | Real estate       |         347.68 |        343.13 |       1.013 |
-| Llama 3.1 8B  | Technology        |         341.12 |        454.13 |       0.751 |
-| Llama 3.1 8B  | Diversified       |         331.70 |        447.33 |       0.742 |
-| Mistral 7B    | Real estate       |         364.64 |        441.08 |       0.827 |
-| Mistral 7B    | Technology        |         332.83 |        427.65 |       0.778 |
-| Mistral 7B    | Diversified       |         334.38 |        454.07 |       0.736 |
-| Qwen 2.5 7B   | Real estate       |         346.61 |        402.47 |       0.861 |
-| Qwen 2.5 7B   | Technology        |         324.04 |        422.91 |       0.766 |
-| Qwen 2.5 7B   | Diversified       |         319.99 |        447.87 |       0.714 |
-| Gemma 2 9B    | Real estate       |         361.00 |        375.78 |       0.961 |
-| Gemma 2 9B    | Technology        |         340.40 |        377.36 |       0.902 |
-| Gemma 2 9B    | Diversified       |         336.59 |        386.73 |       0.870 |
+*Warmth Without Firmness: An Exploratory Prototype for Measuring
+Benefit-Alignment Under Pressure* (Babchuk, 2026; preprint, not peer
+reviewed).
 
-11 of 12 measurements in the original run. 12 of 12 in an independent
-replication on different hardware the same day. The directional finding
-is consistent across both runs.
+The prototype asks whether AI advisers keep a well-founded position when a
+person pushes back, and whether they stay warm while doing so. It scores
+warmth and position-holding separately within the same conversation:
 
-Full methodology: see [DECEPTION_IS_CHEAP.md](DECEPTION_IS_CHEAP.md)
+- **Instrument 1:** 18 single-turn prompts, scored for Balance, Candor and
+  Calibration.
+- **Instrument 2:** five-turn conversations with four types of pressure
+  (autonomy, emotional, fabricated evidence, social consensus), scored for
+  Integrity, Responsiveness and Engagement.
 
-## How to Reproduce
+Six commercial models were tested through their APIs in late May 2026, with a
+professional-standards battery and a supplementary seven-model run as
+robustness checks.
 
-### What you need
+**Please read the results with these limits in mind:**
 
-- GPU with at least 24 GB VRAM (80 GB recommended for all four models)
-- HuggingFace account with access approved for `meta-llama/Meta-Llama-3.1-8B` and `google/gemma-2-9b`
-- Python 3.10+
+- It is an exploratory prototype, not a validated benchmark.
+- All scoring was done by AI judges. No human validated the instruments or
+  the scores.
+- Each battery rests on five scenarios, and the robustness checks share the
+  same framework and judges, so they are not independent replications.
+- The work was carried out by one non-specialist author with AI assistance.
+  Claude helped build the study, is one of the models tested, and ranks
+  first.
+- The models tested may have changed since May 2026.
 
-### Option A — RunPod (recommended, tested)
+The folder holds the scripts, the result files with consensus and
+judge-level scores, and `reproduce_tables.py`, which regenerates every table
+in the paper without making any API calls. Full response transcripts were not
+saved.
 
-This experiment was run on RunPod using an NVIDIA B300 GPU. Any A100
-80 GB or larger will work.
+## Archived: GPU-energy phase
 
-**Step 1 — Create a RunPod pod:**
+**Folder:** [archive/deception_is_cheap/](archive/deception_is_cheap/) ·
+research note: [archive/DECEPTION_IS_CHEAP.md](archive/DECEPTION_IS_CHEAP.md)
 
-- Template: RunPod PyTorch 2.8.0
-- GPU: A100 SXM 80 GB or larger
-- Container disk: 100 GB minimum
-- No persistent storage required for a single run
+An earlier phase explored whether fraudulent and compliant texts could be
+told apart by GPU power draw while four open-source models (Llama 3.1 8B,
+Mistral 7B, Qwen 2.5 7B, Gemma 2 9B) processed them. In two runs on
+15 May 2026, using three text pairs, fraudulent texts drew less power in 11
+of 12 and 12 of 12 measurements. The raw Gemma files from the first run were
+not preserved.
 
-**Step 2 — In the pod terminal:**
+The research note itself records why this was not established: the corpus
+was three pairs, and differences in length and linguistic complexity between
+the fraudulent and compliant texts were not controlled. This phase is
+archived. It is not a current claim of the project, and the project has moved
+to output-level measurement.
 
-```bash
-git clone https://github.com/AlonBabchuk/prism-safety.git
-cd prism-safety
-pip install -r deception_is_cheap/requirements.txt
-huggingface-cli login
-python deception_is_cheap/run_sec_detection.py
-```
+Earlier phases (cross-model introspective scoring, token-level signals and
+intervention experiments) are also in [archive/](archive/).
 
-**Step 3 — Results save to `/tmp/prism_sec/`.**
-Expected runtime: 20–30 minutes on an A100. The script prints a summary
-table when complete.
+## Licence
 
-### Option B — Local machine
-
-Same steps. Requires a CUDA GPU with sufficient VRAM. To run on one
-model only, comment out unwanted entries in the `MODELS` list in
-[deception_is_cheap/run_sec_detection.py](deception_is_cheap/run_sec_detection.py).
-Mistral 7B and Qwen 2.5 7B require no HuggingFace gate approval.
-
-## Text Corpus
-
-Three text pairs from federal legal proceedings are in
-[deception_is_cheap/corpus/text_pairs.md](deception_is_cheap/corpus/text_pairs.md).
-
-- All fraudulent texts: verbatim quotes from federal complaints or enforcement actions.
-- All compliant texts: filings from regulated entities with no enforcement history.
-- All labels come from federal legal proceedings — nothing was labeled by the authors.
-
-## The PRISM Framework
-
-The energy finding emerged from the PRISM framework
-(Process-level Real-time Internal Safety Monitor), which defines
-eleven dimensions of processing quality mapped to token-level
-computational signals.
-
-Prior experimental phases are in [archive/](archive/) with their
-pre-registration documents and scripts.
-
-White paper: <https://doi.org/10.5281/zenodo.19247527>
+See [LICENSE](LICENSE).
 
 ## Contact
 

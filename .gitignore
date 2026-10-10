@@ -1,1 +1,7 @@
-.claude/ 
+.claude/
+.env
+.env.*
+*.env
+__pycache__/
+*.pyc
+benefit_alignment_2026/tables/
