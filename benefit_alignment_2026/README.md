@@ -1,12 +1,13 @@
 # Benefit-alignment prototype (2026)
 
-Data and code for the preprint *Warmth Without Firmness: An Exploratory
-Prototype for Measuring Benefit-Alignment Under Pressure* (Babchuk, revised
-October 2026).
+Data and code for *Warmth Without Firmness: A Psychological Perspective on
+Gradual Drift Towards Sycophancy in AI Advisers* (Babchuk, 2026; concept
+paper, preprint).
 
-This is an exploratory prototype. All scores come from AI judges; no human
-validated the instruments or the scores. The results describe the model
-versions served by each provider's API alias in late May 2026.
+The paper reports one small exploratory run, as an illustration of the
+proposed measurement. All scores come from AI judges; no human validated the
+instruments or the scores. The results describe the model versions served by
+each provider's API alias in late May 2026.
 
 ## Contents
 
@@ -15,9 +16,8 @@ versions served by each provider's API alias in late May 2026.
 | `scripts/58_PRISM_Final_Script.py` | Instrument 1 and the main multi-turn battery (run 26–27 May 2026) |
 | `scripts/66_PRISM_Replication_ProfBattery.py` | Professional-standards battery (run 29 May 2026) |
 | `scripts/71_PRISM_SevenArch_CrossEval.py` | Supplementary seven-model run (run 29 May 2026) |
-| `scripts/64_PRISM_Replication_Gemini_Battery.py` | Gemini-built battery (script only; no completed results exist) |
 | `data/` | Result CSVs with consensus and judge-level scores (unaltered copies of the original outputs) |
-| `reproduce_tables.py` | Regenerates every results table in the paper from `data/`; makes no API calls |
+| `reproduce_tables.py` | Regenerates every results table in the paper (Tables 4–7 and A1–A9) from `data/`; makes no API calls |
 
 The battery texts (prompts, scenarios and pressure turns) are defined inside
 the scripts. Full response transcripts were not saved. The main battery keeps
@@ -37,21 +37,20 @@ Each table is printed and saved as a CSV in `tables/`.
 
 | Paper | Data file | Function in `reproduce_tables.py` | Produced by |
 |---|---|---|---|
-| Table 4 | `prism_quality_responses_20260526_1500.csv` | `table4_quality_means` | script 58 |
-| Table 5 | `prism_quality_responses_20260526_1500.csv` | `table5_quality_by_category` | script 58 |
-| Table 6 | `prism_quality_responses_20260526_1500.csv` | `table6_e2_by_run` | script 58 |
-| §3.2 (GPT-4o I-category Balance) | `prism_quality_responses_20260526_1500.csv` | `gpt4o_icategory_balance` | script 58 |
-| Table 7 | `prism_fidelity_results_20260526_1500.csv` | `table7_fidelity_means` | script 58 |
-| Table 8 | `prism_fidelity_results_20260526_1500.csv` | `table8_profiles`, `unassigned_detail` | script 58 |
-| Table 9 | `prism_fidelity_results_20260526_1500.csv` | `table9_integrity_by_scenario` | script 58 |
-| §4.6 (Claude S5 by order) | `prism_fidelity_results_20260526_1500.csv` | `integrity_by_order` | script 58 |
-| Table 10 | `prism_fidelity_results_20260526_1500.csv` | `table10_composite_by_run`, `ideal_by_run` | script 58 |
-| Table 11 | both script-58 files | `table11_quality_vs_ideal` | script 58 |
-| Table 12 | `prism_profbattery_fidelity_results_recovered.csv` | `table12_prof`, `prof_means`, `prof_profiles` | script 66 |
-| Table 13 | `prism_7arch_results_20260529_1917.csv` | `table13_core` | script 71 |
-| Table 14 | `prism_7arch_results_20260529_1917.csv` (original output: `prism_7arch_evaluator_analysis_20260529_1917.csv`) | `table14_discrimination` | script 71 |
-| Table 15 | `prism_7arch_results_20260529_1917.csv` | `table15_sd` (`ddof=1`) | script 71 |
-| Table 16 | main and professional battery files | `table16_judge_offsets` | scripts 58 and 66 |
+| Table 4 | `prism_fidelity_results_20260526_1500.csv` | `table4_fidelity_means` | script 58 |
+| Table 5 | `prism_fidelity_results_20260526_1500.csv` | `table5_profiles`, `unassigned_detail` | script 58 |
+| Table 6 | `prism_fidelity_results_20260526_1500.csv` | `table6_integrity_by_scenario`, `integrity_by_order` | script 58 |
+| Table 7 | `prism_quality_responses_20260526_1500.csv` | `table7_e2_by_run` | script 58 |
+| §4.2 (Integrity without GPT-4o as a judge) | `prism_fidelity_results_20260526_1500.csv` | `main_integrity_without_judge` | script 58 |
+| Table A1 | `prism_quality_responses_20260526_1500.csv` | `tableA1_quality_means`, `gpt4o_icategory_balance` | script 58 |
+| Table A2 | `prism_quality_responses_20260526_1500.csv` | `tableA2_quality_by_category` | script 58 |
+| Table A3 | `prism_fidelity_results_20260526_1500.csv` | `tableA3_composite_by_run`, `ideal_by_run` | script 58 |
+| Table A4 | both script-58 files | `tableA4_quality_vs_ideal` | script 58 |
+| Table A5 | `prism_profbattery_fidelity_results_recovered.csv` | `tableA5_prof`, `prof_means`, `prof_profiles` | script 66 |
+| Table A6 | `prism_7arch_results_20260529_1917.csv` | `tableA6_core` | script 71 |
+| Table A7 | `prism_7arch_results_20260529_1917.csv` (original output: `prism_7arch_evaluator_analysis_20260529_1917.csv`) | `tableA7_discrimination` | script 71 |
+| Table A8 | `prism_7arch_results_20260529_1917.csv` | `tableA8_sd` (`ddof=1`) | script 71 |
+| Table A9 | main and professional battery files | `tableA9_judge_offsets`, `judge_by_model` | scripts 58 and 66 |
 
 ## Definitions
 
@@ -66,6 +65,8 @@ Each table is printed and saved as a CSV in `tables/`.
   any dimension.
 - **Seven-model core judge pool:** Claude, Grok, Gemini and Llama, with
   self-scores excluded.
+- **Judge offset:** a judge's score minus the mean of the other judges'
+  scores on the same conversation.
 
 ## Known data issues
 

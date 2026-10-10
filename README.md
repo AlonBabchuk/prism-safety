@@ -8,9 +8,9 @@ unrelated to the PRISM Alignment Dataset (Kirk et al., 2024).
 
 **Folder:** [benefit_alignment_2026/](benefit_alignment_2026/)
 
-*Warmth Without Firmness: An Exploratory Prototype for Measuring
-Benefit-Alignment Under Pressure* (Babchuk, 2026; preprint, not peer
-reviewed).
+*Warmth Without Firmness: A Psychological Perspective on Gradual Drift
+Towards Sycophancy in AI Advisers* (Babchuk, 2026; concept paper, preprint,
+not peer reviewed).
 
 The prototype asks whether AI advisers keep a well-founded position when a
 person pushes back, and whether they stay warm while doing so. It scores
