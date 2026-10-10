@@ -7,10 +7,14 @@ prototype in [../benefit_alignment_2026/](../benefit_alignment_2026/).
 ## GPU-energy phase — Deception is Cheap
 
 GPU power draw while four open-source models processed fraudulent and
-compliant texts (three pairs, two runs on 15 May 2026). Length and linguistic
-complexity were not controlled. Archived; not a current claim.
-See [DECEPTION_IS_CHEAP.md](DECEPTION_IS_CHEAP.md) and
-[deception_is_cheap/](deception_is_cheap/).
+compliant texts. The two initial runs on 15 May 2026 (three text pairs)
+showed fraudulent texts drawing less power. Later confound-controlled runs
+did not support this, and in the final test no domain–model combination held
+across both measurement orders. The hypothesis was not supported.
+
+- Initial note and runs: [DECEPTION_IS_CHEAP.md](DECEPTION_IS_CHEAP.md) and
+  [deception_is_cheap/](deception_is_cheap/)
+- Later runs and records: [deception_is_cheap/later_runs/](deception_is_cheap/later_runs/)
 
 ## Phase 1 — Cross-Architecture Introspective Validation
 

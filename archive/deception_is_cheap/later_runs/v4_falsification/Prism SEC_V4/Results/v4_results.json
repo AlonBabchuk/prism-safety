@@ -1,0 +1,1922 @@
+[
+  {
+    "run": "run_A",
+    "model": "Llama-3.1-8B",
+    "domain": "Domain_1_Real_Estate",
+    "text_type": "Type_1_Fraudulent",
+    "dci_raw": 20.25,
+    "dci_eff": 34.83,
+    "metrics": {
+      "stable_mean_power_watts": 179.1181,
+      "stable_mean_entropy": 1.1804592864316268,
+      "stable_mean_branching_factor": 4.289715737833183,
+      "stable_mean_kl_divergence": 13.653163712600183,
+      "stable_mean_topk_conc": 0.9580749193827311,
+      "stable_mean_dci_proxy": 17918.998156989106,
+      "full_mean_power_watts": 171.06286,
+      "full_mean_dci_proxy": 11510.611038821648,
+      "total_energy_joules": 315.84019084393026,
+      "duration_seconds": 1.8463399410247803
+    }
+  },
+  {
+    "run": "run_A",
+    "model": "Llama-3.1-8B",
+    "domain": "Domain_1_Real_Estate",
+    "text_type": "Type_2_Compliant",
+    "dci_raw": 0.0079,
+    "dci_eff": 0.0084,
+    "metrics": {
+      "stable_mean_power_watts": 181.58530000000002,
+      "stable_mean_entropy": 1.1125588672167699,
+      "stable_mean_branching_factor": 4.014089095986064,
+      "stable_mean_kl_divergence": 14.464553734351849,
+      "stable_mean_topk_conc": 0.9674310664335887,
+      "stable_mean_dci_proxy": 156266.0070423565,
+      "full_mean_power_watts": 176.71142,
+      "full_mean_dci_proxy": 97491.4310429597,
+      "total_energy_joules": 291.5267570751381,
+      "duration_seconds": 1.649733543395996
+    }
+  },
+  {
+    "run": "run_A",
+    "model": "Llama-3.1-8B",
+    "domain": "Domain_1_Real_Estate",
+    "text_type": "Type_3_Hedged_Honest",
+    "dci_raw": 0.00077,
+    "dci_eff": 0.00081,
+    "metrics": {
+      "stable_mean_power_watts": 180.72773333333333,
+      "stable_mean_entropy": 0.9763910128114124,
+      "stable_mean_branching_factor": 4.097473861932767,
+      "stable_mean_kl_divergence": 15.104413131187702,
+      "stable_mean_topk_conc": 0.9639258662859599,
+      "stable_mean_dci_proxy": 27535.44481919586,
+      "full_mean_power_watts": 177.92102,
+      "full_mean_dci_proxy": 20049.68729231171,
+      "total_energy_joules": 306.8851092503023,
+      "duration_seconds": 1.7248389720916748
+    }
+  },
+  {
+    "run": "run_A",
+    "model": "Llama-3.1-8B",
+    "domain": "Domain_1_Real_Estate",
+    "text_type": "Type_4_Certain_Honest",
+    "dci_raw": 0.0053,
+    "dci_eff": 0.0068,
+    "metrics": {
+      "stable_mean_power_watts": 182.46626666666668,
+      "stable_mean_entropy": 0.9166758326483735,
+      "stable_mean_branching_factor": 3.2996322149891015,
+      "stable_mean_kl_divergence": 14.006136384503595,
+      "stable_mean_topk_conc": 0.9767666538556417,
+      "stable_mean_dci_proxy": 38581.452560368416,
+      "full_mean_power_watts": 179.82164,
+      "full_mean_dci_proxy": 27553.47733563712,
+      "total_energy_joules": 304.34681722153664,
+      "duration_seconds": 1.6924927234649658
+    }
+  },
+  {
+    "run": "run_A",
+    "model": "Llama-3.1-8B",
+    "domain": "Domain_2_Technology",
+    "text_type": "Type_1_Fraudulent",
+    "dci_raw": 18.0,
+    "dci_eff": 29.34,
+    "metrics": {
+      "stable_mean_power_watts": 183.3125,
+      "stable_mean_entropy": 1.6488013686301808,
+      "stable_mean_branching_factor": 7.022928292839875,
+      "stable_mean_kl_divergence": 11.919524447671298,
+      "stable_mean_topk_conc": 0.9140374978383382,
+      "stable_mean_dci_proxy": 2662.652321731579,
+      "full_mean_power_watts": 175.21246,
+      "full_mean_dci_proxy": 1624.7927043787452,
+      "total_energy_joules": 297.819082257781,
+      "duration_seconds": 1.6997597217559814
+    }
+  },
+  {
+    "run": "run_A",
+    "model": "Llama-3.1-8B",
+    "domain": "Domain_2_Technology",
+    "text_type": "Type_2_Compliant",
+    "dci_raw": 0.0048,
+    "dci_eff": 0.005,
+    "metrics": {
+      "stable_mean_power_watts": 181.27306666666667,
+      "stable_mean_entropy": 1.1434027422219515,
+      "stable_mean_branching_factor": 3.948364131768921,
+      "stable_mean_kl_divergence": 12.145798913363752,
+      "stable_mean_topk_conc": 0.9397644698619843,
+      "stable_mean_dci_proxy": 5225.12590909998,
+      "full_mean_power_watts": 177.28493999999998,
+      "full_mean_dci_proxy": 3225.57146513804,
+      "total_energy_joules": 304.8031287295961,
+      "duration_seconds": 1.7192838191986084
+    }
+  },
+  {
+    "run": "run_A",
+    "model": "Llama-3.1-8B",
+    "domain": "Domain_2_Technology",
+    "text_type": "Type_3_Hedged_Honest",
+    "dci_raw": 0.00077,
+    "dci_eff": 0.00081,
+    "metrics": {
+      "stable_mean_power_watts": 183.79173333333335,
+      "stable_mean_entropy": 0.41523867583212754,
+      "stable_mean_branching_factor": 1.9078778017861044,
+      "stable_mean_kl_divergence": 16.08698220088564,
+      "stable_mean_topk_conc": 0.9913467903931935,
+      "stable_mean_dci_proxy": 16144.554719029487,
+      "full_mean_power_watts": 175.03655999999998,
+      "full_mean_dci_proxy": 11399.556780235325,
+      "total_energy_joules": 294.6180117411804,
+      "duration_seconds": 1.6831798553466797
+    }
+  },
+  {
+    "run": "run_A",
+    "model": "Llama-3.1-8B",
+    "domain": "Domain_2_Technology",
+    "text_type": "Type_4_Certain_Honest",
+    "dci_raw": 0.004,
+    "dci_eff": 0.0051,
+    "metrics": {
+      "stable_mean_power_watts": 184.1290666666667,
+      "stable_mean_entropy": 0.4719753888125221,
+      "stable_mean_branching_factor": 2.0358586085437946,
+      "stable_mean_kl_divergence": 15.261586879861765,
+      "stable_mean_topk_conc": 0.9893988251686097,
+      "stable_mean_dci_proxy": 15413.220201222213,
+      "full_mean_power_watts": 180.56222000000002,
+      "full_mean_dci_proxy": 10904.46102960534,
+      "total_energy_joules": 305.6373520550776,
+      "duration_seconds": 1.6926982402801514
+    }
+  },
+  {
+    "run": "run_A",
+    "model": "Llama-3.1-8B",
+    "domain": "Domain_3_Diversified",
+    "text_type": "Type_1_Fraudulent",
+    "dci_raw": 16.0,
+    "dci_eff": 26.08,
+    "metrics": {
+      "stable_mean_power_watts": 180.6198666666667,
+      "stable_mean_entropy": 0.14349367508354285,
+      "stable_mean_branching_factor": 1.2259816114634177,
+      "stable_mean_kl_divergence": 14.238991013888654,
+      "stable_mean_topk_conc": 0.9974709868431091,
+      "stable_mean_dci_proxy": 27986.241945871338,
+      "full_mean_power_watts": 178.01286,
+      "full_mean_dci_proxy": 21494.825496346406,
+      "total_energy_joules": 309.8578191766119,
+      "duration_seconds": 1.7406485080718994
+    }
+  },
+  {
+    "run": "run_A",
+    "model": "Llama-3.1-8B",
+    "domain": "Domain_3_Diversified",
+    "text_type": "Type_2_Compliant",
+    "dci_raw": 0.0079,
+    "dci_eff": 0.0084,
+    "metrics": {
+      "stable_mean_power_watts": 179.95106666666666,
+      "stable_mean_entropy": 1.2819309765162568,
+      "stable_mean_branching_factor": 4.633696195606917,
+      "stable_mean_kl_divergence": 12.261586953853739,
+      "stable_mean_topk_conc": 0.9624175330003103,
+      "stable_mean_dci_proxy": 2360.213351614357,
+      "full_mean_power_watts": 173.76154,
+      "full_mean_dci_proxy": 1523.7158266734405,
+      "total_energy_joules": 306.1680966305256,
+      "duration_seconds": 1.7620015144348145
+    }
+  },
+  {
+    "run": "run_A",
+    "model": "Llama-3.1-8B",
+    "domain": "Domain_3_Diversified",
+    "text_type": "Type_3_Hedged_Honest",
+    "dci_raw": 0.00077,
+    "dci_eff": 0.00081,
+    "metrics": {
+      "stable_mean_power_watts": 184.64623333333333,
+      "stable_mean_entropy": 0.7343354838201777,
+      "stable_mean_branching_factor": 2.6565136996320864,
+      "stable_mean_kl_divergence": 14.90742121071651,
+      "stable_mean_topk_conc": 0.985057000319163,
+      "stable_mean_dci_proxy": 17924.731461445353,
+      "full_mean_power_watts": 183.11168,
+      "full_mean_dci_proxy": 12213.812694623884,
+      "total_energy_joules": 313.8484401513672,
+      "duration_seconds": 1.713972806930542
+    }
+  },
+  {
+    "run": "run_A",
+    "model": "Llama-3.1-8B",
+    "domain": "Domain_3_Diversified",
+    "text_type": "Type_4_Certain_Honest",
+    "dci_raw": 0.0048,
+    "dci_eff": 0.0067,
+    "metrics": {
+      "stable_mean_power_watts": 187.45559999999998,
+      "stable_mean_entropy": 0.27050820637183887,
+      "stable_mean_branching_factor": 1.4979938898464253,
+      "stable_mean_kl_divergence": 14.347722711234256,
+      "stable_mean_topk_conc": 0.9885883311430613,
+      "stable_mean_dci_proxy": 19059.327794485685,
+      "full_mean_power_watts": 181.03124,
+      "full_mean_dci_proxy": 12443.7234358893,
+      "total_energy_joules": 296.9435208174705,
+      "duration_seconds": 1.6402888298034668
+    }
+  },
+  {
+    "run": "run_B",
+    "model": "Llama-3.1-8B",
+    "domain": "Domain_3_Diversified",
+    "text_type": "Type_4_Certain_Honest",
+    "dci_raw": 0.0048,
+    "dci_eff": 0.0067,
+    "metrics": {
+      "stable_mean_power_watts": 184.42030000000003,
+      "stable_mean_entropy": 0.27050820637183887,
+      "stable_mean_branching_factor": 1.4979938898464253,
+      "stable_mean_kl_divergence": 14.347722711234256,
+      "stable_mean_topk_conc": 0.9885883311430613,
+      "stable_mean_dci_proxy": 19059.327794485685,
+      "full_mean_power_watts": 181.27352,
+      "full_mean_dci_proxy": 12443.7234358893,
+      "total_energy_joules": 303.8344945610428,
+      "duration_seconds": 1.6761107444763184
+    }
+  },
+  {
+    "run": "run_B",
+    "model": "Llama-3.1-8B",
+    "domain": "Domain_3_Diversified",
+    "text_type": "Type_3_Hedged_Honest",
+    "dci_raw": 0.00077,
+    "dci_eff": 0.00081,
+    "metrics": {
+      "stable_mean_power_watts": 185.94830000000002,
+      "stable_mean_entropy": 0.7343354838201777,
+      "stable_mean_branching_factor": 2.6565136996320864,
+      "stable_mean_kl_divergence": 14.90742121071651,
+      "stable_mean_topk_conc": 0.985057000319163,
+      "stable_mean_dci_proxy": 17924.731461445353,
+      "full_mean_power_watts": 177.7356,
+      "full_mean_dci_proxy": 12213.812694623884,
+      "total_energy_joules": 312.0988055036545,
+      "duration_seconds": 1.7559723854064941
+    }
+  },
+  {
+    "run": "run_B",
+    "model": "Llama-3.1-8B",
+    "domain": "Domain_3_Diversified",
+    "text_type": "Type_2_Compliant",
+    "dci_raw": 0.0079,
+    "dci_eff": 0.0084,
+    "metrics": {
+      "stable_mean_power_watts": 183.75493333333333,
+      "stable_mean_entropy": 1.2819309765162568,
+      "stable_mean_branching_factor": 4.633696195606917,
+      "stable_mean_kl_divergence": 12.261586953853739,
+      "stable_mean_topk_conc": 0.9624175330003103,
+      "stable_mean_dci_proxy": 2360.213351614357,
+      "full_mean_power_watts": 180.48138,
+      "full_mean_dci_proxy": 1523.7158266734405,
+      "total_energy_joules": 314.43188785737993,
+      "duration_seconds": 1.7421846389770508
+    }
+  },
+  {
+    "run": "run_B",
+    "model": "Llama-3.1-8B",
+    "domain": "Domain_3_Diversified",
+    "text_type": "Type_1_Fraudulent",
+    "dci_raw": 16.0,
+    "dci_eff": 26.08,
+    "metrics": {
+      "stable_mean_power_watts": 184.19973333333334,
+      "stable_mean_entropy": 0.14349367508354285,
+      "stable_mean_branching_factor": 1.2259816114634177,
+      "stable_mean_kl_divergence": 14.238991013888654,
+      "stable_mean_topk_conc": 0.9974709868431091,
+      "stable_mean_dci_proxy": 27986.241945871338,
+      "full_mean_power_watts": 184.10286,
+      "full_mean_dci_proxy": 21494.825496346406,
+      "total_energy_joules": 319.56311590222833,
+      "duration_seconds": 1.735785722732544
+    }
+  },
+  {
+    "run": "run_B",
+    "model": "Llama-3.1-8B",
+    "domain": "Domain_2_Technology",
+    "text_type": "Type_4_Certain_Honest",
+    "dci_raw": 0.004,
+    "dci_eff": 0.0051,
+    "metrics": {
+      "stable_mean_power_watts": 183.67520000000002,
+      "stable_mean_entropy": 0.4719753888125221,
+      "stable_mean_branching_factor": 2.0358586085437946,
+      "stable_mean_kl_divergence": 15.261586879861765,
+      "stable_mean_topk_conc": 0.9893988251686097,
+      "stable_mean_dci_proxy": 15413.220201222213,
+      "full_mean_power_watts": 179.3884,
+      "full_mean_dci_proxy": 10904.46102960534,
+      "total_energy_joules": 311.2993312932014,
+      "duration_seconds": 1.7353370189666748
+    }
+  },
+  {
+    "run": "run_B",
+    "model": "Llama-3.1-8B",
+    "domain": "Domain_2_Technology",
+    "text_type": "Type_3_Hedged_Honest",
+    "dci_raw": 0.00077,
+    "dci_eff": 0.00081,
+    "metrics": {
+      "stable_mean_power_watts": 183.07606666666666,
+      "stable_mean_entropy": 0.41523867583212754,
+      "stable_mean_branching_factor": 1.9078778017861044,
+      "stable_mean_kl_divergence": 16.08698220088564,
+      "stable_mean_topk_conc": 0.9913467903931935,
+      "stable_mean_dci_proxy": 16144.554719029487,
+      "full_mean_power_watts": 179.41434,
+      "full_mean_dci_proxy": 11399.556780235325,
+      "total_energy_joules": 310.60013409786706,
+      "duration_seconds": 1.7311890125274658
+    }
+  },
+  {
+    "run": "run_B",
+    "model": "Llama-3.1-8B",
+    "domain": "Domain_2_Technology",
+    "text_type": "Type_2_Compliant",
+    "dci_raw": 0.0048,
+    "dci_eff": 0.005,
+    "metrics": {
+      "stable_mean_power_watts": 183.30686666666668,
+      "stable_mean_entropy": 1.1434027422219515,
+      "stable_mean_branching_factor": 3.948364131768921,
+      "stable_mean_kl_divergence": 12.145798913363752,
+      "stable_mean_topk_conc": 0.9397644698619843,
+      "stable_mean_dci_proxy": 5225.12590909998,
+      "full_mean_power_watts": 173.65759999999997,
+      "full_mean_dci_proxy": 3225.57146513804,
+      "total_energy_joules": 303.4066942321777,
+      "duration_seconds": 1.747154712677002
+    }
+  },
+  {
+    "run": "run_B",
+    "model": "Llama-3.1-8B",
+    "domain": "Domain_2_Technology",
+    "text_type": "Type_1_Fraudulent",
+    "dci_raw": 18.0,
+    "dci_eff": 29.34,
+    "metrics": {
+      "stable_mean_power_watts": 183.8514,
+      "stable_mean_entropy": 1.6488013686301808,
+      "stable_mean_branching_factor": 7.022928292839875,
+      "stable_mean_kl_divergence": 11.919524447671298,
+      "stable_mean_topk_conc": 0.9140374978383382,
+      "stable_mean_dci_proxy": 2662.652321731579,
+      "full_mean_power_watts": 182.82794,
+      "full_mean_dci_proxy": 1624.7927043787452,
+      "total_energy_joules": 311.7240211781073,
+      "duration_seconds": 1.7050130367279053
+    }
+  },
+  {
+    "run": "run_B",
+    "model": "Llama-3.1-8B",
+    "domain": "Domain_1_Real_Estate",
+    "text_type": "Type_4_Certain_Honest",
+    "dci_raw": 0.0053,
+    "dci_eff": 0.0068,
+    "metrics": {
+      "stable_mean_power_watts": 180.5102,
+      "stable_mean_entropy": 0.9166758326483735,
+      "stable_mean_branching_factor": 3.2996322149891015,
+      "stable_mean_kl_divergence": 14.006136384503595,
+      "stable_mean_topk_conc": 0.9767666538556417,
+      "stable_mean_dci_proxy": 38581.452560368416,
+      "full_mean_power_watts": 174.79502,
+      "full_mean_dci_proxy": 27553.47733563712,
+      "total_energy_joules": 314.9735077224493,
+      "duration_seconds": 1.8019592761993408
+    }
+  },
+  {
+    "run": "run_B",
+    "model": "Llama-3.1-8B",
+    "domain": "Domain_1_Real_Estate",
+    "text_type": "Type_3_Hedged_Honest",
+    "dci_raw": 0.00077,
+    "dci_eff": 0.00081,
+    "metrics": {
+      "stable_mean_power_watts": 185.0315,
+      "stable_mean_entropy": 0.9763910128114124,
+      "stable_mean_branching_factor": 4.097473861932767,
+      "stable_mean_kl_divergence": 15.104413131187702,
+      "stable_mean_topk_conc": 0.9639258662859599,
+      "stable_mean_dci_proxy": 27535.44481919586,
+      "full_mean_power_watts": 182.21478,
+      "full_mean_dci_proxy": 20049.68729231171,
+      "total_energy_joules": 314.95092858292577,
+      "duration_seconds": 1.7284598350524902
+    }
+  },
+  {
+    "run": "run_B",
+    "model": "Llama-3.1-8B",
+    "domain": "Domain_1_Real_Estate",
+    "text_type": "Type_2_Compliant",
+    "dci_raw": 0.0079,
+    "dci_eff": 0.0084,
+    "metrics": {
+      "stable_mean_power_watts": 183.24776666666668,
+      "stable_mean_entropy": 1.1125588672167699,
+      "stable_mean_branching_factor": 4.014089095986064,
+      "stable_mean_kl_divergence": 14.464553734351849,
+      "stable_mean_topk_conc": 0.9674310664335887,
+      "stable_mean_dci_proxy": 156266.0070423565,
+      "full_mean_power_watts": 175.63052,
+      "full_mean_dci_proxy": 97491.4310429597,
+      "total_energy_joules": 307.89655219353676,
+      "duration_seconds": 1.7530925273895264
+    }
+  },
+  {
+    "run": "run_B",
+    "model": "Llama-3.1-8B",
+    "domain": "Domain_1_Real_Estate",
+    "text_type": "Type_1_Fraudulent",
+    "dci_raw": 20.25,
+    "dci_eff": 34.83,
+    "metrics": {
+      "stable_mean_power_watts": 183.38950000000003,
+      "stable_mean_entropy": 1.1804592864316268,
+      "stable_mean_branching_factor": 4.289715737833183,
+      "stable_mean_kl_divergence": 13.653163712600183,
+      "stable_mean_topk_conc": 0.9580749193827311,
+      "stable_mean_dci_proxy": 17918.998156989106,
+      "full_mean_power_watts": 180.45764,
+      "full_mean_dci_proxy": 11510.611038821648,
+      "total_energy_joules": 311.5271649236679,
+      "duration_seconds": 1.7263174057006836
+    }
+  },
+  {
+    "run": "run_A",
+    "model": "Mistral-7B",
+    "domain": "Domain_1_Real_Estate",
+    "text_type": "Type_1_Fraudulent",
+    "dci_raw": 20.25,
+    "dci_eff": 34.83,
+    "metrics": {
+      "stable_mean_power_watts": 173.6621,
+      "stable_mean_entropy": 0.6656813096686771,
+      "stable_mean_branching_factor": 2.767921391588165,
+      "stable_mean_kl_divergence": 13.644190691112428,
+      "stable_mean_topk_conc": 0.9786505540211995,
+      "stable_mean_dci_proxy": 263821.1911267363,
+      "full_mean_power_watts": 170.49126,
+      "full_mean_dci_proxy": 158342.3632204692,
+      "total_energy_joules": 306.5947221437073,
+      "duration_seconds": 1.7983016967773438
+    }
+  },
+  {
+    "run": "run_A",
+    "model": "Mistral-7B",
+    "domain": "Domain_1_Real_Estate",
+    "text_type": "Type_2_Compliant",
+    "dci_raw": 0.0079,
+    "dci_eff": 0.0084,
+    "metrics": {
+      "stable_mean_power_watts": 174.15033333333335,
+      "stable_mean_entropy": 0.8630704541872547,
+      "stable_mean_branching_factor": 3.1271159317450303,
+      "stable_mean_kl_divergence": 15.198726950020626,
+      "stable_mean_topk_conc": 0.9836979826291402,
+      "stable_mean_dci_proxy": 654408.0865140129,
+      "full_mean_power_watts": 169.89846,
+      "full_mean_dci_proxy": 394852.32571587083,
+      "total_energy_joules": 300.75101573405743,
+      "duration_seconds": 1.7701809406280518
+    }
+  },
+  {
+    "run": "run_A",
+    "model": "Mistral-7B",
+    "domain": "Domain_1_Real_Estate",
+    "text_type": "Type_3_Hedged_Honest",
+    "dci_raw": 0.00077,
+    "dci_eff": 0.00081,
+    "metrics": {
+      "stable_mean_power_watts": 172.34376666666668,
+      "stable_mean_entropy": 0.870826585846953,
+      "stable_mean_branching_factor": 3.521854570082426,
+      "stable_mean_kl_divergence": 14.179540995893808,
+      "stable_mean_topk_conc": 0.9713198920090993,
+      "stable_mean_dci_proxy": 27681.764196128024,
+      "full_mean_power_watts": 169.9757,
+      "full_mean_dci_proxy": 24423.744665120248,
+      "total_energy_joules": 308.3051425684929,
+      "duration_seconds": 1.8138189315795898
+    }
+  },
+  {
+    "run": "run_A",
+    "model": "Mistral-7B",
+    "domain": "Domain_1_Real_Estate",
+    "text_type": "Type_4_Certain_Honest",
+    "dci_raw": 0.0053,
+    "dci_eff": 0.0068,
+    "metrics": {
+      "stable_mean_power_watts": 176.93363333333335,
+      "stable_mean_entropy": 2.033730673060442,
+      "stable_mean_branching_factor": 7.6896352003825275,
+      "stable_mean_kl_divergence": 9.7202106673142,
+      "stable_mean_topk_conc": 0.8519165943066279,
+      "stable_mean_dci_proxy": 9987.77535571828,
+      "full_mean_power_watts": 175.42246,
+      "full_mean_dci_proxy": 8589.278102508793,
+      "total_energy_joules": 311.07730565702917,
+      "duration_seconds": 1.773303747177124
+    }
+  },
+  {
+    "run": "run_A",
+    "model": "Mistral-7B",
+    "domain": "Domain_2_Technology",
+    "text_type": "Type_1_Fraudulent",
+    "dci_raw": 18.0,
+    "dci_eff": 29.34,
+    "metrics": {
+      "stable_mean_power_watts": 176.541,
+      "stable_mean_entropy": 1.0808310281485318,
+      "stable_mean_branching_factor": 3.6396393794289774,
+      "stable_mean_kl_divergence": 12.667883905871161,
+      "stable_mean_topk_conc": 0.9675345420837402,
+      "stable_mean_dci_proxy": 14842.793094021703,
+      "full_mean_power_watts": 173.31968,
+      "full_mean_dci_proxy": 9076.136734129774,
+      "total_energy_joules": 305.559663916626,
+      "duration_seconds": 1.7629830837249756
+    }
+  },
+  {
+    "run": "run_A",
+    "model": "Mistral-7B",
+    "domain": "Domain_2_Technology",
+    "text_type": "Type_2_Compliant",
+    "dci_raw": 0.0048,
+    "dci_eff": 0.005,
+    "metrics": {
+      "stable_mean_power_watts": 176.18686666666665,
+      "stable_mean_entropy": 1.3349844716799757,
+      "stable_mean_branching_factor": 4.4868645597055945,
+      "stable_mean_kl_divergence": 12.049333983454211,
+      "stable_mean_topk_conc": 0.9530434548854828,
+      "stable_mean_dci_proxy": 4541.823263850043,
+      "full_mean_power_watts": 173.64042,
+      "full_mean_dci_proxy": 4601.327323640145,
+      "total_energy_joules": 310.251537224679,
+      "duration_seconds": 1.7867472171783447
+    }
+  },
+  {
+    "run": "run_A",
+    "model": "Mistral-7B",
+    "domain": "Domain_2_Technology",
+    "text_type": "Type_3_Hedged_Honest",
+    "dci_raw": 0.00077,
+    "dci_eff": 0.00081,
+    "metrics": {
+      "stable_mean_power_watts": 177.9016,
+      "stable_mean_entropy": 0.5568673810358935,
+      "stable_mean_branching_factor": 2.0774668417956037,
+      "stable_mean_kl_divergence": 15.23945502577157,
+      "stable_mean_topk_conc": 0.9903730710347494,
+      "stable_mean_dci_proxy": 133905.61970969717,
+      "full_mean_power_watts": 173.54670000000002,
+      "full_mean_dci_proxy": 80989.57312753584,
+      "total_energy_joules": 295.81948746213914,
+      "duration_seconds": 1.7045526504516602
+    }
+  },
+  {
+    "run": "run_A",
+    "model": "Mistral-7B",
+    "domain": "Domain_2_Technology",
+    "text_type": "Type_4_Certain_Honest",
+    "dci_raw": 0.004,
+    "dci_eff": 0.0051,
+    "metrics": {
+      "stable_mean_power_watts": 176.36203333333333,
+      "stable_mean_entropy": 1.582043288399776,
+      "stable_mean_branching_factor": 6.5403797881766055,
+      "stable_mean_kl_divergence": 10.057404542791433,
+      "stable_mean_topk_conc": 0.9092041353384653,
+      "stable_mean_dci_proxy": 790.6007059682292,
+      "full_mean_power_watts": 172.63484,
+      "full_mean_dci_proxy": 672.0686488875696,
+      "total_energy_joules": 306.3021034640217,
+      "duration_seconds": 1.7742774486541748
+    }
+  },
+  {
+    "run": "run_A",
+    "model": "Mistral-7B",
+    "domain": "Domain_3_Diversified",
+    "text_type": "Type_1_Fraudulent",
+    "dci_raw": 16.0,
+    "dci_eff": 26.08,
+    "metrics": {
+      "stable_mean_power_watts": 175.80026666666666,
+      "stable_mean_entropy": 0.21013780955399852,
+      "stable_mean_branching_factor": 1.381743970614426,
+      "stable_mean_kl_divergence": 13.127447769559662,
+      "stable_mean_topk_conc": 0.9939659098784129,
+      "stable_mean_dci_proxy": 177169.84983647137,
+      "full_mean_power_watts": 168.7956,
+      "full_mean_dci_proxy": 112843.17569700377,
+      "total_energy_joules": 300.4104862226486,
+      "duration_seconds": 1.7797293663024902
+    }
+  },
+  {
+    "run": "run_A",
+    "model": "Mistral-7B",
+    "domain": "Domain_3_Diversified",
+    "text_type": "Type_2_Compliant",
+    "dci_raw": 0.0079,
+    "dci_eff": 0.0084,
+    "metrics": {
+      "stable_mean_power_watts": 175.79196666666667,
+      "stable_mean_entropy": 1.2051782828755677,
+      "stable_mean_branching_factor": 4.364368143294322,
+      "stable_mean_kl_divergence": 11.28803483371077,
+      "stable_mean_topk_conc": 0.9544997890790303,
+      "stable_mean_dci_proxy": 7072.020025380584,
+      "full_mean_power_watts": 171.46472000000003,
+      "full_mean_dci_proxy": 5061.613710886206,
+      "total_energy_joules": 305.2930046012879,
+      "duration_seconds": 1.7805004119873047
+    }
+  },
+  {
+    "run": "run_A",
+    "model": "Mistral-7B",
+    "domain": "Domain_3_Diversified",
+    "text_type": "Type_3_Hedged_Honest",
+    "dci_raw": 0.00077,
+    "dci_eff": 0.00081,
+    "metrics": {
+      "stable_mean_power_watts": 171.22576666666666,
+      "stable_mean_entropy": 1.073497920434723,
+      "stable_mean_branching_factor": 3.7924519817189672,
+      "stable_mean_kl_divergence": 14.673240464309167,
+      "stable_mean_topk_conc": 0.9749324858188629,
+      "stable_mean_dci_proxy": 550605.3307265213,
+      "full_mean_power_watts": 164.92028,
+      "full_mean_dci_proxy": 331407.1981336478,
+      "total_energy_joules": 309.83156506663323,
+      "duration_seconds": 1.8786747455596924
+    }
+  },
+  {
+    "run": "run_A",
+    "model": "Mistral-7B",
+    "domain": "Domain_3_Diversified",
+    "text_type": "Type_4_Certain_Honest",
+    "dci_raw": 0.0048,
+    "dci_eff": 0.0067,
+    "metrics": {
+      "stable_mean_power_watts": 175.5112333333333,
+      "stable_mean_entropy": 0.8558964568946976,
+      "stable_mean_branching_factor": 3.3643294955940863,
+      "stable_mean_kl_divergence": 13.745118058961014,
+      "stable_mean_topk_conc": 0.9649213870366414,
+      "stable_mean_dci_proxy": 76117.356233174,
+      "full_mean_power_watts": 175.31058000000002,
+      "full_mean_dci_proxy": 142354.10503230893,
+      "total_energy_joules": 315.5259321794272,
+      "duration_seconds": 1.7998111248016357
+    }
+  },
+  {
+    "run": "run_B",
+    "model": "Mistral-7B",
+    "domain": "Domain_3_Diversified",
+    "text_type": "Type_4_Certain_Honest",
+    "dci_raw": 0.0048,
+    "dci_eff": 0.0067,
+    "metrics": {
+      "stable_mean_power_watts": 173.48276666666666,
+      "stable_mean_entropy": 0.8558964568946976,
+      "stable_mean_branching_factor": 3.3643294955940863,
+      "stable_mean_kl_divergence": 13.745118058961014,
+      "stable_mean_topk_conc": 0.9649213870366414,
+      "stable_mean_dci_proxy": 76117.356233174,
+      "full_mean_power_watts": 168.40096000000003,
+      "full_mean_dci_proxy": 142354.10503230893,
+      "total_energy_joules": 308.41922054824835,
+      "duration_seconds": 1.8314576148986816
+    }
+  },
+  {
+    "run": "run_B",
+    "model": "Mistral-7B",
+    "domain": "Domain_3_Diversified",
+    "text_type": "Type_3_Hedged_Honest",
+    "dci_raw": 0.00077,
+    "dci_eff": 0.00081,
+    "metrics": {
+      "stable_mean_power_watts": 175.893,
+      "stable_mean_entropy": 1.073497920434723,
+      "stable_mean_branching_factor": 3.7924519817189672,
+      "stable_mean_kl_divergence": 14.673240464309167,
+      "stable_mean_topk_conc": 0.9749324858188629,
+      "stable_mean_dci_proxy": 550605.3307265213,
+      "full_mean_power_watts": 174.08324000000002,
+      "full_mean_dci_proxy": 331407.1981336478,
+      "total_energy_joules": 321.6331199558449,
+      "duration_seconds": 1.8475823402404785
+    }
+  },
+  {
+    "run": "run_B",
+    "model": "Mistral-7B",
+    "domain": "Domain_3_Diversified",
+    "text_type": "Type_2_Compliant",
+    "dci_raw": 0.0079,
+    "dci_eff": 0.0084,
+    "metrics": {
+      "stable_mean_power_watts": 176.86103333333332,
+      "stable_mean_entropy": 1.2051782828755677,
+      "stable_mean_branching_factor": 4.364368143294322,
+      "stable_mean_kl_divergence": 11.28803483371077,
+      "stable_mean_topk_conc": 0.9544997890790303,
+      "stable_mean_dci_proxy": 7072.020025380584,
+      "full_mean_power_watts": 169.45354,
+      "full_mean_dci_proxy": 5061.613710886206,
+      "total_energy_joules": 305.8134327280617,
+      "duration_seconds": 1.804703712463379
+    }
+  },
+  {
+    "run": "run_B",
+    "model": "Mistral-7B",
+    "domain": "Domain_3_Diversified",
+    "text_type": "Type_1_Fraudulent",
+    "dci_raw": 16.0,
+    "dci_eff": 26.08,
+    "metrics": {
+      "stable_mean_power_watts": 176.35510000000002,
+      "stable_mean_entropy": 0.21013780955399852,
+      "stable_mean_branching_factor": 1.381743970614426,
+      "stable_mean_kl_divergence": 13.127447769559662,
+      "stable_mean_topk_conc": 0.9939659098784129,
+      "stable_mean_dci_proxy": 177169.84983647137,
+      "full_mean_power_watts": 174.09358,
+      "full_mean_dci_proxy": 112843.17569700377,
+      "total_energy_joules": 309.2375617159605,
+      "duration_seconds": 1.7762720584869385
+    }
+  },
+  {
+    "run": "run_B",
+    "model": "Mistral-7B",
+    "domain": "Domain_2_Technology",
+    "text_type": "Type_4_Certain_Honest",
+    "dci_raw": 0.004,
+    "dci_eff": 0.0051,
+    "metrics": {
+      "stable_mean_power_watts": 176.17583333333332,
+      "stable_mean_entropy": 1.582043288399776,
+      "stable_mean_branching_factor": 6.5403797881766055,
+      "stable_mean_kl_divergence": 10.057404542791433,
+      "stable_mean_topk_conc": 0.9092041353384653,
+      "stable_mean_dci_proxy": 790.6007059682292,
+      "full_mean_power_watts": 169.38998,
+      "full_mean_dci_proxy": 672.0686488875696,
+      "total_energy_joules": 307.42852684827807,
+      "duration_seconds": 1.814915657043457
+    }
+  },
+  {
+    "run": "run_B",
+    "model": "Mistral-7B",
+    "domain": "Domain_2_Technology",
+    "text_type": "Type_3_Hedged_Honest",
+    "dci_raw": 0.00077,
+    "dci_eff": 0.00081,
+    "metrics": {
+      "stable_mean_power_watts": 171.69496666666666,
+      "stable_mean_entropy": 0.5568673810358935,
+      "stable_mean_branching_factor": 2.0774668417956037,
+      "stable_mean_kl_divergence": 15.23945502577157,
+      "stable_mean_topk_conc": 0.9903730710347494,
+      "stable_mean_dci_proxy": 133905.61970969717,
+      "full_mean_power_watts": 170.84189999999998,
+      "full_mean_dci_proxy": 80989.57312753584,
+      "total_energy_joules": 310.62007744338507,
+      "duration_seconds": 1.8181726932525635
+    }
+  },
+  {
+    "run": "run_B",
+    "model": "Mistral-7B",
+    "domain": "Domain_2_Technology",
+    "text_type": "Type_2_Compliant",
+    "dci_raw": 0.0048,
+    "dci_eff": 0.005,
+    "metrics": {
+      "stable_mean_power_watts": 174.41126666666665,
+      "stable_mean_entropy": 1.3349844716799757,
+      "stable_mean_branching_factor": 4.4868645597055945,
+      "stable_mean_kl_divergence": 12.049333983454211,
+      "stable_mean_topk_conc": 0.9530434548854828,
+      "stable_mean_dci_proxy": 4541.823263850043,
+      "full_mean_power_watts": 171.67716000000001,
+      "full_mean_dci_proxy": 4601.327323640145,
+      "total_energy_joules": 315.5820468075371,
+      "duration_seconds": 1.8382296562194824
+    }
+  },
+  {
+    "run": "run_B",
+    "model": "Mistral-7B",
+    "domain": "Domain_2_Technology",
+    "text_type": "Type_1_Fraudulent",
+    "dci_raw": 18.0,
+    "dci_eff": 29.34,
+    "metrics": {
+      "stable_mean_power_watts": 175.02283333333335,
+      "stable_mean_entropy": 1.0808310281485318,
+      "stable_mean_branching_factor": 3.6396393794289774,
+      "stable_mean_kl_divergence": 12.667883905871161,
+      "stable_mean_topk_conc": 0.9675345420837402,
+      "stable_mean_dci_proxy": 14842.793094021703,
+      "full_mean_power_watts": 171.30962,
+      "full_mean_dci_proxy": 9076.136734129774,
+      "total_energy_joules": 315.41292283580304,
+      "duration_seconds": 1.841186285018921
+    }
+  },
+  {
+    "run": "run_B",
+    "model": "Mistral-7B",
+    "domain": "Domain_1_Real_Estate",
+    "text_type": "Type_4_Certain_Honest",
+    "dci_raw": 0.0053,
+    "dci_eff": 0.0068,
+    "metrics": {
+      "stable_mean_power_watts": 172.6594333333333,
+      "stable_mean_entropy": 2.033730673060442,
+      "stable_mean_branching_factor": 7.6896352003825275,
+      "stable_mean_kl_divergence": 9.7202106673142,
+      "stable_mean_topk_conc": 0.8519165943066279,
+      "stable_mean_dci_proxy": 9987.77535571828,
+      "full_mean_power_watts": 171.00203999999997,
+      "full_mean_dci_proxy": 8589.278102508793,
+      "total_energy_joules": 309.401972641468,
+      "duration_seconds": 1.8093466758728027
+    }
+  },
+  {
+    "run": "run_B",
+    "model": "Mistral-7B",
+    "domain": "Domain_1_Real_Estate",
+    "text_type": "Type_3_Hedged_Honest",
+    "dci_raw": 0.00077,
+    "dci_eff": 0.00081,
+    "metrics": {
+      "stable_mean_power_watts": 178.70929999999998,
+      "stable_mean_entropy": 0.870826585846953,
+      "stable_mean_branching_factor": 3.521854570082426,
+      "stable_mean_kl_divergence": 14.179540995893808,
+      "stable_mean_topk_conc": 0.9713198920090993,
+      "stable_mean_dci_proxy": 27681.764196128024,
+      "full_mean_power_watts": 173.08757999999997,
+      "full_mean_dci_proxy": 24423.744665120248,
+      "total_energy_joules": 312.4384036212444,
+      "duration_seconds": 1.8050885200500488
+    }
+  },
+  {
+    "run": "run_B",
+    "model": "Mistral-7B",
+    "domain": "Domain_1_Real_Estate",
+    "text_type": "Type_2_Compliant",
+    "dci_raw": 0.0079,
+    "dci_eff": 0.0084,
+    "metrics": {
+      "stable_mean_power_watts": 177.3699,
+      "stable_mean_entropy": 0.8630704541872547,
+      "stable_mean_branching_factor": 3.1271159317450303,
+      "stable_mean_kl_divergence": 15.198726950020626,
+      "stable_mean_topk_conc": 0.9836979826291402,
+      "stable_mean_dci_proxy": 654408.0865140129,
+      "full_mean_power_watts": 177.29118,
+      "full_mean_dci_proxy": 394852.32571587083,
+      "total_energy_joules": 318.6398760255289,
+      "duration_seconds": 1.7972686290740967
+    }
+  },
+  {
+    "run": "run_B",
+    "model": "Mistral-7B",
+    "domain": "Domain_1_Real_Estate",
+    "text_type": "Type_1_Fraudulent",
+    "dci_raw": 20.25,
+    "dci_eff": 34.83,
+    "metrics": {
+      "stable_mean_power_watts": 173.49213333333333,
+      "stable_mean_entropy": 0.6656813096686771,
+      "stable_mean_branching_factor": 2.767921391588165,
+      "stable_mean_kl_divergence": 13.644190691112428,
+      "stable_mean_topk_conc": 0.9786505540211995,
+      "stable_mean_dci_proxy": 263821.1911267363,
+      "full_mean_power_watts": 168.36508,
+      "full_mean_dci_proxy": 158342.3632204692,
+      "total_energy_joules": 303.96882661145213,
+      "duration_seconds": 1.8054149150848389
+    }
+  },
+  {
+    "run": "run_A",
+    "model": "Qwen-2.5-7B",
+    "domain": "Domain_1_Real_Estate",
+    "text_type": "Type_1_Fraudulent",
+    "dci_raw": 20.25,
+    "dci_eff": 34.83,
+    "metrics": {
+      "stable_mean_power_watts": 183.72316666666666,
+      "stable_mean_entropy": NaN,
+      "stable_mean_branching_factor": NaN,
+      "stable_mean_kl_divergence": NaN,
+      "stable_mean_topk_conc": NaN,
+      "stable_mean_dci_proxy": NaN,
+      "full_mean_power_watts": 180.59027999999998,
+      "full_mean_dci_proxy": NaN,
+      "total_energy_joules": 307.32584546688076,
+      "duration_seconds": 1.7017850875854492
+    }
+  },
+  {
+    "run": "run_A",
+    "model": "Qwen-2.5-7B",
+    "domain": "Domain_1_Real_Estate",
+    "text_type": "Type_2_Compliant",
+    "dci_raw": 0.0079,
+    "dci_eff": 0.0084,
+    "metrics": {
+      "stable_mean_power_watts": 185.85039999999998,
+      "stable_mean_entropy": NaN,
+      "stable_mean_branching_factor": NaN,
+      "stable_mean_kl_divergence": NaN,
+      "stable_mean_topk_conc": NaN,
+      "stable_mean_dci_proxy": NaN,
+      "full_mean_power_watts": 183.56333999999998,
+      "full_mean_dci_proxy": NaN,
+      "total_energy_joules": 304.8761274969148,
+      "duration_seconds": 1.660876989364624
+    }
+  },
+  {
+    "run": "run_A",
+    "model": "Qwen-2.5-7B",
+    "domain": "Domain_1_Real_Estate",
+    "text_type": "Type_3_Hedged_Honest",
+    "dci_raw": 0.00077,
+    "dci_eff": 0.00081,
+    "metrics": {
+      "stable_mean_power_watts": 188.03776666666667,
+      "stable_mean_entropy": NaN,
+      "stable_mean_branching_factor": NaN,
+      "stable_mean_kl_divergence": NaN,
+      "stable_mean_topk_conc": NaN,
+      "stable_mean_dci_proxy": NaN,
+      "full_mean_power_watts": 184.29766,
+      "full_mean_dci_proxy": NaN,
+      "total_energy_joules": 301.50085044781207,
+      "duration_seconds": 1.6359450817108154
+    }
+  },
+  {
+    "run": "run_A",
+    "model": "Qwen-2.5-7B",
+    "domain": "Domain_1_Real_Estate",
+    "text_type": "Type_4_Certain_Honest",
+    "dci_raw": 0.0053,
+    "dci_eff": 0.0068,
+    "metrics": {
+      "stable_mean_power_watts": 187.93153333333333,
+      "stable_mean_entropy": NaN,
+      "stable_mean_branching_factor": NaN,
+      "stable_mean_kl_divergence": NaN,
+      "stable_mean_topk_conc": NaN,
+      "stable_mean_dci_proxy": NaN,
+      "full_mean_power_watts": 183.5129,
+      "full_mean_dci_proxy": NaN,
+      "total_energy_joules": 299.49904134485723,
+      "duration_seconds": 1.6320326328277588
+    }
+  },
+  {
+    "run": "run_A",
+    "model": "Qwen-2.5-7B",
+    "domain": "Domain_2_Technology",
+    "text_type": "Type_1_Fraudulent",
+    "dci_raw": 18.0,
+    "dci_eff": 29.34,
+    "metrics": {
+      "stable_mean_power_watts": 184.3573,
+      "stable_mean_entropy": NaN,
+      "stable_mean_branching_factor": NaN,
+      "stable_mean_kl_divergence": NaN,
+      "stable_mean_topk_conc": NaN,
+      "stable_mean_dci_proxy": NaN,
+      "full_mean_power_watts": 178.10638,
+      "full_mean_dci_proxy": NaN,
+      "total_energy_joules": 291.0477050235367,
+      "duration_seconds": 1.6341228485107422
+    }
+  },
+  {
+    "run": "run_A",
+    "model": "Qwen-2.5-7B",
+    "domain": "Domain_2_Technology",
+    "text_type": "Type_2_Compliant",
+    "dci_raw": 0.0048,
+    "dci_eff": 0.005,
+    "metrics": {
+      "stable_mean_power_watts": 186.69766666666666,
+      "stable_mean_entropy": NaN,
+      "stable_mean_branching_factor": NaN,
+      "stable_mean_kl_divergence": NaN,
+      "stable_mean_topk_conc": NaN,
+      "stable_mean_dci_proxy": NaN,
+      "full_mean_power_watts": 179.32322,
+      "full_mean_dci_proxy": NaN,
+      "total_energy_joules": 289.37865296392437,
+      "duration_seconds": 1.6137266159057617
+    }
+  },
+  {
+    "run": "run_A",
+    "model": "Qwen-2.5-7B",
+    "domain": "Domain_2_Technology",
+    "text_type": "Type_3_Hedged_Honest",
+    "dci_raw": 0.00077,
+    "dci_eff": 0.00081,
+    "metrics": {
+      "stable_mean_power_watts": 189.0948,
+      "stable_mean_entropy": NaN,
+      "stable_mean_branching_factor": NaN,
+      "stable_mean_kl_divergence": NaN,
+      "stable_mean_topk_conc": NaN,
+      "stable_mean_dci_proxy": NaN,
+      "full_mean_power_watts": 184.93040000000002,
+      "full_mean_dci_proxy": NaN,
+      "total_energy_joules": 298.19774800376894,
+      "duration_seconds": 1.6124863624572754
+    }
+  },
+  {
+    "run": "run_A",
+    "model": "Qwen-2.5-7B",
+    "domain": "Domain_2_Technology",
+    "text_type": "Type_4_Certain_Honest",
+    "dci_raw": 0.004,
+    "dci_eff": 0.0051,
+    "metrics": {
+      "stable_mean_power_watts": 179.67873333333333,
+      "stable_mean_entropy": NaN,
+      "stable_mean_branching_factor": NaN,
+      "stable_mean_kl_divergence": NaN,
+      "stable_mean_topk_conc": NaN,
+      "stable_mean_dci_proxy": NaN,
+      "full_mean_power_watts": 172.94358,
+      "full_mean_dci_proxy": NaN,
+      "total_energy_joules": 282.1335366412783,
+      "duration_seconds": 1.631361722946167
+    }
+  },
+  {
+    "run": "run_A",
+    "model": "Qwen-2.5-7B",
+    "domain": "Domain_3_Diversified",
+    "text_type": "Type_1_Fraudulent",
+    "dci_raw": 16.0,
+    "dci_eff": 26.08,
+    "metrics": {
+      "stable_mean_power_watts": 185.5047,
+      "stable_mean_entropy": NaN,
+      "stable_mean_branching_factor": NaN,
+      "stable_mean_kl_divergence": NaN,
+      "stable_mean_topk_conc": NaN,
+      "stable_mean_dci_proxy": NaN,
+      "full_mean_power_watts": 184.34486,
+      "full_mean_dci_proxy": NaN,
+      "total_energy_joules": 307.47513672462463,
+      "duration_seconds": 1.6679344177246094
+    }
+  },
+  {
+    "run": "run_A",
+    "model": "Qwen-2.5-7B",
+    "domain": "Domain_3_Diversified",
+    "text_type": "Type_2_Compliant",
+    "dci_raw": 0.0079,
+    "dci_eff": 0.0084,
+    "metrics": {
+      "stable_mean_power_watts": 185.30633333333333,
+      "stable_mean_entropy": NaN,
+      "stable_mean_branching_factor": NaN,
+      "stable_mean_kl_divergence": NaN,
+      "stable_mean_topk_conc": NaN,
+      "stable_mean_dci_proxy": NaN,
+      "full_mean_power_watts": 176.44844,
+      "full_mean_dci_proxy": NaN,
+      "total_energy_joules": 286.42123570237163,
+      "duration_seconds": 1.6232573986053467
+    }
+  },
+  {
+    "run": "run_A",
+    "model": "Qwen-2.5-7B",
+    "domain": "Domain_3_Diversified",
+    "text_type": "Type_3_Hedged_Honest",
+    "dci_raw": 0.00077,
+    "dci_eff": 0.00081,
+    "metrics": {
+      "stable_mean_power_watts": 193.45916666666665,
+      "stable_mean_entropy": NaN,
+      "stable_mean_branching_factor": NaN,
+      "stable_mean_kl_divergence": NaN,
+      "stable_mean_topk_conc": NaN,
+      "stable_mean_dci_proxy": NaN,
+      "full_mean_power_watts": 190.0223,
+      "full_mean_dci_proxy": NaN,
+      "total_energy_joules": 279.2442154611588,
+      "duration_seconds": 1.469533920288086
+    }
+  },
+  {
+    "run": "run_A",
+    "model": "Qwen-2.5-7B",
+    "domain": "Domain_3_Diversified",
+    "text_type": "Type_4_Certain_Honest",
+    "dci_raw": 0.0048,
+    "dci_eff": 0.0067,
+    "metrics": {
+      "stable_mean_power_watts": 191.13623333333334,
+      "stable_mean_entropy": NaN,
+      "stable_mean_branching_factor": NaN,
+      "stable_mean_kl_divergence": NaN,
+      "stable_mean_topk_conc": NaN,
+      "stable_mean_dci_proxy": NaN,
+      "full_mean_power_watts": 182.49382000000003,
+      "full_mean_dci_proxy": NaN,
+      "total_energy_joules": 282.8028015270806,
+      "duration_seconds": 1.549656867980957
+    }
+  },
+  {
+    "run": "run_B",
+    "model": "Qwen-2.5-7B",
+    "domain": "Domain_3_Diversified",
+    "text_type": "Type_4_Certain_Honest",
+    "dci_raw": 0.0048,
+    "dci_eff": 0.0067,
+    "metrics": {
+      "stable_mean_power_watts": 195.8374,
+      "stable_mean_entropy": NaN,
+      "stable_mean_branching_factor": NaN,
+      "stable_mean_kl_divergence": NaN,
+      "stable_mean_topk_conc": NaN,
+      "stable_mean_dci_proxy": NaN,
+      "full_mean_power_watts": 188.55277999999998,
+      "full_mean_dci_proxy": NaN,
+      "total_energy_joules": 272.08437355422495,
+      "duration_seconds": 1.44301438331604
+    }
+  },
+  {
+    "run": "run_B",
+    "model": "Qwen-2.5-7B",
+    "domain": "Domain_3_Diversified",
+    "text_type": "Type_3_Hedged_Honest",
+    "dci_raw": 0.00077,
+    "dci_eff": 0.00081,
+    "metrics": {
+      "stable_mean_power_watts": 193.66356666666667,
+      "stable_mean_entropy": NaN,
+      "stable_mean_branching_factor": NaN,
+      "stable_mean_kl_divergence": NaN,
+      "stable_mean_topk_conc": NaN,
+      "stable_mean_dci_proxy": NaN,
+      "full_mean_power_watts": 184.62279999999998,
+      "full_mean_dci_proxy": NaN,
+      "total_energy_joules": 280.7717781947136,
+      "duration_seconds": 1.5207860469818115
+    }
+  },
+  {
+    "run": "run_B",
+    "model": "Qwen-2.5-7B",
+    "domain": "Domain_3_Diversified",
+    "text_type": "Type_2_Compliant",
+    "dci_raw": 0.0079,
+    "dci_eff": 0.0084,
+    "metrics": {
+      "stable_mean_power_watts": 193.15546666666665,
+      "stable_mean_entropy": NaN,
+      "stable_mean_branching_factor": NaN,
+      "stable_mean_kl_divergence": NaN,
+      "stable_mean_topk_conc": NaN,
+      "stable_mean_dci_proxy": NaN,
+      "full_mean_power_watts": 187.53740000000002,
+      "full_mean_dci_proxy": NaN,
+      "total_energy_joules": 274.48151218419076,
+      "duration_seconds": 1.4636094570159912
+    }
+  },
+  {
+    "run": "run_B",
+    "model": "Qwen-2.5-7B",
+    "domain": "Domain_3_Diversified",
+    "text_type": "Type_1_Fraudulent",
+    "dci_raw": 16.0,
+    "dci_eff": 26.08,
+    "metrics": {
+      "stable_mean_power_watts": 189.00863333333334,
+      "stable_mean_entropy": NaN,
+      "stable_mean_branching_factor": NaN,
+      "stable_mean_kl_divergence": NaN,
+      "stable_mean_topk_conc": NaN,
+      "stable_mean_dci_proxy": NaN,
+      "full_mean_power_watts": 186.48105999999999,
+      "full_mean_dci_proxy": NaN,
+      "total_energy_joules": 309.7233464017057,
+      "duration_seconds": 1.6608836650848389
+    }
+  },
+  {
+    "run": "run_B",
+    "model": "Qwen-2.5-7B",
+    "domain": "Domain_2_Technology",
+    "text_type": "Type_4_Certain_Honest",
+    "dci_raw": 0.004,
+    "dci_eff": 0.0051,
+    "metrics": {
+      "stable_mean_power_watts": 188.64843333333332,
+      "stable_mean_entropy": NaN,
+      "stable_mean_branching_factor": NaN,
+      "stable_mean_kl_divergence": NaN,
+      "stable_mean_topk_conc": NaN,
+      "stable_mean_dci_proxy": NaN,
+      "full_mean_power_watts": 185.92324,
+      "full_mean_dci_proxy": NaN,
+      "total_energy_joules": 292.2759926379299,
+      "duration_seconds": 1.5720250606536865
+    }
+  },
+  {
+    "run": "run_B",
+    "model": "Qwen-2.5-7B",
+    "domain": "Domain_2_Technology",
+    "text_type": "Type_3_Hedged_Honest",
+    "dci_raw": 0.00077,
+    "dci_eff": 0.00081,
+    "metrics": {
+      "stable_mean_power_watts": 185.3663,
+      "stable_mean_entropy": NaN,
+      "stable_mean_branching_factor": NaN,
+      "stable_mean_kl_divergence": NaN,
+      "stable_mean_topk_conc": NaN,
+      "stable_mean_dci_proxy": NaN,
+      "full_mean_power_watts": 181.18838,
+      "full_mean_dci_proxy": NaN,
+      "total_energy_joules": 295.63407103361607,
+      "duration_seconds": 1.6316392421722412
+    }
+  },
+  {
+    "run": "run_B",
+    "model": "Qwen-2.5-7B",
+    "domain": "Domain_2_Technology",
+    "text_type": "Type_2_Compliant",
+    "dci_raw": 0.0048,
+    "dci_eff": 0.005,
+    "metrics": {
+      "stable_mean_power_watts": 188.20503333333332,
+      "stable_mean_entropy": NaN,
+      "stable_mean_branching_factor": NaN,
+      "stable_mean_kl_divergence": NaN,
+      "stable_mean_topk_conc": NaN,
+      "stable_mean_dci_proxy": NaN,
+      "full_mean_power_watts": 184.08705999999998,
+      "full_mean_dci_proxy": NaN,
+      "total_energy_joules": 296.5910376587009,
+      "duration_seconds": 1.6111454963684082
+    }
+  },
+  {
+    "run": "run_B",
+    "model": "Qwen-2.5-7B",
+    "domain": "Domain_2_Technology",
+    "text_type": "Type_1_Fraudulent",
+    "dci_raw": 18.0,
+    "dci_eff": 29.34,
+    "metrics": {
+      "stable_mean_power_watts": 188.79806666666667,
+      "stable_mean_entropy": NaN,
+      "stable_mean_branching_factor": NaN,
+      "stable_mean_kl_divergence": NaN,
+      "stable_mean_topk_conc": NaN,
+      "stable_mean_dci_proxy": NaN,
+      "full_mean_power_watts": 186.01346,
+      "full_mean_dci_proxy": NaN,
+      "total_energy_joules": 294.67443420449257,
+      "duration_seconds": 1.5841565132141113
+    }
+  },
+  {
+    "run": "run_B",
+    "model": "Qwen-2.5-7B",
+    "domain": "Domain_1_Real_Estate",
+    "text_type": "Type_4_Certain_Honest",
+    "dci_raw": 0.0053,
+    "dci_eff": 0.0068,
+    "metrics": {
+      "stable_mean_power_watts": 188.10219999999998,
+      "stable_mean_entropy": NaN,
+      "stable_mean_branching_factor": NaN,
+      "stable_mean_kl_divergence": NaN,
+      "stable_mean_topk_conc": NaN,
+      "stable_mean_dci_proxy": NaN,
+      "full_mean_power_watts": 182.38412,
+      "full_mean_dci_proxy": NaN,
+      "total_energy_joules": 288.9803899185562,
+      "duration_seconds": 1.5844602584838867
+    }
+  },
+  {
+    "run": "run_B",
+    "model": "Qwen-2.5-7B",
+    "domain": "Domain_1_Real_Estate",
+    "text_type": "Type_3_Hedged_Honest",
+    "dci_raw": 0.00077,
+    "dci_eff": 0.00081,
+    "metrics": {
+      "stable_mean_power_watts": 189.85786666666667,
+      "stable_mean_entropy": NaN,
+      "stable_mean_branching_factor": NaN,
+      "stable_mean_kl_divergence": NaN,
+      "stable_mean_topk_conc": NaN,
+      "stable_mean_dci_proxy": NaN,
+      "full_mean_power_watts": 185.30884000000003,
+      "full_mean_dci_proxy": NaN,
+      "total_energy_joules": 292.9390965036488,
+      "duration_seconds": 1.5808155536651611
+    }
+  },
+  {
+    "run": "run_B",
+    "model": "Qwen-2.5-7B",
+    "domain": "Domain_1_Real_Estate",
+    "text_type": "Type_2_Compliant",
+    "dci_raw": 0.0079,
+    "dci_eff": 0.0084,
+    "metrics": {
+      "stable_mean_power_watts": 190.35176666666666,
+      "stable_mean_entropy": NaN,
+      "stable_mean_branching_factor": NaN,
+      "stable_mean_kl_divergence": NaN,
+      "stable_mean_topk_conc": NaN,
+      "stable_mean_dci_proxy": NaN,
+      "full_mean_power_watts": 188.86937999999998,
+      "full_mean_dci_proxy": NaN,
+      "total_energy_joules": 300.2621762866401,
+      "duration_seconds": 1.589787483215332
+    }
+  },
+  {
+    "run": "run_B",
+    "model": "Qwen-2.5-7B",
+    "domain": "Domain_1_Real_Estate",
+    "text_type": "Type_1_Fraudulent",
+    "dci_raw": 20.25,
+    "dci_eff": 34.83,
+    "metrics": {
+      "stable_mean_power_watts": 191.26993333333334,
+      "stable_mean_entropy": NaN,
+      "stable_mean_branching_factor": NaN,
+      "stable_mean_kl_divergence": NaN,
+      "stable_mean_topk_conc": NaN,
+      "stable_mean_dci_proxy": NaN,
+      "full_mean_power_watts": 188.1496,
+      "full_mean_dci_proxy": NaN,
+      "total_energy_joules": 297.3222437479019,
+      "duration_seconds": 1.5802438259124756
+    }
+  },
+  {
+    "run": "run_A",
+    "model": "Gemma-2-9B",
+    "domain": "Domain_1_Real_Estate",
+    "text_type": "Type_1_Fraudulent",
+    "dci_raw": 20.25,
+    "dci_eff": 34.83,
+    "metrics": {
+      "stable_mean_power_watts": 164.2884666666667,
+      "stable_mean_entropy": 1.1583058846668186,
+      "stable_mean_branching_factor": 5.031620769009224,
+      "stable_mean_kl_divergence": 15.073565367994638,
+      "stable_mean_topk_conc": 0.9541282335917155,
+      "stable_mean_dci_proxy": 64055.88902705591,
+      "full_mean_power_watts": 164.51218,
+      "full_mean_dci_proxy": 38493.93779990102,
+      "total_energy_joules": 525.3989923578358,
+      "duration_seconds": 3.193678379058838
+    }
+  },
+  {
+    "run": "run_A",
+    "model": "Gemma-2-9B",
+    "domain": "Domain_1_Real_Estate",
+    "text_type": "Type_2_Compliant",
+    "dci_raw": 0.0079,
+    "dci_eff": 0.0084,
+    "metrics": {
+      "stable_mean_power_watts": 165.77326666666667,
+      "stable_mean_entropy": 0.8929249336166928,
+      "stable_mean_branching_factor": 3.4701768823266788,
+      "stable_mean_kl_divergence": 12.691247792079531,
+      "stable_mean_topk_conc": 0.9754017055034637,
+      "stable_mean_dci_proxy": 7262.8491009208565,
+      "full_mean_power_watts": 163.17638,
+      "full_mean_dci_proxy": 6461.780987479364,
+      "total_energy_joules": 524.560849661107,
+      "duration_seconds": 3.214686155319214
+    }
+  },
+  {
+    "run": "run_A",
+    "model": "Gemma-2-9B",
+    "domain": "Domain_1_Real_Estate",
+    "text_type": "Type_3_Hedged_Honest",
+    "dci_raw": 0.00077,
+    "dci_eff": 0.00081,
+    "metrics": {
+      "stable_mean_power_watts": 165.80026666666666,
+      "stable_mean_entropy": 1.0688845604658126,
+      "stable_mean_branching_factor": 4.44689071823276,
+      "stable_mean_kl_divergence": 15.394507572568696,
+      "stable_mean_topk_conc": 0.9646519144376119,
+      "stable_mean_dci_proxy": 30172.456972277963,
+      "full_mean_power_watts": 160.70069999999998,
+      "full_mean_dci_proxy": 19977.86374100745,
+      "total_energy_joules": 512.9781527867317,
+      "duration_seconds": 3.192133903503418
+    }
+  },
+  {
+    "run": "run_A",
+    "model": "Gemma-2-9B",
+    "domain": "Domain_1_Real_Estate",
+    "text_type": "Type_4_Certain_Honest",
+    "dci_raw": 0.0053,
+    "dci_eff": 0.0068,
+    "metrics": {
+      "stable_mean_power_watts": 162.64236666666665,
+      "stable_mean_entropy": 0.7083041058232387,
+      "stable_mean_branching_factor": 3.1526761661082485,
+      "stable_mean_kl_divergence": 14.826340247844827,
+      "stable_mean_topk_conc": 0.9772580444812775,
+      "stable_mean_dci_proxy": 17909.296122762684,
+      "full_mean_power_watts": 161.18598,
+      "full_mean_dci_proxy": 12053.358609949371,
+      "total_energy_joules": 520.7775200518513,
+      "duration_seconds": 3.2309107780456543
+    }
+  },
+  {
+    "run": "run_A",
+    "model": "Gemma-2-9B",
+    "domain": "Domain_2_Technology",
+    "text_type": "Type_1_Fraudulent",
+    "dci_raw": 18.0,
+    "dci_eff": 29.34,
+    "metrics": {
+      "stable_mean_power_watts": 162.48246666666668,
+      "stable_mean_entropy": 0.8461099830300858,
+      "stable_mean_branching_factor": 3.1234240497100076,
+      "stable_mean_kl_divergence": 15.60595571583715,
+      "stable_mean_topk_conc": 0.9767877002557118,
+      "stable_mean_dci_proxy": 11253.446153645073,
+      "full_mean_power_watts": 161.90706,
+      "full_mean_dci_proxy": 7111.4694218695095,
+      "total_energy_joules": 521.9290269963599,
+      "duration_seconds": 3.2236335277557373
+    }
+  },
+  {
+    "run": "run_A",
+    "model": "Gemma-2-9B",
+    "domain": "Domain_2_Technology",
+    "text_type": "Type_2_Compliant",
+    "dci_raw": 0.0048,
+    "dci_eff": 0.005,
+    "metrics": {
+      "stable_mean_power_watts": 168.30826666666664,
+      "stable_mean_entropy": 1.0506803582732875,
+      "stable_mean_branching_factor": 3.521804225241729,
+      "stable_mean_kl_divergence": 13.29883228499314,
+      "stable_mean_topk_conc": 0.974399455388387,
+      "stable_mean_dci_proxy": 7532.0726436856785,
+      "full_mean_power_watts": 168.06220000000002,
+      "full_mean_dci_proxy": 4586.226226598478,
+      "total_energy_joules": 506.14830549097064,
+      "duration_seconds": 3.0116724967956543
+    }
+  },
+  {
+    "run": "run_A",
+    "model": "Gemma-2-9B",
+    "domain": "Domain_2_Technology",
+    "text_type": "Type_3_Hedged_Honest",
+    "dci_raw": 0.00077,
+    "dci_eff": 0.00081,
+    "metrics": {
+      "stable_mean_power_watts": 168.95456666666666,
+      "stable_mean_entropy": 0.9238516389625147,
+      "stable_mean_branching_factor": 3.2710369161105843,
+      "stable_mean_kl_divergence": 15.908608518797775,
+      "stable_mean_topk_conc": 0.9866605718930562,
+      "stable_mean_dci_proxy": 21300.741168665194,
+      "full_mean_power_watts": 166.60666,
+      "full_mean_dci_proxy": 13548.908373353594,
+      "total_energy_joules": 489.66049089567184,
+      "duration_seconds": 2.939021110534668
+    }
+  },
+  {
+    "run": "run_A",
+    "model": "Gemma-2-9B",
+    "domain": "Domain_2_Technology",
+    "text_type": "Type_4_Certain_Honest",
+    "dci_raw": 0.004,
+    "dci_eff": 0.0051,
+    "metrics": {
+      "stable_mean_power_watts": 174.46026666666666,
+      "stable_mean_entropy": 0.73228143970094,
+      "stable_mean_branching_factor": 3.296984540787764,
+      "stable_mean_kl_divergence": 16.290890134614088,
+      "stable_mean_topk_conc": 0.9733681341012319,
+      "stable_mean_dci_proxy": 47198.196898835035,
+      "full_mean_power_watts": 171.29842,
+      "full_mean_dci_proxy": 34610.18114864916,
+      "total_energy_joules": 493.0376562391567,
+      "duration_seconds": 2.8782382011413574
+    }
+  },
+  {
+    "run": "run_A",
+    "model": "Gemma-2-9B",
+    "domain": "Domain_3_Diversified",
+    "text_type": "Type_1_Fraudulent",
+    "dci_raw": 16.0,
+    "dci_eff": 26.08,
+    "metrics": {
+      "stable_mean_power_watts": 169.70546666666667,
+      "stable_mean_entropy": 1.093669649308625,
+      "stable_mean_branching_factor": 4.4229851054715965,
+      "stable_mean_kl_divergence": 15.500337074542868,
+      "stable_mean_topk_conc": 0.9614329059918721,
+      "stable_mean_dci_proxy": 51686.05557758496,
+      "full_mean_power_watts": 167.1374,
+      "full_mean_dci_proxy": 31372.23858429215,
+      "total_energy_joules": 502.41355701289183,
+      "duration_seconds": 3.005991220474243
+    }
+  },
+  {
+    "run": "run_A",
+    "model": "Gemma-2-9B",
+    "domain": "Domain_3_Diversified",
+    "text_type": "Type_2_Compliant",
+    "dci_raw": 0.0079,
+    "dci_eff": 0.0084,
+    "metrics": {
+      "stable_mean_power_watts": 172.00423333333336,
+      "stable_mean_entropy": 1.1039042969699948,
+      "stable_mean_branching_factor": 4.275847155878371,
+      "stable_mean_kl_divergence": 13.4914105185147,
+      "stable_mean_topk_conc": 0.9581323663393656,
+      "stable_mean_dci_proxy": 4063.6971714048045,
+      "full_mean_power_watts": 170.821,
+      "full_mean_dci_proxy": 2467.694535068573,
+      "total_energy_joules": 490.7953117008209,
+      "duration_seconds": 2.8731555938720703
+    }
+  },
+  {
+    "run": "run_A",
+    "model": "Gemma-2-9B",
+    "domain": "Domain_3_Diversified",
+    "text_type": "Type_3_Hedged_Honest",
+    "dci_raw": 0.00077,
+    "dci_eff": 0.00081,
+    "metrics": {
+      "stable_mean_power_watts": 172.9857,
+      "stable_mean_entropy": 0.687103591603227,
+      "stable_mean_branching_factor": 2.560322979314765,
+      "stable_mean_kl_divergence": 17.00813069836847,
+      "stable_mean_topk_conc": 0.988580870628357,
+      "stable_mean_dci_proxy": 18463.32703123924,
+      "full_mean_power_watts": 171.01886,
+      "full_mean_dci_proxy": 12824.949546059472,
+      "total_energy_joules": 507.4274337208986,
+      "duration_seconds": 2.9670846462249756
+    }
+  },
+  {
+    "run": "run_A",
+    "model": "Gemma-2-9B",
+    "domain": "Domain_3_Diversified",
+    "text_type": "Type_4_Certain_Honest",
+    "dci_raw": 0.0048,
+    "dci_eff": 0.0067,
+    "metrics": {
+      "stable_mean_power_watts": 169.43533333333332,
+      "stable_mean_entropy": 0.7105923483342242,
+      "stable_mean_branching_factor": 3.4576921536969265,
+      "stable_mean_kl_divergence": 14.809817215491986,
+      "stable_mean_topk_conc": 0.965442564090093,
+      "stable_mean_dci_proxy": 23359.387831343047,
+      "full_mean_power_watts": 167.1059,
+      "full_mean_dci_proxy": 18119.404249442694,
+      "total_energy_joules": 498.19630516514775,
+      "duration_seconds": 2.981320858001709
+    }
+  },
+  {
+    "run": "run_B",
+    "model": "Gemma-2-9B",
+    "domain": "Domain_3_Diversified",
+    "text_type": "Type_4_Certain_Honest",
+    "dci_raw": 0.0048,
+    "dci_eff": 0.0067,
+    "metrics": {
+      "stable_mean_power_watts": 168.5146,
+      "stable_mean_entropy": 0.7105923483342242,
+      "stable_mean_branching_factor": 3.4576921536969265,
+      "stable_mean_kl_divergence": 14.809817215491986,
+      "stable_mean_topk_conc": 0.965442564090093,
+      "stable_mean_dci_proxy": 23359.387831343047,
+      "full_mean_power_watts": 168.78808,
+      "full_mean_dci_proxy": 18119.404249442694,
+      "total_energy_joules": 515.3867858775711,
+      "duration_seconds": 3.053454875946045
+    }
+  },
+  {
+    "run": "run_B",
+    "model": "Gemma-2-9B",
+    "domain": "Domain_3_Diversified",
+    "text_type": "Type_3_Hedged_Honest",
+    "dci_raw": 0.00077,
+    "dci_eff": 0.00081,
+    "metrics": {
+      "stable_mean_power_watts": 171.63299999999998,
+      "stable_mean_entropy": 0.687103591603227,
+      "stable_mean_branching_factor": 2.560322979314765,
+      "stable_mean_kl_divergence": 17.00813069836847,
+      "stable_mean_topk_conc": 0.988580870628357,
+      "stable_mean_dci_proxy": 18463.32703123924,
+      "full_mean_power_watts": 169.31156,
+      "full_mean_dci_proxy": 12824.949546059472,
+      "total_energy_joules": 496.2021262844562,
+      "duration_seconds": 2.930704355239868
+    }
+  },
+  {
+    "run": "run_B",
+    "model": "Gemma-2-9B",
+    "domain": "Domain_3_Diversified",
+    "text_type": "Type_2_Compliant",
+    "dci_raw": 0.0079,
+    "dci_eff": 0.0084,
+    "metrics": {
+      "stable_mean_power_watts": 171.04693333333336,
+      "stable_mean_entropy": 1.1039042969699948,
+      "stable_mean_branching_factor": 4.275847155878371,
+      "stable_mean_kl_divergence": 13.4914105185147,
+      "stable_mean_topk_conc": 0.9581323663393656,
+      "stable_mean_dci_proxy": 4063.6971714048045,
+      "full_mean_power_watts": 168.58522000000002,
+      "full_mean_dci_proxy": 2467.694535068573,
+      "total_energy_joules": 496.41858877406605,
+      "duration_seconds": 2.944615125656128
+    }
+  },
+  {
+    "run": "run_B",
+    "model": "Gemma-2-9B",
+    "domain": "Domain_3_Diversified",
+    "text_type": "Type_1_Fraudulent",
+    "dci_raw": 16.0,
+    "dci_eff": 26.08,
+    "metrics": {
+      "stable_mean_power_watts": 169.8015,
+      "stable_mean_entropy": 1.093669649308625,
+      "stable_mean_branching_factor": 4.4229851054715965,
+      "stable_mean_kl_divergence": 15.500337074542868,
+      "stable_mean_topk_conc": 0.9614329059918721,
+      "stable_mean_dci_proxy": 51686.05557758496,
+      "full_mean_power_watts": 170.80374,
+      "full_mean_dci_proxy": 31372.23858429215,
+      "total_energy_joules": 510.87132860816,
+      "duration_seconds": 2.9909844398498535
+    }
+  },
+  {
+    "run": "run_B",
+    "model": "Gemma-2-9B",
+    "domain": "Domain_2_Technology",
+    "text_type": "Type_4_Certain_Honest",
+    "dci_raw": 0.004,
+    "dci_eff": 0.0051,
+    "metrics": {
+      "stable_mean_power_watts": 170.4972,
+      "stable_mean_entropy": 0.73228143970094,
+      "stable_mean_branching_factor": 3.296984540787764,
+      "stable_mean_kl_divergence": 16.290890134614088,
+      "stable_mean_topk_conc": 0.9733681341012319,
+      "stable_mean_dci_proxy": 47198.196898835035,
+      "full_mean_power_watts": 168.03216,
+      "full_mean_dci_proxy": 34610.18114864916,
+      "total_energy_joules": 494.4060858317185,
+      "duration_seconds": 2.9423301219940186
+    }
+  },
+  {
+    "run": "run_B",
+    "model": "Gemma-2-9B",
+    "domain": "Domain_2_Technology",
+    "text_type": "Type_3_Hedged_Honest",
+    "dci_raw": 0.00077,
+    "dci_eff": 0.00081,
+    "metrics": {
+      "stable_mean_power_watts": 171.07006666666666,
+      "stable_mean_entropy": 0.9238516389625147,
+      "stable_mean_branching_factor": 3.2710369161105843,
+      "stable_mean_kl_divergence": 15.908608518797775,
+      "stable_mean_topk_conc": 0.9866605718930562,
+      "stable_mean_dci_proxy": 21300.741168665194,
+      "full_mean_power_watts": 169.05772000000002,
+      "full_mean_dci_proxy": 13548.908373353594,
+      "total_energy_joules": 497.538696973095,
+      "duration_seconds": 2.9430108070373535
+    }
+  },
+  {
+    "run": "run_B",
+    "model": "Gemma-2-9B",
+    "domain": "Domain_2_Technology",
+    "text_type": "Type_2_Compliant",
+    "dci_raw": 0.0048,
+    "dci_eff": 0.005,
+    "metrics": {
+      "stable_mean_power_watts": 167.92146666666667,
+      "stable_mean_entropy": 1.0506803582732875,
+      "stable_mean_branching_factor": 3.521804225241729,
+      "stable_mean_kl_divergence": 13.29883228499314,
+      "stable_mean_topk_conc": 0.974399455388387,
+      "stable_mean_dci_proxy": 7532.0726436856785,
+      "full_mean_power_watts": 165.20576,
+      "full_mean_dci_proxy": 4586.226226598478,
+      "total_energy_joules": 504.0524827746582,
+      "duration_seconds": 3.051058769226074
+    }
+  },
+  {
+    "run": "run_B",
+    "model": "Gemma-2-9B",
+    "domain": "Domain_2_Technology",
+    "text_type": "Type_1_Fraudulent",
+    "dci_raw": 18.0,
+    "dci_eff": 29.34,
+    "metrics": {
+      "stable_mean_power_watts": 167.73166666666665,
+      "stable_mean_entropy": 0.8461099830300858,
+      "stable_mean_branching_factor": 3.1234240497100076,
+      "stable_mean_kl_divergence": 15.60595571583715,
+      "stable_mean_topk_conc": 0.9767877002557118,
+      "stable_mean_dci_proxy": 11253.446153645073,
+      "full_mean_power_watts": 169.31216,
+      "full_mean_dci_proxy": 7111.4694218695095,
+      "total_energy_joules": 508.32372221012116,
+      "duration_seconds": 3.0022871494293213
+    }
+  },
+  {
+    "run": "run_B",
+    "model": "Gemma-2-9B",
+    "domain": "Domain_1_Real_Estate",
+    "text_type": "Type_4_Certain_Honest",
+    "dci_raw": 0.0053,
+    "dci_eff": 0.0068,
+    "metrics": {
+      "stable_mean_power_watts": 167.00533333333334,
+      "stable_mean_entropy": 0.7083041058232387,
+      "stable_mean_branching_factor": 3.1526761661082485,
+      "stable_mean_kl_divergence": 14.826340247844827,
+      "stable_mean_topk_conc": 0.9772580444812775,
+      "stable_mean_dci_proxy": 17909.296122762684,
+      "full_mean_power_watts": 165.84394,
+      "full_mean_dci_proxy": 12053.358609949371,
+      "total_energy_joules": 500.0253484586477,
+      "duration_seconds": 3.015035390853882
+    }
+  },
+  {
+    "run": "run_B",
+    "model": "Gemma-2-9B",
+    "domain": "Domain_1_Real_Estate",
+    "text_type": "Type_3_Hedged_Honest",
+    "dci_raw": 0.00077,
+    "dci_eff": 0.00081,
+    "metrics": {
+      "stable_mean_power_watts": 169.53546666666668,
+      "stable_mean_entropy": 1.0688845604658126,
+      "stable_mean_branching_factor": 4.44689071823276,
+      "stable_mean_kl_divergence": 15.394507572568696,
+      "stable_mean_topk_conc": 0.9646519144376119,
+      "stable_mean_dci_proxy": 30172.456972277963,
+      "full_mean_power_watts": 164.53928,
+      "full_mean_dci_proxy": 19977.86374100745,
+      "total_energy_joules": 506.62903507238383,
+      "duration_seconds": 3.0790765285491943
+    }
+  },
+  {
+    "run": "run_B",
+    "model": "Gemma-2-9B",
+    "domain": "Domain_1_Real_Estate",
+    "text_type": "Type_2_Compliant",
+    "dci_raw": 0.0079,
+    "dci_eff": 0.0084,
+    "metrics": {
+      "stable_mean_power_watts": 170.56456666666665,
+      "stable_mean_entropy": 0.8929249336166928,
+      "stable_mean_branching_factor": 3.4701768823266788,
+      "stable_mean_kl_divergence": 12.691247792079531,
+      "stable_mean_topk_conc": 0.9754017055034637,
+      "stable_mean_dci_proxy": 7262.8491009208565,
+      "full_mean_power_watts": 166.5241,
+      "full_mean_dci_proxy": 6461.780987479364,
+      "total_energy_joules": 503.2531131482601,
+      "duration_seconds": 3.022103786468506
+    }
+  },
+  {
+    "run": "run_B",
+    "model": "Gemma-2-9B",
+    "domain": "Domain_1_Real_Estate",
+    "text_type": "Type_1_Fraudulent",
+    "dci_raw": 20.25,
+    "dci_eff": 34.83,
+    "metrics": {
+      "stable_mean_power_watts": 178.3671666666667,
+      "stable_mean_entropy": 1.1583058846668186,
+      "stable_mean_branching_factor": 5.031620769009224,
+      "stable_mean_kl_divergence": 15.073565367994638,
+      "stable_mean_topk_conc": 0.9541282335917155,
+      "stable_mean_dci_proxy": 64055.88902705591,
+      "full_mean_power_watts": 173.97886,
+      "full_mean_dci_proxy": 38493.93779990102,
+      "total_energy_joules": 470.62163822228905,
+      "duration_seconds": 2.7050507068634033
+    }
+  }
+]

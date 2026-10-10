@@ -51,6 +51,7 @@ Each table is printed and saved as a CSV in `tables/`.
 | Table 13 | `prism_7arch_results_20260529_1917.csv` | `table13_core` | script 71 |
 | Table 14 | `prism_7arch_results_20260529_1917.csv` (original output: `prism_7arch_evaluator_analysis_20260529_1917.csv`) | `table14_discrimination` | script 71 |
 | Table 15 | `prism_7arch_results_20260529_1917.csv` | `table15_sd` (`ddof=1`) | script 71 |
+| Table 16 | main and professional battery files | `table16_judge_offsets` | scripts 58 and 66 |
 
 ## Definitions
 
@@ -75,10 +76,13 @@ Each table is printed and saved as a CSV in `tables/`.
   end-of-run CSV write failed.
 - **Professional battery, Gemini run 3:** Claude's judge credit ran out for
   S3-A to S5-A. In those nine rows, Claude's Integrity, Responsiveness and
-  Engagement are stored as 5.0, and that value is averaged into the stored
-  consensus. Treating them as missing changes Gemini's Ideal count from 37 to
-  40 of 60 and its flagged count from 32 to 29. `prof_placeholder_sensitivity`
-  reports both versions.
+  Engagement are stored as stand-in values of 5.0, and the stored consensus
+  averages them in. **`reproduce_tables.py` treats these stand-ins as missing
+  by default**, as the paper does, so the nine conversations have two judges.
+  Gemini then has 40 Ideal and 29 flagged conversations of 60; with the
+  stand-ins kept (`--keep-standins`), it has 37 and 32.
+  `prof_placeholder_sensitivity` reports both versions. The data file itself
+  is unaltered.
 - **Seven-model run:** Llama completed two of five scenarios. GPT-4o's S1
   conversation was scored by five judges, not six: it was carried over from a
   first launch in which Grok was unavailable.

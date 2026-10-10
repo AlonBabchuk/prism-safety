@@ -12,8 +12,18 @@ Usage
 -----
     python reproduce_tables.py                 # reads ./data, writes ./tables
     python reproduce_tables.py --data DIR --out DIR
+    python reproduce_tables.py --keep-standins  # professional battery as stored
 
 Requires Python 3.9+ and pandas.
+
+Stand-in scores
+---------------
+In the professional battery, Claude's judge credit ran out during Gemini's run 3.
+For nine conversations (S3-A to S5-A), Claude's Integrity, Responsiveness and
+Engagement are stored as 5.0 and averaged into the stored consensus. By default
+these stand-ins are treated as missing, so those conversations are scored by
+their two real judges (GPT-4o and Grok). --keep-standins reproduces the stored
+values instead.
 
 Definitions (taken from the scripts that produced the data)
 -----------------------------------------------------------
@@ -333,8 +343,22 @@ def placeholder_mask(p, judge="Claude", value=5.0):
             (p[f"Engagement_{judge}"] == value))
 
 
+def exclude_standins(p):
+    """Treat Claude's nine stand-in scores (5.0 on every dimension, Gemini run 3) as
+    missing and recompute the consensus columns from the remaining judges."""
+    mask = placeholder_mask(p)
+    out = p.copy()
+    for d in DIMS_F:
+        out.loc[mask, f"{d}_Claude"] = float("nan")
+    rc = recompute_consensus(out, judges_in(out))
+    for d in DIMS_F:
+        out[f"{d}_consensus"] = rc[f"{d}_consensus"].round(3)
+    return out
+
+
 def table12_prof(p):
-    """Table 12: Ideal counts and judge disagreement, professional battery."""
+    """Table 12: Ideal counts and judge disagreement, professional battery.
+    The disagreement flag is recomputed from the judge-level scores."""
     p = recompute_consensus(p, judges_in(p))
     rows = []
     for m, sub in p.groupby("architecture"):
@@ -342,14 +366,13 @@ def table12_prof(p):
         ideal = int((sub["profile2"] == "Ideal").sum())
         s4 = sub[sub.sequence_id == "S4"]
         s5 = sub[sub.sequence_id == "S5"]
-        fl = int(sub["flagged"].astype(str).str.lower().eq("true").sum())
+        fl = int(sub["flag_recomputed"].sum())
         rows.append({
             "Model": m, "n": n,
             "Ideal": f"{ideal} ({100 * ideal / n:.1f}%)",
             "S4 Ideal": f"{int((s4.profile2 == 'Ideal').sum())}/{len(s4)}",
             "S5 Ideal": f"{int((s5.profile2 == 'Ideal').sum())}/{len(s5)}",
-            "Flagged (stored)": f"{fl} ({100 * fl / n:.1f}%)",
-            "Flagged (recomputed)": int(sub["flag_recomputed"].sum()),
+            "Flagged": f"{fl} ({100 * fl / n:.1f}%)",
         })
     return ordered(pd.DataFrame(rows))
 
@@ -493,9 +516,26 @@ def judge_overall_offset(df, judges):
     t = judge_by_model(df, judges)
     w = t.assign(wi=t["I offset vs others"] * t["n"], wr=t["R offset vs others"] * t["n"])
     g = w.groupby("Judge").agg(n=("n", "sum"), wi=("wi", "sum"), wr=("wr", "sum"))
-    g["Mean I offset"] = (g.wi / g.n).round(2)
-    g["Mean R offset"] = (g.wr / g.n).round(2)
+    g["Mean I offset"] = (g.wi / g.n).round(2) + 0.0  # + 0.0 turns -0.0 into 0.0
+    g["Mean R offset"] = (g.wr / g.n).round(2) + 0.0
     return g[["n", "Mean I offset", "Mean R offset"]].reset_index()
+
+
+def table16_judge_offsets(f, p):
+    """Table 16: average judge offset (judge minus the mean of the other judges on the
+    same conversation) for Integrity and Responsiveness, main and professional
+    batteries. Pass `p` with the stand-in scores already excluded."""
+    m = judge_overall_offset(f, JUDGES_MAIN).set_index("Judge")
+    pr = judge_overall_offset(p, JUDGES_MAIN).set_index("Judge")
+    t = pd.DataFrame({
+        "Main: Integrity": m["Mean I offset"],
+        "Main: Responsiveness": m["Mean R offset"],
+        "Main: n": m["n"],
+        "Professional: Integrity": pr["Mean I offset"],
+        "Professional: Responsiveness": pr["Mean R offset"],
+        "Professional: n": pr["n"],
+    })
+    return ordered(t.reset_index(), col="Judge")
 
 
 # ---------------------------------------------------------------- driver
@@ -514,12 +554,16 @@ def main():
     ap = argparse.ArgumentParser(description=__doc__.split("\n\n")[0])
     ap.add_argument("--data", default=os.path.join(here, "data"))
     ap.add_argument("--out", default=os.path.join(here, "tables"))
+    ap.add_argument("--keep-standins", action="store_true",
+                    help="keep Claude's nine stand-in 5.0 scores (Gemini, professional "
+                         "battery, run 3) in the consensus, as in the stored file")
     a = ap.parse_args()
     os.makedirs(a.out, exist_ok=True)
 
     q = load(a.data, QUALITY_FILE)
     f = load(a.data, MAIN_FILE)
-    p = load(a.data, PROF_FILE)
+    p_stored = load(a.data, PROF_FILE)
+    p = p_stored if a.keep_standins else exclude_standins(p_stored)
     s = load(a.data, SEVEN_FILE)
 
     outputs = [
@@ -547,8 +591,11 @@ def main():
         ("table14_judge_discrimination", table14_discrimination(s)),
         ("table15_sd_ddof1", table15_sd(s, ddof=1)),
         ("table15_sd_ddof0", table15_sd(s, ddof=0)),
+        ("table16_judge_offsets", table16_judge_offsets(f, p)),
+        ("main_judge_by_model", judge_by_model(f, JUDGES_MAIN)),
+        ("prof_judge_by_model", judge_by_model(p, JUDGES_MAIN)),
     ]
-    sens, detail = prof_placeholder_sensitivity(p)
+    sens, detail = prof_placeholder_sensitivity(p_stored)
     outputs += [("prof_gemini_placeholder_sensitivity", sens),
                 ("prof_gemini_placeholder_rows", detail)]
 

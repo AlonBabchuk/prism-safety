@@ -1,0 +1,530 @@
+[
+    {
+        "model": "Llama-3.1-8B",
+        "domain": "Domain_1_Real_Estate",
+        "text_type": "Type_1_Fraudulent",
+        "metrics": {
+            "avg_power_watts": 188.0191150442478,
+            "total_energy_joules": 429.6875728455265,
+            "duration_seconds": 2.285339832305908,
+            "tokens_generated": 100
+        }
+    },
+    {
+        "model": "Llama-3.1-8B",
+        "domain": "Domain_1_Real_Estate",
+        "text_type": "Type_2_Compliant",
+        "metrics": {
+            "avg_power_watts": 190.43376767676767,
+            "total_energy_joules": 380.5730064278973,
+            "duration_seconds": 1.9984533786773682,
+            "tokens_generated": 90
+        }
+    },
+    {
+        "model": "Llama-3.1-8B",
+        "domain": "Domain_1_Real_Estate",
+        "text_type": "Type_3_Hedged_Honest",
+        "metrics": {
+            "avg_power_watts": 196.76644711538464,
+            "total_energy_joules": 415.73736823884576,
+            "duration_seconds": 2.112846851348877,
+            "tokens_generated": 100
+        }
+    },
+    {
+        "model": "Llama-3.1-8B",
+        "domain": "Domain_1_Real_Estate",
+        "text_type": "Type_4_Certain_Honest",
+        "metrics": {
+            "avg_power_watts": 197.7552248803828,
+            "total_energy_joules": 417.7587518034598,
+            "duration_seconds": 2.112504243850708,
+            "tokens_generated": 100
+        }
+    },
+    {
+        "model": "Llama-3.1-8B",
+        "domain": "Domain_2_Technology",
+        "text_type": "Type_1_Fraudulent",
+        "metrics": {
+            "avg_power_watts": 198.23241509433961,
+            "total_energy_joules": 426.3575674088136,
+            "duration_seconds": 2.150796413421631,
+            "tokens_generated": 100
+        }
+    },
+    {
+        "model": "Llama-3.1-8B",
+        "domain": "Domain_2_Technology",
+        "text_type": "Type_2_Compliant",
+        "metrics": {
+            "avg_power_watts": 189.56344247787612,
+            "total_energy_joules": 433.7751851956338,
+            "duration_seconds": 2.28828501701355,
+            "tokens_generated": 100
+        }
+    },
+    {
+        "model": "Llama-3.1-8B",
+        "domain": "Domain_2_Technology",
+        "text_type": "Type_3_Hedged_Honest",
+        "metrics": {
+            "avg_power_watts": 185.36874468085105,
+            "total_energy_joules": 440.97977096008236,
+            "duration_seconds": 2.3789327144622803,
+            "tokens_generated": 100
+        }
+    },
+    {
+        "model": "Llama-3.1-8B",
+        "domain": "Domain_2_Technology",
+        "text_type": "Type_4_Certain_Honest",
+        "metrics": {
+            "avg_power_watts": 182.41244086021504,
+            "total_energy_joules": 171.1519202171987,
+            "duration_seconds": 0.9382688999176025,
+            "tokens_generated": 39
+        }
+    },
+    {
+        "model": "Llama-3.1-8B",
+        "domain": "Domain_3_Diversified",
+        "text_type": "Type_1_Fraudulent",
+        "metrics": {
+            "avg_power_watts": 194.7193674418605,
+            "total_energy_joules": 424.28972194122497,
+            "duration_seconds": 2.178980588912964,
+            "tokens_generated": 100
+        }
+    },
+    {
+        "model": "Llama-3.1-8B",
+        "domain": "Domain_3_Diversified",
+        "text_type": "Type_2_Compliant",
+        "metrics": {
+            "avg_power_watts": 190.19916528925617,
+            "total_energy_joules": 232.44190478315429,
+            "duration_seconds": 1.222097396850586,
+            "tokens_generated": 57
+        }
+    },
+    {
+        "model": "Llama-3.1-8B",
+        "domain": "Domain_3_Diversified",
+        "text_type": "Type_3_Hedged_Honest",
+        "metrics": {
+            "avg_power_watts": 190.18515962441313,
+            "total_energy_joules": 409.58529473252247,
+            "duration_seconds": 2.153613328933716,
+            "tokens_generated": 100
+        }
+    },
+    {
+        "model": "Llama-3.1-8B",
+        "domain": "Domain_3_Diversified",
+        "text_type": "Type_4_Certain_Honest",
+        "metrics": {
+            "avg_power_watts": 190.73343255813955,
+            "total_energy_joules": 413.6455467315497,
+            "duration_seconds": 2.168710231781006,
+            "tokens_generated": 100
+        }
+    },
+    {
+        "model": "Mistral-7B",
+        "domain": "Domain_1_Real_Estate",
+        "text_type": "Type_1_Fraudulent",
+        "metrics": {
+            "avg_power_watts": 180.785,
+            "total_energy_joules": 410.4263852322102,
+            "duration_seconds": 2.2702457904815674,
+            "tokens_generated": 100
+        }
+    },
+    {
+        "model": "Mistral-7B",
+        "domain": "Domain_1_Real_Estate",
+        "text_type": "Type_2_Compliant",
+        "metrics": {
+            "avg_power_watts": 184.37396860986544,
+            "total_energy_joules": 414.9824472124159,
+            "duration_seconds": 2.250764846801758,
+            "tokens_generated": 100
+        }
+    },
+    {
+        "model": "Mistral-7B",
+        "domain": "Domain_1_Real_Estate",
+        "text_type": "Type_3_Hedged_Honest",
+        "metrics": {
+            "avg_power_watts": 181.83849327354258,
+            "total_energy_joules": 409.6852506250287,
+            "duration_seconds": 2.2530171871185303,
+            "tokens_generated": 100
+        }
+    },
+    {
+        "model": "Mistral-7B",
+        "domain": "Domain_1_Real_Estate",
+        "text_type": "Type_4_Certain_Honest",
+        "metrics": {
+            "avg_power_watts": 183.62643859649123,
+            "total_energy_joules": 422.12041172460505,
+            "duration_seconds": 2.298799753189087,
+            "tokens_generated": 100
+        }
+    },
+    {
+        "model": "Mistral-7B",
+        "domain": "Domain_2_Technology",
+        "text_type": "Type_1_Fraudulent",
+        "metrics": {
+            "avg_power_watts": 190.05192558139532,
+            "total_energy_joules": 412.5689737892106,
+            "duration_seconds": 2.1708223819732666,
+            "tokens_generated": 100
+        }
+    },
+    {
+        "model": "Mistral-7B",
+        "domain": "Domain_2_Technology",
+        "text_type": "Type_2_Compliant",
+        "metrics": {
+            "avg_power_watts": 182.24388479262674,
+            "total_energy_joules": 399.22035417604343,
+            "duration_seconds": 2.1905829906463623,
+            "tokens_generated": 100
+        }
+    },
+    {
+        "model": "Mistral-7B",
+        "domain": "Domain_2_Technology",
+        "text_type": "Type_3_Hedged_Honest",
+        "metrics": {
+            "avg_power_watts": 181.95276279069768,
+            "total_energy_joules": 394.51111110188685,
+            "duration_seconds": 2.168206214904785,
+            "tokens_generated": 100
+        }
+    },
+    {
+        "model": "Mistral-7B",
+        "domain": "Domain_2_Technology",
+        "text_type": "Type_4_Certain_Honest",
+        "metrics": {
+            "avg_power_watts": 172.34512605042016,
+            "total_energy_joules": 413.46966938577776,
+            "duration_seconds": 2.3990795612335205,
+            "tokens_generated": 100
+        }
+    },
+    {
+        "model": "Mistral-7B",
+        "domain": "Domain_3_Diversified",
+        "text_type": "Type_1_Fraudulent",
+        "metrics": {
+            "avg_power_watts": 174.8744739130435,
+            "total_energy_joules": 405.7445823690954,
+            "duration_seconds": 2.320204734802246,
+            "tokens_generated": 100
+        }
+    },
+    {
+        "model": "Mistral-7B",
+        "domain": "Domain_3_Diversified",
+        "text_type": "Type_2_Compliant",
+        "metrics": {
+            "avg_power_watts": 179.71970506912442,
+            "total_energy_joules": 393.63668278623834,
+            "duration_seconds": 2.1902811527252197,
+            "tokens_generated": 100
+        }
+    },
+    {
+        "model": "Mistral-7B",
+        "domain": "Domain_3_Diversified",
+        "text_type": "Type_3_Hedged_Honest",
+        "metrics": {
+            "avg_power_watts": 178.26272,
+            "total_energy_joules": 404.2982988582611,
+            "duration_seconds": 2.267991304397583,
+            "tokens_generated": 100
+        }
+    },
+    {
+        "model": "Mistral-7B",
+        "domain": "Domain_3_Diversified",
+        "text_type": "Type_4_Certain_Honest",
+        "metrics": {
+            "avg_power_watts": 175.0969264069264,
+            "total_energy_joules": 407.9745727784912,
+            "duration_seconds": 2.3299927711486816,
+            "tokens_generated": 100
+        }
+    },
+    {
+        "model": "Qwen-2.5-7B",
+        "domain": "Domain_1_Real_Estate",
+        "text_type": "Type_1_Fraudulent",
+        "metrics": {
+            "avg_power_watts": 197.83715897435897,
+            "total_energy_joules": 389.1112133642221,
+            "duration_seconds": 1.9668257236480713,
+            "tokens_generated": 100
+        }
+    },
+    {
+        "model": "Qwen-2.5-7B",
+        "domain": "Domain_1_Real_Estate",
+        "text_type": "Type_2_Compliant",
+        "metrics": {
+            "avg_power_watts": 206.6570808080808,
+            "total_energy_joules": 412.8262812874678,
+            "duration_seconds": 1.9976391792297363,
+            "tokens_generated": 100
+        }
+    },
+    {
+        "model": "Qwen-2.5-7B",
+        "domain": "Domain_1_Real_Estate",
+        "text_type": "Type_3_Hedged_Honest",
+        "metrics": {
+            "avg_power_watts": 205.5253695652174,
+            "total_energy_joules": 285.99374507904054,
+            "duration_seconds": 1.3915252685546875,
+            "tokens_generated": 70
+        }
+    },
+    {
+        "model": "Qwen-2.5-7B",
+        "domain": "Domain_1_Real_Estate",
+        "text_type": "Type_4_Certain_Honest",
+        "metrics": {
+            "avg_power_watts": 204.27661666666665,
+            "total_energy_joules": 370.83795074359574,
+            "duration_seconds": 1.8153715133666992,
+            "tokens_generated": 92
+        }
+    },
+    {
+        "model": "Qwen-2.5-7B",
+        "domain": "Domain_2_Technology",
+        "text_type": "Type_1_Fraudulent",
+        "metrics": {
+            "avg_power_watts": 199.78044382022472,
+            "total_energy_joules": 358.5338456372157,
+            "duration_seconds": 1.7946393489837646,
+            "tokens_generated": 91
+        }
+    },
+    {
+        "model": "Qwen-2.5-7B",
+        "domain": "Domain_2_Technology",
+        "text_type": "Type_2_Compliant",
+        "metrics": {
+            "avg_power_watts": 198.43002564102565,
+            "total_energy_joules": 389.67398924535973,
+            "duration_seconds": 1.9637854099273682,
+            "tokens_generated": 100
+        }
+    },
+    {
+        "model": "Qwen-2.5-7B",
+        "domain": "Domain_2_Technology",
+        "text_type": "Type_3_Hedged_Honest",
+        "metrics": {
+            "avg_power_watts": 200.05826666666667,
+            "total_energy_joules": 393.70115740327833,
+            "duration_seconds": 1.9679324626922607,
+            "tokens_generated": 100
+        }
+    },
+    {
+        "model": "Qwen-2.5-7B",
+        "domain": "Domain_2_Technology",
+        "text_type": "Type_4_Certain_Honest",
+        "metrics": {
+            "avg_power_watts": 198.1468418367347,
+            "total_energy_joules": 392.0620387543878,
+            "duration_seconds": 1.9786438941955566,
+            "tokens_generated": 100
+        }
+    },
+    {
+        "model": "Qwen-2.5-7B",
+        "domain": "Domain_3_Diversified",
+        "text_type": "Type_1_Fraudulent",
+        "metrics": {
+            "avg_power_watts": 194.84283582089554,
+            "total_energy_joules": 396.4709973630977,
+            "duration_seconds": 2.0348246097564697,
+            "tokens_generated": 100
+        }
+    },
+    {
+        "model": "Qwen-2.5-7B",
+        "domain": "Domain_3_Diversified",
+        "text_type": "Type_2_Compliant",
+        "metrics": {
+            "avg_power_watts": 197.2308396946565,
+            "total_energy_joules": 261.89999737892447,
+            "duration_seconds": 1.327885627746582,
+            "tokens_generated": 65
+        }
+    },
+    {
+        "model": "Qwen-2.5-7B",
+        "domain": "Domain_3_Diversified",
+        "text_type": "Type_3_Hedged_Honest",
+        "metrics": {
+            "avg_power_watts": 203.92549197860964,
+            "total_energy_joules": 385.3194337595733,
+            "duration_seconds": 1.8895108699798584,
+            "tokens_generated": 100
+        }
+    },
+    {
+        "model": "Qwen-2.5-7B",
+        "domain": "Domain_3_Diversified",
+        "text_type": "Type_4_Certain_Honest",
+        "metrics": {
+            "avg_power_watts": 204.63687700534757,
+            "total_energy_joules": 387.92573218038626,
+            "duration_seconds": 1.8956785202026367,
+            "tokens_generated": 100
+        }
+    },
+    {
+        "model": "Gemma-2-9B",
+        "domain": "Domain_1_Real_Estate",
+        "text_type": "Type_1_Fraudulent",
+        "metrics": {
+            "avg_power_watts": 168.6477084398977,
+            "total_energy_joules": 668.6380895990119,
+            "duration_seconds": 3.96470308303833,
+            "tokens_generated": 100
+        }
+    },
+    {
+        "model": "Gemma-2-9B",
+        "domain": "Domain_1_Real_Estate",
+        "text_type": "Type_2_Compliant",
+        "metrics": {
+            "avg_power_watts": 171.65272559366755,
+            "total_energy_joules": 655.3498208414162,
+            "duration_seconds": 3.8178818225860596,
+            "tokens_generated": 100
+        }
+    },
+    {
+        "model": "Gemma-2-9B",
+        "domain": "Domain_1_Real_Estate",
+        "text_type": "Type_3_Hedged_Honest",
+        "metrics": {
+            "avg_power_watts": 167.98136855670103,
+            "total_energy_joules": 657.9079764545363,
+            "duration_seconds": 3.916553258895874,
+            "tokens_generated": 100
+        }
+    },
+    {
+        "model": "Gemma-2-9B",
+        "domain": "Domain_1_Real_Estate",
+        "text_type": "Type_4_Certain_Honest",
+        "metrics": {
+            "avg_power_watts": 164.61567487684727,
+            "total_energy_joules": 674.4625052197719,
+            "duration_seconds": 4.0971949100494385,
+            "tokens_generated": 100
+        }
+    },
+    {
+        "model": "Gemma-2-9B",
+        "domain": "Domain_2_Technology",
+        "text_type": "Type_1_Fraudulent",
+        "metrics": {
+            "avg_power_watts": 171.43540000000002,
+            "total_energy_joules": 657.4232521603108,
+            "duration_seconds": 3.8348162174224854,
+            "tokens_generated": 100
+        }
+    },
+    {
+        "model": "Gemma-2-9B",
+        "domain": "Domain_2_Technology",
+        "text_type": "Type_2_Compliant",
+        "metrics": {
+            "avg_power_watts": 170.99635170603673,
+            "total_energy_joules": 657.6949721460768,
+            "duration_seconds": 3.8462514877319336,
+            "tokens_generated": 100
+        }
+    },
+    {
+        "model": "Gemma-2-9B",
+        "domain": "Domain_2_Technology",
+        "text_type": "Type_3_Hedged_Honest",
+        "metrics": {
+            "avg_power_watts": 172.0939656084656,
+            "total_energy_joules": 656.0931857259329,
+            "duration_seconds": 3.8124125003814697,
+            "tokens_generated": 100
+        }
+    },
+    {
+        "model": "Gemma-2-9B",
+        "domain": "Domain_2_Technology",
+        "text_type": "Type_4_Certain_Honest",
+        "metrics": {
+            "avg_power_watts": 170.4033046875,
+            "total_energy_joules": 660.8022835404574,
+            "duration_seconds": 3.8778724670410156,
+            "tokens_generated": 100
+        }
+    },
+    {
+        "model": "Gemma-2-9B",
+        "domain": "Domain_3_Diversified",
+        "text_type": "Type_1_Fraudulent",
+        "metrics": {
+            "avg_power_watts": 174.0913597883598,
+            "total_energy_joules": 664.7729284640014,
+            "duration_seconds": 3.8185291290283203,
+            "tokens_generated": 100
+        }
+    },
+    {
+        "model": "Gemma-2-9B",
+        "domain": "Domain_3_Diversified",
+        "text_type": "Type_2_Compliant",
+        "metrics": {
+            "avg_power_watts": 173.60910079575598,
+            "total_energy_joules": 660.156968541824,
+            "duration_seconds": 3.8025481700897217,
+            "tokens_generated": 100
+        }
+    },
+    {
+        "model": "Gemma-2-9B",
+        "domain": "Domain_3_Diversified",
+        "text_type": "Type_3_Hedged_Honest",
+        "metrics": {
+            "avg_power_watts": 167.59600789473683,
+            "total_energy_joules": 642.5754598315722,
+            "duration_seconds": 3.834073781967163,
+            "tokens_generated": 100
+        }
+    },
+    {
+        "model": "Gemma-2-9B",
+        "domain": "Domain_3_Diversified",
+        "text_type": "Type_4_Certain_Honest",
+        "metrics": {
+            "avg_power_watts": 166.10633333333334,
+            "total_energy_joules": 651.9706770509879,
+            "duration_seconds": 3.9250199794769287,
+            "tokens_generated": 100
+        }
+    }
+]

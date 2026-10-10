@@ -31,7 +31,7 @@ robustness checks.
 - It is an exploratory prototype, not a validated benchmark.
 - All scoring was done by AI judges. No human validated the instruments or
   the scores.
-- Each battery rests on five scenarios, and the robustness checks share the
+- Each multi-turn battery rests on five scenarios, and the robustness checks share the
   same framework and judges, so they are not independent replications.
 - The work was carried out by one non-specialist author with AI assistance.
   Claude helped build the study, is one of the models tested, and ranks
@@ -49,17 +49,22 @@ saved.
 research note: [archive/DECEPTION_IS_CHEAP.md](archive/DECEPTION_IS_CHEAP.md)
 
 An earlier phase explored whether fraudulent and compliant texts could be
-told apart by GPU power draw while four open-source models (Llama 3.1 8B,
-Mistral 7B, Qwen 2.5 7B, Gemma 2 9B) processed them. In two runs on
-15 May 2026, using three text pairs, fraudulent texts drew less power in 11
-of 12 and 12 of 12 measurements. The raw Gemma files from the first run were
-not preserved.
+told apart by the GPU power drawn while four open-source models (Llama 3.1 8B,
+Mistral 7B, Qwen 2.5 7B, Gemma 2 9B) processed them.
 
-The research note itself records why this was not established: the corpus
-was three pairs, and differences in length and linguistic complexity between
-the fraudulent and compliant texts were not controlled. This phase is
-archived. It is not a current claim of the project, and the project has moved
-to output-level measurement.
+- **Initial runs.** In two runs on 15 May 2026, with three text pairs,
+  fraudulent texts drew less power in 11 of 12 and 12 of 12 measurements
+  ([results](archive/deception_is_cheap/results/)).
+- **Confound controls.** Later runs shrank the gap from about 33% to under 6%
+  and identified several confounds, including word count and measurement
+  order (GPU warm-up).
+- **Final test.** None of nine domain–model combinations showed fraudulent
+  text as consistently cheapest across both measurement orders.
+
+The hypothesis was not supported, and the project moved to output-level
+measurement. The records of all these runs are in
+[archive/deception_is_cheap/later_runs/](archive/deception_is_cheap/later_runs/).
+The original research note is kept as written at the time.
 
 Earlier phases (cross-model introspective scoring, token-level signals and
 intervention experiments) are also in [archive/](archive/).
